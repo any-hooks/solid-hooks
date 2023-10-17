@@ -1,3 +1,3 @@
 # Solid Hooks
 
-A high-quality & reliable React Hooks library.
+A high-quality & reliable Solid Hooks library.
