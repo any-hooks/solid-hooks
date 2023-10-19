@@ -20,7 +20,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    "types": ["vite/client", "@testing-library/jest-dom"],
+
+    "paths": {
+      "~/*": ["./docs/*"],
+      "@any-hooks/solid": ["./src/index.ts"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "docs", "scripts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

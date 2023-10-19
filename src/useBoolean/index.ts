@@ -2,9 +2,29 @@ import type { Accessor } from 'solid-js'
 import useToggle from '../useToggle'
 
 export interface Actions {
+  /**
+   * 设置为 `true`
+   *
+   * set to `true`
+   */
   setTrue: () => void
+  /**
+   * 设置为 `false`
+   *
+   * set to `false`
+   */
   setFalse: () => void
+  /**
+   * 设置值
+   *
+   * set value
+   */
   set: (value: boolean) => void
+  /**
+   * 切换 `true / false`
+   *
+   * toggle `true / false`
+   */
   toggle: () => void
 }
 /**
@@ -21,7 +41,7 @@ export interface Actions {
 export default function useBoolean(
   defaultValue = false,
 ): [Accessor<boolean>, Actions] {
-  const [state, { set: _set, toggle }] = useToggle(defaultValue)
+  const [state, { set: _set, toggle }] = useToggle(!!defaultValue)
 
   const setTrue = () => _set(true)
   const setFalse = () => _set(false)

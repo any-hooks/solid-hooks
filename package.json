@@ -14,21 +14,42 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "unbuild"
+    "docs:dev": "vite",
+    "build": "unbuild",
+    "test:unit": "vitest"
   },
   "prettier": "@pengzhanbo/prettier-config",
   "devDependencies": {
     "@pengzhanbo/eslint-config": "^0.4.3",
     "@pengzhanbo/prettier-config": "^0.4.3",
+    "@pengzhanbo/utils": "^1.0.9",
+    "@solidjs/router": "^0.8.3",
+    "@solidjs/testing-library": "^0.8.4",
+    "@testing-library/jest-dom": "^6.1.4",
     "@types/js-cookie": "^3.0.4",
+    "@types/markdown-it": "^13.0.2",
     "@types/node": "^20.8.6",
     "@types/throttle-debounce": "^5.0.0",
+    "@unocss/reset": "^0.56.5",
+    "autoprefixer": "^10.4.16",
+    "classnames": "^2.3.2",
     "eslint": "^8.51.0",
+    "gray-matter": "^4.0.3",
+    "jsdom": "^22.1.0",
+    "markdown-it": "^13.0.2",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-attrs": "^4.1.6",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
+    "sass": "^1.69.4",
+    "shiki": "^0.14.5",
     "solid-js": "^1.8.1",
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0",
-    "vite": "^4.4.11"
+    "unocss": "^0.56.5",
+    "vite": "^4.4.11",
+    "vite-plugin-solid": "^2.7.1",
+    "vitest": "^0.34.6"
   },
   "dependencies": {
     "intersection-observer": "^0.12.2",
@@ -36,5 +57,15 @@
     "resize-observer-polyfill": "^1.5.1",
     "screenfull": "^6.0.2",
     "throttle-debounce": "^5.0.0"
-  }
+  },
+  "peerDependencies": {
+    "solid-js": ">=1.7.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "chrome > 40",
+    "not ie 11"
+  ]
 }
