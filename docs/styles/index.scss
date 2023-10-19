@@ -1,0 +1,42 @@
+:root {
+  font-family: -apple-system, BlinkMackSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--c-text-1);
+
+  @apply bg-light-100;
+}
+
+html.dark {
+  &, body, #app {
+    background-color: var(--c-bg);
+  }
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

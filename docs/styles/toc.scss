@@ -1,0 +1,35 @@
+.toc-container {
+  width: 200px;
+  position: sticky;
+  top: calc(var(--navbar-height) + 16px);
+  border-left: solid 2px var(--c-border);
+  padding: 10px 14px 10px 14px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 5px 0;
+  }
+
+  ul ul li {
+    padding: 3px 0 3px 10px;
+  }
+
+  > ul > li > a {
+    padding-bottom: 6px;
+  }
+
+  a {
+    text-decoration: none;
+
+    @apply text-gray-600 text-14px font-medium dark:text-gray-400;
+  }
+
+  ul ul a {
+    @apply font-normal;
+  }
+}

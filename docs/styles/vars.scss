@@ -1,0 +1,26 @@
+:root {
+  --c-brand: rgb(68, 107, 158);
+  --c-brand-light: rgb(79, 136, 198);
+
+  --c-border: rgba(60, 60, 67, 0.1);;
+
+  --c-text-1: rgba(60, 60, 67, 0.92);
+  --c-text-2: rgba(60, 60, 67, 0.7);
+  --c-text-3: rgba(60, 60, 67, 0.33);
+
+  --c-bg: #fff;
+
+  --navbar-height: 64px;
+  --sidebar-width: 300px;
+}
+
+.dark {
+
+  --c-border: rgba(82, 82, 89, 0.68);
+
+  --c-text-1: rgba(255, 255, 245, 0.86);
+  --c-text-2: rgba(235, 235, 245, 0.6);
+  --c-text-3: rgba(235, 235, 245, 0.38);
+
+  --c-bg: #1e1e20;
+}
