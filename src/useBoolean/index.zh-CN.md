@@ -1,6 +1,4 @@
 ---
-nav:
-  path: /hooks
 ---
 
 # useBoolean

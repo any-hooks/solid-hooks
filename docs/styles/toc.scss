@@ -13,6 +13,8 @@
 
   li {
     padding: 5px 0;
+
+    @apply line-clamp-1;
   }
 
   ul ul li {

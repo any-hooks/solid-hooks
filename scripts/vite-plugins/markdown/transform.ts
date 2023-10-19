@@ -100,7 +100,7 @@ async function createMarkdownRender() {
 
 function parseDemo(content: string) {
   const match = content.match(RE_DEMO)
-  if (!match) return { data: {}, content: '' }
+  if (!match) return { data: '{}', content }
   const data = {}
   match[1]
     .replace(/[\/\*]/gm, '')
@@ -108,7 +108,7 @@ function parseDemo(content: string) {
     .map((m) => m.trim())
     .filter(Boolean)
     .forEach((m) => {
-      const [_, key, lang = '', value] = m.match(RE_DATA) || []
+      const [_, key, lang = 'en-US', value] = m.match(RE_DATA) || []
       if (!data[`/${lang}`]) {
         data[`/${lang}`] = {}
       }
