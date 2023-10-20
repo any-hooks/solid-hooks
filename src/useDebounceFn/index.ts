@@ -23,5 +23,6 @@ export default function useDebounceFn<T extends noop>(
   return {
     run: debounced,
     cancel: debounced.cancel as Cancel,
+    flush: fn,
   }
 }
