@@ -23,5 +23,6 @@ export default function useThrottleFn<T extends noop>(
   return {
     run: throttled,
     cancel: throttled.cancel as Cancel,
+    flush: fn,
   }
 }
