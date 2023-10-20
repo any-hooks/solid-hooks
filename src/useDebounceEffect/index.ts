@@ -22,7 +22,7 @@ function useDebounceEffect<Next, Init = Next>(
   effect: EffectFunction<Init | Next, Next>,
   options?: EffectOptions & DebounceOptions & { render?: boolean; value?: any },
 ): void {
-  const { value, wait, atBegin, ...effectOptions } = options || {}
+  const { value, wait, atBegin = true, ...effectOptions } = options || {}
   const { run } = useDebounceFn(effect, { wait, atBegin })
 
   createEffect(run, value, effectOptions)
