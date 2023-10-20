@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import gm from 'gray-matter'
 import MarkdownIt from 'markdown-it'
+import { escapeHtml } from 'markdown-it/lib/common/utils'
 import anchorPlugin from 'markdown-it-anchor'
 import attrsPlugin from 'markdown-it-attrs'
 import { type Highlighter, getHighlighter, renderToHtml } from 'shiki'
@@ -12,8 +13,13 @@ import { slugify } from './utils/slugify'
 const RE_CODE = /<code src="(.+?)" \/>/gm
 const RE_DEMO = /(\/\*[\s\S]*?\*\/)([\s\S]*)/
 const RE_DATA = /(title|desc)(?:\.)?(en|en\-US|zh\-CN)?\:\s+(.*)/
+const RE_SAFE_CODE = /[\{\}\$]/gm
+const RE_SAFE_LEFT = /{&#39;/g
+const RE_SAFE_RIGHT = /&#39;}/g
+const RE_SAFE_EMPTY = /\s+/g
 
 const cache = new Map<string, readonly [string, string]>()
+const compileCache = new Map<string, [string, string]>()
 let uid = 1
 
 const themes = {
@@ -38,15 +44,24 @@ function renderCode(code: string, lang: string, theme: string) {
   tokens.forEach((token) => {
     token.forEach((t) => {
       if (t.content) {
-        t.content = t.content
-          .replace(/[\{\}]/gm, (match) => `{'${match}'}`)
-          .replace(/\s+/g, (s) => `{'${s}'}`)
+        t.content = safeContent(t.content)
       }
     })
   })
   return renderToHtml(tokens)
-    .replace(/{&#39;/g, "{'")
-    .replace(/&#39;}/g, "'}")
+    .replace(RE_SAFE_LEFT, "{'")
+    .replace(RE_SAFE_RIGHT, "'}")
+}
+
+function safeContent(content: string) {
+  return content
+    .replace(RE_SAFE_CODE, (match) => {
+      if (match === '$') {
+        return `{'\\\\${match}'}`
+      }
+      return `{'${match}'}`
+    })
+    .replace(RE_SAFE_EMPTY, (s) => `{'${s}'}`)
 }
 
 let md!: MarkdownIt
@@ -95,6 +110,13 @@ async function createMarkdownRender() {
   })
   md.use(headersPlugin, { level: [2, 3, 4, 5, 6], slugify })
   md.use(tocPlugin)
+  md.renderer.rules.code_inline = (tokens, idx, options, env, slf) => {
+    const token = tokens[idx]
+    const lang = token.info.trim().slice(1, -1)
+    return `<code${slf.renderAttrs(token)}>${safeContent(
+      escapeHtml(token.content),
+    )}</code>`
+  }
   return md
 }
 
@@ -122,6 +144,10 @@ function parseDemo(content: string) {
 }
 
 export async function markdownToSolid(raw: string, id: string) {
+  if (compileCache.has(id)) {
+    const [rawCode, compiledCode] = compileCache.get(id)!
+    if (rawCode === raw) return { code: compiledCode, map: null }
+  }
   const resolve = (url: string) => path.join(path.dirname(id), url)
   const basename = path.basename(id)
   const dirnameList = path.dirname(id).replace(/\/$/, '').split('/')
@@ -131,6 +157,7 @@ export async function markdownToSolid(raw: string, id: string) {
   data.lang = basename.match(/index\.(.*)?.md$/)?.[1] ?? 'en-US'
   data.title = data.title ?? dirnameList[dirnameList.length - 1]
   const matter = JSON.stringify(data)
+
   const prerender = md.render(`${content}\n[[toc]]`)
   const demoList: (readonly [string, string])[] = []
 
@@ -168,5 +195,7 @@ export default () => {
   </div>)
 }
   `
+  compileCache.set(id, [raw, code])
+
   return { code, map: null }
 }
