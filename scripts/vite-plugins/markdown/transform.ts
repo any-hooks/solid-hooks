@@ -113,7 +113,7 @@ async function createMarkdownRender() {
   md.renderer.rules.code_inline = (tokens, idx, options, env, slf) => {
     const token = tokens[idx]
     const lang = token.info.trim().slice(1, -1)
-    return `<code${slf.renderAttrs(token)}>${safeContent(
+    return `<code ${slf.renderAttrs(token)}>${safeContent(
       escapeHtml(token.content),
     )}</code>`
   }
