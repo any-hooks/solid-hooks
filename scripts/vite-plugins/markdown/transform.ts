@@ -19,7 +19,6 @@ const RE_SAFE_RIGHT = /&#39;}/g
 const RE_SAFE_EMPTY = /\s+/g
 
 const cache = new Map<string, readonly [string, string]>()
-const compileCache = new Map<string, [string, string]>()
 let uid = 1
 
 const themes = {
@@ -148,10 +147,6 @@ export async function markdownToSolid(
   id: string,
   isBuild = false,
 ) {
-  if (compileCache.has(id)) {
-    const [rawCode, compiledCode] = compileCache.get(id)!
-    if (rawCode === raw) return { code: compiledCode, map: null }
-  }
   const resolve = (url: string) => path.join(path.dirname(id), url)
   const basename = path.basename(id)
   const dirnameList = path.dirname(id).replace(/\/$/, '').split('/')
@@ -201,7 +196,6 @@ export default () => {
   </div>)
 }
   `
-  compileCache.set(id, [raw, code])
 
   return { code, map: null }
 }
