@@ -176,13 +176,11 @@ export async function markdownToSolid(
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
-      const stats = fs.statSync(resolveUrl)
-      console.log(resolveUrl, pathToFileURL(resolveUrl).href)
       let code!: string
       if (isBuild) {
         code = demoCodeCache.get(resolveUrl)
         if (!code) {
-          code = fs.readFileSync(resolveUrl, 'utf8')
+          code = fs.readFileSync(pathToFileURL(resolveUrl).href, 'utf8')
           demoCodeCache.set(resolveUrl, code)
         }
       } else {
