@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import gm from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import { escapeHtml } from 'markdown-it/lib/common/utils'
@@ -171,7 +172,9 @@ export async function markdownToSolid(raw: string, id: string) {
       }
       demoList.push(cached)
       console.log(id, resolveUrl)
-      const { data, content } = parseDemo(fs.readFileSync(resolveUrl, 'utf-8'))
+      const { data, content } = parseDemo(
+        fs.readFileSync(pathToFileURL(resolveUrl), 'utf-8'),
+      )
       const ext = path.extname(url).slice(1)
       const demoCode = md.render(
         `
