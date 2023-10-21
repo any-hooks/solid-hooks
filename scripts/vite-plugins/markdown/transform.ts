@@ -175,15 +175,21 @@ export async function markdownToSolid(
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
+      console.log(
+        resolveUrl,
+        ': ',
+        fs.existsSync(resolveUrl),
+        fs.statSync(resolveUrl),
+      )
       let code!: string
       if (isBuild) {
         code = demoCodeCache.get(resolveUrl)
         if (!code) {
-          code = fs.readFileSync(resolveUrl, 'utf-8')
+          code = fs.readFileSync(resolveUrl, 'utf8')
           demoCodeCache.set(resolveUrl, code)
         }
       } else {
-        code = fs.readFileSync(resolveUrl, 'utf-8')
+        code = fs.readFileSync(resolveUrl, 'utf8')
       }
       const { data, content } = parseDemo(code)
       const ext = path.extname(url).slice(1)
