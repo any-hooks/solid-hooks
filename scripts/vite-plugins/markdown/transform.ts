@@ -176,14 +176,7 @@ export async function markdownToSolid(
       }
       demoList.push(cached)
       const stats = fs.statSync(resolveUrl)
-      console.log(
-        resolveUrl,
-        ': ',
-        fs.existsSync(resolveUrl),
-        stats,
-        stats.isDirectory(),
-        stats.isFile(),
-      )
+      console.log(resolveUrl, process.cwd())
       let code!: string
       if (isBuild) {
         code = demoCodeCache.get(resolveUrl)
