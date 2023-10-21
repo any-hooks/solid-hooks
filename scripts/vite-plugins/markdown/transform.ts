@@ -180,7 +180,7 @@ export async function markdownToSolid(
       if (isBuild) {
         code = demoCodeCache.get(resolveUrl)
         if (!code) {
-          code = fs.readFileSync(pathToFileURL(resolveUrl).href, 'utf8')
+          code = fs.readFileSync(pathToFileURL(resolveUrl), 'utf8')
           demoCodeCache.set(resolveUrl, code)
         }
       } else {
