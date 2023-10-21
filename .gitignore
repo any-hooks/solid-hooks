@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
 dist
-docs/dist
+docs_dist
 .diea
 
 npm-debug.log*

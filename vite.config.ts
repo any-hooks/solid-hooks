@@ -28,7 +28,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'docs/dist',
+    outDir: 'docs_dist',
   },
   test: {
     deps: {
