@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { pathToFileURL } from 'node:url'
 import gm from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import { escapeHtml } from 'markdown-it/lib/common/utils'
@@ -21,7 +20,6 @@ const RE_SAFE_EMPTY = /\s+/g
 
 const cache = new Map<string, readonly [string, string]>()
 const compileCache = new Map<string, [string, string]>()
-const demoCodeCache = new Map<string, string>()
 let uid = 1
 
 const themes = {
@@ -172,20 +170,12 @@ export async function markdownToSolid(
       const resolveUrl = resolve(url)
       let cached = cache.get(resolveUrl)
       if (!cached) {
-        cached = [`Component${uid++}`, url] as const
+        cached = [`Component${uid++}`, url.replace(/\.[tj]sx?$/, '')] as const
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
-      let code!: string
-      if (isBuild) {
-        code = demoCodeCache.get(resolveUrl)
-        if (!code) {
-          code = fs.readFileSync(pathToFileURL(resolveUrl), 'utf8')
-          demoCodeCache.set(resolveUrl, code)
-        }
-      } else {
-        code = fs.readFileSync(resolveUrl, 'utf8')
-      }
+
+      const code = fs.readFileSync(resolveUrl, 'utf8')
       const { data, content } = parseDemo(code)
       const ext = path.extname(url).slice(1)
       const demoCode = md.render(
