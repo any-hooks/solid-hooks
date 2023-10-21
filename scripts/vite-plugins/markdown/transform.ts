@@ -170,6 +170,7 @@ export async function markdownToSolid(raw: string, id: string) {
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
+      console.log(id, resolveUrl)
       const { data, content } = parseDemo(fs.readFileSync(resolveUrl, 'utf-8'))
       const ext = path.extname(url).slice(1)
       const demoCode = md.render(

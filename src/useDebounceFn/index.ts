@@ -18,11 +18,16 @@ export default function useDebounceFn<T extends noop>(
 
   const debounced = debounce(wait, fn, options)
 
+  const flush = (...args: Parameters<T>): ReturnType<T> => {
+    debounced.cancel()
+    return fn(...args)
+  }
+
   onCleanup(() => debounced.cancel())
 
   return {
     run: debounced,
     cancel: debounced.cancel as Cancel,
-    flush: fn,
+    flush,
   }
 }

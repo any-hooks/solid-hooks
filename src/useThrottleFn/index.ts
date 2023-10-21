@@ -18,11 +18,16 @@ export default function useThrottleFn<T extends noop>(
 
   const throttled = throttle(wait, fn, options)
 
+  const flush = (...args: Parameters<T>): ReturnType<T> => {
+    throttled.cancel()
+    return fn(...args)
+  }
+
   onCleanup(() => throttled.cancel())
 
   return {
     run: throttled,
     cancel: throttled.cancel as Cancel,
-    flush: fn,
+    flush,
   }
 }
