@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import gm from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import { escapeHtml } from 'markdown-it/lib/common/utils'
@@ -176,7 +177,7 @@ export async function markdownToSolid(
       }
       demoList.push(cached)
       const stats = fs.statSync(resolveUrl)
-      console.log(resolveUrl, process.cwd())
+      console.log(resolveUrl, pathToFileURL(resolveUrl).href)
       let code!: string
       if (isBuild) {
         code = demoCodeCache.get(resolveUrl)
