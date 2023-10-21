@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '~', replacement: path.resolve(__dirname, 'docs') },
+      { find: '~~', replacement: path.resolve(__dirname, 'src') },
       { find: '@any-hooks/solid', replacement: path.resolve(__dirname, 'src') },
     ],
   },

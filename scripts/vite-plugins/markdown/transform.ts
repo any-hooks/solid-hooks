@@ -155,6 +155,7 @@ export async function markdownToSolid(
   const { content, data } = gm(raw)
   data.lang = basename.match(/index\.(.*)?.md$/)?.[1] ?? 'en-US'
   data.title = data.title ?? dirnameList[dirnameList.length - 1]
+  const filename = data.title
   const matter = JSON.stringify(data)
 
   const prerender = md.render(`${content}\n[[toc]]`)
@@ -165,7 +166,10 @@ export async function markdownToSolid(
       const resolveUrl = resolve(url)
       let cached = cache.get(resolveUrl)
       if (!cached) {
-        cached = [`Component${uid++}`, url.replace(/\.[tj]sx?$/, '')] as const
+        cached = [
+          `Component${uid++}`,
+          path.join('~~', filename, url.replace(/\.[tj]sx?$/, '')),
+        ] as const
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
