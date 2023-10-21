@@ -1,6 +1,3 @@
----
----
-
 # useBoolean
 
 优雅的管理 boolean 状态的 Hook。
@@ -9,7 +6,7 @@
 
 ### 基础用法
 
-<code src="./demo/demo.tsx" />
+<code src="./demo/demo1.tsx" />
 
 ## API
 

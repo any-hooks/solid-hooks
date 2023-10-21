@@ -1,6 +1,3 @@
----
----
-
 # useBoolean
 
 A hook that elegantly manages boolean state.
@@ -9,7 +6,7 @@ A hook that elegantly manages boolean state.
 
 ### Default usage
 
-<code src="./demo/demo.tsx" />
+<code src="./demo/demo1.tsx" />
 
 ## API
 
