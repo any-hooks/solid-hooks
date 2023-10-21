@@ -20,6 +20,7 @@ const RE_SAFE_EMPTY = /\s+/g
 
 const cache = new Map<string, readonly [string, string]>()
 const compileCache = new Map<string, [string, string]>()
+const demoCodeCache = new Map<string, string>()
 let uid = 1
 
 const themes = {
@@ -143,7 +144,11 @@ function parseDemo(content: string) {
   }
 }
 
-export async function markdownToSolid(raw: string, id: string) {
+export async function markdownToSolid(
+  raw: string,
+  id: string,
+  isBuild = false,
+) {
   if (compileCache.has(id)) {
     const [rawCode, compiledCode] = compileCache.get(id)!
     if (rawCode === raw) return { code: compiledCode, map: null }
@@ -170,8 +175,17 @@ export async function markdownToSolid(raw: string, id: string) {
         cache.set(resolveUrl, cached)
       }
       demoList.push(cached)
-      console.log(id, resolveUrl)
-      const { data, content } = parseDemo(fs.readFileSync(resolveUrl, 'utf-8'))
+      let code!: string
+      if (isBuild) {
+        code = demoCodeCache.get(resolveUrl)
+        if (!code) {
+          code = fs.readFileSync(resolveUrl, 'utf-8')
+          demoCodeCache.set(resolveUrl, code)
+        }
+      } else {
+        code = fs.readFileSync(resolveUrl, 'utf-8')
+      }
+      const { data, content } = parseDemo(code)
       const ext = path.extname(url).slice(1)
       const demoCode = md.render(
         `

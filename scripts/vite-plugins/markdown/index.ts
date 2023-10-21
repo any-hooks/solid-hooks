@@ -3,14 +3,17 @@ import { markdownToSolid } from './transform'
 
 export default function vitePluginMarkdown(): Plugin {
   const filter = createFilter([/\.md$/], /node_modules/)
-
+  let isBuild = false
   return {
     name: 'vite-plugin-solid-markdown',
     enforce: 'pre',
+    configResolved(config) {
+      isBuild = config.command === 'build'
+    },
     async transform(code, id) {
       if (!filter(id)) return
       try {
-        return (await markdownToSolid(code, id)).code
+        return (await markdownToSolid(code, id, isBuild)).code
       } catch (e: any) {
         this.error(e)
       }
