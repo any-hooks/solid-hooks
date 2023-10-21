@@ -15,6 +15,7 @@ export const sidebarConfig: SidebarItem[] = [
       'useResetSignal',
       'useLocalStorage',
       'useSessionStorage',
+      'useRef',
     ],
   },
   {

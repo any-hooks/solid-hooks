@@ -15,6 +15,7 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vite",
+    "docs:build": "vite build",
     "build": "unbuild",
     "test:unit": "vitest"
   },

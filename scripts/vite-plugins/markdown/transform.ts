@@ -24,7 +24,7 @@ let uid = 1
 
 const themes = {
   dark: 'material-theme-palenight',
-  light: 'min-light',
+  light: 'vitesse-light',
 }
 
 let hls: Highlighter

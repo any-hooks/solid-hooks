@@ -28,6 +28,7 @@ export default function Sidebar() {
                       class="pl-4 cursor-pointer text-text text-sm decoration-none"
                       activeClass="text-brand! font-medium"
                       href={child.link}
+                      end
                     >
                       {child.text}
                     </A>

@@ -27,6 +27,9 @@ export default defineConfig({
       scopeBehaviour: 'local',
     },
   },
+  build: {
+    outDir: 'docs/dist',
+  },
   test: {
     deps: {
       optimizer: {

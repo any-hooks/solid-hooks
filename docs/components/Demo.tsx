@@ -26,7 +26,7 @@ export default function Demo(props: DemoProps) {
           <h3 class="absolute left-6 -translate-y-50% m-0 bg-[var(--c-bg)]">
             {data().title}
           </h3>
-          <p class="pt-4 px-6">{data().desc}</p>
+          <p class="pt-4 px-6">{data().desc || ''}</p>
         </div>
       </Show>
       <div class="flex-items-center justify-end pr-6 py-3 border-t border-t-dashed">
