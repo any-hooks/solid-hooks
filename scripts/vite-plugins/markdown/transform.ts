@@ -12,6 +12,7 @@ import { tocPlugin } from './tocPlugin'
 import { slugify } from './utils/slugify'
 
 const RE_CODE = /<code src="(.+?)" \/>/gm
+const RE_CODE_SIGNAL = /<code src="(.+?)" \/>/
 const RE_DEMO = /(\/\*[\s\S]*?\*\/)([\s\S]*)/
 const RE_DATA = /(title|desc)(?:\.)?(en|en\-US|zh\-CN)?\:\s+(.*)/
 const RE_SAFE_CODE = /[\{\}\$]/gm
@@ -159,35 +160,40 @@ export async function markdownToSolid(
   const filename = data.title
   const matter = JSON.stringify(data)
 
-  const prerender = md.render(`${content}\n[[toc]]`)
+  let prerender = md.render(`${content}\n[[toc]]`)
   const demoList: (readonly [string, string])[] = []
+  const demoCodeList = prerender.match(RE_CODE) || []
 
-  const rendered = prerender
-    .replace(RE_CODE, (_, url) => {
-      const resolveUrl = resolve(url)
-      let cached = cache.get(resolveUrl)
-      if (!cached) {
-        cached = [
-          `Component${uid++}`,
-          normalizePath(path.join('~~', filename, url)),
-        ] as const
-        cache.set(resolveUrl, cached)
-      }
-      demoList.push(cached)
-
-      const code = fs.readFileSync(resolveUrl, 'utf8')
-      const { data, content } = parseDemo(code)
-      const ext = path.extname(url).slice(1)
-      const demoCode = md.render(
-        `
+  for (const m of demoCodeList) {
+    const [, url] = m.match(RE_CODE_SIGNAL) || []
+    const resolveUrl = resolve(url)
+    let cached = cache.get(resolveUrl)
+    if (!cached) {
+      cached = [
+        `Component${uid++}`,
+        normalizePath(path.join('~~', filename, url)),
+      ] as const
+      cache.set(resolveUrl, cached)
+    }
+    demoList.push(cached)
+    const code = await fs.promises.readFile(resolveUrl, 'utf8')
+    const { data, content } = parseDemo(code)
+    const ext = path.extname(url).slice(1)
+    const demoCode = md.render(
+      `
 \`\`\` ${ext}
 ${content}
 \`\`\`
       `,
-      )
-      return `<Demo data={${data}} component={<${cached[0]} />}>${demoCode}</Demo>`
-    })
-    .split('<nav class="table-of-contents">')
+    )
+    prerender = prerender.replace(
+      m,
+      `<Demo data={${data}} component={<${cached[0]} />}>${demoCode}</Demo>`,
+    )
+  }
+
+  const rendered = prerender.split('<nav class="table-of-contents">')
+
   const code = `import Demo from '~/components/Demo'
 ${demoList.map(([name, url]) => `import ${name} from '${url}'`).join('\n')}
 
