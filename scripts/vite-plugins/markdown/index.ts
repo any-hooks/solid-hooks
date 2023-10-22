@@ -14,7 +14,7 @@ export default function vitePluginMarkdown(): Plugin {
     async transform(code, id) {
       if (!filter(id)) return
       try {
-        return (await markdownToSolid(code, id, isBuild)).code
+        return (await markdownToSolid(code, id, isBuild, this.load)).code
       } catch (e: any) {
         this.error(e)
       }

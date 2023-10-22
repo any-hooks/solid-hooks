@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "docs:dev": "vite",
-    "docs:build": "vite build --debug",
+    "docs:build": "vite build",
     "build": "unbuild",
     "test": "vitest run",
     "test:unit": "vitest",
