@@ -1,25 +1,60 @@
 {
   "name": "@any-hooks/solid",
-  "version": "1.0.0",
-  "packageManager": "pnpm@8.9.0",
-  "author": "pengzhanbo <volodymyr@foxmail.com> (https://github.com/pengzhanbo)",
-  "type": "module",
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "exports": {
-    ".": {
-      "default": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
+  "version": "0.1.0",
+  "description": "A high-quality & reliable Solid Hooks library.",
+  "keywords": [
+    "Solid",
+    "Primitive",
+    "solidjs",
+    "Hooks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/any-hooks/solid-hooks"
   },
   "license": "MIT",
+  "author": "pengzhanbo <volodymyr@foxmail.com> (https://github.com/pengzhanbo)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.mjs",
+        "types": "./dist/index.d.mts"
+      }
+    }
+  },
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "docs:dev": "vite",
     "docs:build": "vite build",
     "build": "unbuild",
-    "test:unit": "vitest"
+    "test": "vitest run",
+    "test:unit": "vitest",
+    "lint": "eslint .",
+    "prepublishOnly": "vitest run && pnpm run build",
+    "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "bumpp package.json --execute=\"pnpm release:changelog\" --commit --all --push --tag && pnpm publish --access public"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "chrome > 40",
+    "not ie 11"
+  ],
   "prettier": "@pengzhanbo/prettier-config",
+  "dependencies": {
+    "intersection-observer": "^0.12.2",
+    "js-cookie": "^3.0.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "screenfull": "^6.0.2",
+    "throttle-debounce": "^5.0.0"
+  },
   "devDependencies": {
     "@pengzhanbo/eslint-config": "^0.4.3",
     "@pengzhanbo/prettier-config": "^0.4.3",
@@ -33,7 +68,9 @@
     "@types/throttle-debounce": "^5.0.0",
     "@unocss/reset": "^0.56.5",
     "autoprefixer": "^10.4.16",
+    "bumpp": "^9.2.0",
     "classnames": "^2.3.2",
+    "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.51.0",
     "gray-matter": "^4.0.3",
     "jsdom": "^22.1.0",
@@ -44,7 +81,7 @@
     "prettier": "^3.0.3",
     "sass": "^1.69.4",
     "shiki": "^0.14.5",
-    "solid-js": "^1.8.1",
+    "solid-js": "^1.8.3",
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0",
     "unocss": "^0.56.5",
@@ -52,21 +89,11 @@
     "vite-plugin-solid": "^2.7.2",
     "vitest": "^0.34.6"
   },
-  "dependencies": {
-    "intersection-observer": "^0.12.2",
-    "js-cookie": "^3.0.5",
-    "resize-observer-polyfill": "^1.5.1",
-    "screenfull": "^6.0.2",
-    "throttle-debounce": "^5.0.0"
-  },
   "peerDependencies": {
     "solid-js": ">=1.7.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "chrome > 40",
-    "not ie 11"
-  ]
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": "^16.0.0 || >=18"
+  }
 }

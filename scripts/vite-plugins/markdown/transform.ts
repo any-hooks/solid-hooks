@@ -70,7 +70,7 @@ async function createMarkdownRender() {
   md = MarkdownIt({
     html: true,
     linkify: true,
-    highlight(str, lang, attrs) {
+    highlight(str, lang) {
       if (lang) {
         const lightContent = renderCode(str, lang, themes.light)
         const darkContent = renderCode(str, lang, themes.dark)
@@ -111,7 +111,7 @@ async function createMarkdownRender() {
   md.use(tocPlugin)
   md.renderer.rules.code_inline = (tokens, idx, options, env, slf) => {
     const token = tokens[idx]
-    const lang = token.info.trim().slice(1, -1)
+    // const lang = token.info.trim().slice(1, -1)
     return `<code ${slf.renderAttrs(token)}>${safeContent(
       escapeHtml(token.content),
     )}</code>`
@@ -145,7 +145,7 @@ function parseDemo(content: string) {
 export async function markdownToSolid(
   raw: string,
   id: string,
-  isBuild = false,
+  _isBuild = false,
 ) {
   const resolve = (url: string) => path.join(path.dirname(id), url)
   const basename = path.basename(id)
@@ -187,8 +187,7 @@ ${content}
       return `<Demo data={${data}} component={<${cached[0]} />}>${demoCode}</Demo>`
     })
     .split('<nav class="table-of-contents">')
-  const code = `
-import Demo from '~/components/Demo'
+  const code = `import Demo from '~/components/Demo'
 ${demoList.map(([name, url]) => `import ${name} from '${url}'`).join('\n')}
 
 export const frontmatter = ${matter}

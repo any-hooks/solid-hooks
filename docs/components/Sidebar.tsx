@@ -1,19 +1,21 @@
 import { kebabCase } from '@pengzhanbo/utils'
-import { A } from '@solidjs/router'
+import { A, useMatch } from '@solidjs/router'
 import { For, createMemo } from 'solid-js'
 import { sidebarConfig } from '../sidebarConfig'
 import { useAppContext } from '~/AppContext'
 
 export default function Sidebar() {
   const [store] = useAppContext()
-  const config = createMemo(() =>
-    sidebarConfig.map((item) => ({
+  const match = useMatch(() => '/:lang/hooks/*')
+  const config = createMemo(() => {
+    if (!match()) return []
+    return sidebarConfig.map((item) => ({
       title: item.title,
       children: item.children.map((child) => {
         return { link: `/${store.lang}/hooks/${kebabCase(child)}`, text: child }
       }),
-    })),
-  )
+    }))
+  })
   return (
     <aside class="sidebar fixed top-navbar left-0 bottom-0 w-sidebar overflow-auto bg-gray-50 dark:bg-light-100/2">
       <div class="pl-4 pb-6">

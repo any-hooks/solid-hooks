@@ -24,8 +24,6 @@ export const sidebarConfig: SidebarItem[] = [
       'useWatch',
       'useDebounceFn',
       'useThrottleFn',
-      'useDebounceEffect',
-      'useThrottleEffect',
       'useInterval',
       'useTimeout',
       'useLockFn',
