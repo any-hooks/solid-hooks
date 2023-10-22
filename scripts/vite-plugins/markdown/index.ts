@@ -1,9 +1,11 @@
+import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { type Plugin, createFilter } from 'vite'
 import { markdownToSolid } from './transform'
 
 export default function vitePluginMarkdown(): Plugin {
   const filter = createFilter([/\.md$/], /node_modules/)
+  const demoFilter = createFilter([/use.*?\/demo\/.*\.tsx$/])
   let isBuild = false
   return {
     name: 'vite-plugin-solid-markdown',
@@ -13,7 +15,9 @@ export default function vitePluginMarkdown(): Plugin {
     },
     load(id) {
       if (id.startsWith(path.join(process.cwd(), 'src'))) {
-        console.log(id)
+        if (demoFilter(id)) {
+          return fsp.readFile(id, 'utf8')
+        }
       }
     },
     async transform(code, id) {
