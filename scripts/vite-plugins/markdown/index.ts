@@ -26,7 +26,7 @@ export default function vitePluginMarkdown(): Plugin {
 
       const defaultRead = ctx.read
       ctx.read = async function () {
-        return (await markdownToSolid(ctx.file, await defaultRead())).code
+        return (await markdownToSolid(await defaultRead(), ctx.file)).code
       }
     },
   }
