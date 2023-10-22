@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     Markdown(),
     Solid({
-      extensions: ['.tsx', '.md'],
+      extensions: ['.md'],
     }),
     unocss(),
   ],
