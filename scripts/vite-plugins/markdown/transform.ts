@@ -6,6 +6,7 @@ import { escapeHtml } from 'markdown-it/lib/common/utils'
 import anchorPlugin from 'markdown-it-anchor'
 import attrsPlugin from 'markdown-it-attrs'
 import { type Highlighter, getHighlighter, renderToHtml } from 'shiki'
+import { normalizePath } from 'vite'
 import { headersPlugin } from './headersPlugin'
 import { tocPlugin } from './tocPlugin'
 import { slugify } from './utils/slugify'
@@ -168,7 +169,7 @@ export async function markdownToSolid(
       if (!cached) {
         cached = [
           `Component${uid++}`,
-          path.join('~~', filename, url.replace(/\.[tj]sx?$/, '')),
+          normalizePath(path.join('~~', filename, url)),
         ] as const
         cache.set(resolveUrl, cached)
       }

@@ -1,4 +1,3 @@
-import fsp from 'node:fs/promises'
 import { type Plugin, createFilter } from 'vite'
 import { markdownToSolid } from './transform'
 
@@ -12,10 +11,9 @@ export default function vitePluginMarkdown(): Plugin {
     configResolved(config) {
       isBuild = config.command === 'build'
     },
-    async load(id) {
+    async transform(code, id) {
       if (!filter(id)) return
       try {
-        const code = await fsp.readFile(id, 'utf-8')
         return (await markdownToSolid(code, id, isBuild)).code
       } catch (e: any) {
         this.error(e)
