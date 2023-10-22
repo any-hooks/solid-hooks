@@ -25,7 +25,8 @@
 
     "paths": {
       "~/*": ["./docs/*"],
-      "@any-hooks/solid": ["./src/index.ts"]
+      "@any-hooks/solid": ["./src/index.ts"],
+      "~~/*": ["./src/*"]
     }
   },
   "include": ["src", "docs", "scripts"],

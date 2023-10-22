@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { type Plugin, createFilter } from 'vite'
 import { markdownToSolid } from './transform'
 
@@ -9,6 +10,11 @@ export default function vitePluginMarkdown(): Plugin {
     enforce: 'pre',
     configResolved(config) {
       isBuild = config.command === 'build'
+    },
+    load(id) {
+      if (id.startsWith(path.join(process.cwd(), 'src'))) {
+        console.log(id)
+      }
     },
     async transform(code, id) {
       if (!filter(id)) return
