@@ -58,7 +58,7 @@ function safeContent(content: string) {
   return content
     .replace(RE_SAFE_CODE, (match) => {
       if (match === '$') {
-        return `{'\\\\${match}'}`
+        return '\\$'
       }
       return `{'${match}'}`
     })
@@ -148,6 +148,7 @@ export async function markdownToSolid(
   raw: string,
   id: string,
   _isBuild = false,
+  load?: ({ id }: { id: string }) => Promise<any>,
 ) {
   const resolve = (url: string) => path.join(path.dirname(id), url)
   const basename = path.basename(id)
@@ -177,6 +178,7 @@ export async function markdownToSolid(
     }
     demoList.push(cached)
     const code = await fs.promises.readFile(resolveUrl, 'utf8')
+    load?.({ id: resolveUrl })
     const { data, content } = parseDemo(code)
     const ext = path.extname(url).slice(1)
     const demoCode = md.render(
