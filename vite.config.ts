@@ -35,7 +35,10 @@ export default defineConfig({
     deps: {
       optimizer: {
         web: {
-          include: ['solid-js', '@solidjs/router'],
+          include: [
+            'node_modules/solid-js/dist/dev.js',
+            'node_modules/@solidjs/router/index.jsx',
+          ],
         },
       },
     },
