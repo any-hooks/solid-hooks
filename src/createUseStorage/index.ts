@@ -10,7 +10,7 @@ export interface Options<T> {
   serializer?: (value: T) => string
   deserializer?: (value: string) => T
   onError?: (error: unknown) => void
-  watch?: boolean
+  observer?: boolean
 }
 
 export function createUseStorage(getStorage: () => Storage | undefined) {
@@ -83,7 +83,7 @@ export function createUseStorage(getStorage: () => Storage | undefined) {
       }
     }
 
-    if (options.watch && isBrowser) {
+    if (options.observer && isBrowser) {
       const handle = (e: StorageEvent) => {
         if (e.storageArea !== storage) return
 
