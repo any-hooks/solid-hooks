@@ -44,7 +44,10 @@ export default defineConfig({
     },
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['node_modules/@testing-library/jest-dom/vitest.js'],
+    setupFiles: [
+      'node_modules/@testing-library/jest-dom/vitest.js',
+      './vitest.setup.js',
+    ],
     testTransformMode: {
       web: ['.tsx', '.jsx'],
     },
