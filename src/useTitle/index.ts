@@ -27,7 +27,7 @@ export default function useTitle(title: string, options = DEFAULT_OPTIONS) {
     if (isBrowser) {
       document.title = title
     }
-    setTitle(title)
+    _setTitle(title)
   }
 
   return [_title, setTitle] as const
