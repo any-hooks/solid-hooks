@@ -31,7 +31,7 @@ const { copy, copied, text, isSupported } = useClipboard(options?: Options);
 
 | Property     | Description                        | Type       | Default   |
 | ------------ | ---------------------------------- | ---------- | --------- |
-| source       | default test                       | `string`   | -         |
+| source       | default text                       | `string`   | -         |
 | read         | Whether to listen to the clipboard | `boolean`  | `false`   |
 | legacy       | Whether to use an older API        | `boolean`  | `false`   |
 | copiedDuring | Replication state duration         | `number`   | `1500`    |

@@ -3,9 +3,35 @@ import useEventListener from '../useEventListener'
 import isBrowser from '../utils/isBrowser'
 
 export interface Options<T> {
+  /**
+   * listen to the clipboard
+   *
+   * 是否侦听剪切板
+   *
+   * @default false
+   */
   read?: boolean
+  /**
+   * default text
+   *
+   * 默认文本
+   */
   source?: T
+  /**
+   * Replication state duration. unit: `ms`
+   *
+   * 复制状态持续时间。 单位： `ms`
+   *
+   * @default 1500
+   */
   copiedDuring?: number
+  /**
+   * Whether to use `document.execCommand` when `navigator.clipboard` is not supported
+   *
+   * 当不支持 `navigator.clipboard` 时是否使用 `document.execCommand`
+   *
+   * @default false
+   */
   legacy?: boolean
   navigator?: Navigator
 }
@@ -19,6 +45,19 @@ export interface UseClipboardReturn<Optional> {
     : (text: string) => Promise<void>
 }
 
+/**
+ * Reactive Clipboard API
+ *
+ * 响应式剪贴板API
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+ *
+ * @example
+ * ```ts
+ * const { text, copied, copy } = useClipboard()
+ * const copyText = () => copy('hello world')
+ * ```
+ */
 function useClipboard(options?: Options<undefined>): UseClipboardReturn<false>
 function useClipboard(options: Options<string>): UseClipboardReturn<true>
 function useClipboard(
