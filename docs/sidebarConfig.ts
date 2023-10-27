@@ -53,6 +53,12 @@ export const sidebarConfig: SidebarItem[] = [
   },
   {
     title: 'Scene',
-    children: ['useNetwork', 'useCookie', 'useResponsive', 'useGeolocation'],
+    children: [
+      'useNetwork',
+      'useCookie',
+      'useWebSocket',
+      'useResponsive',
+      'useGeolocation',
+    ],
   },
 ]

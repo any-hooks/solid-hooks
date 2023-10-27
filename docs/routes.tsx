@@ -19,8 +19,7 @@ Object.keys(pages).forEach((key) => {
   const title = kebabCase(paths[paths.length - 2])
   routes.push({
     path: `/${lang}/hooks/${title}`,
-    component: lazy(async () => await pages[key]()),
-    data: async () => (await pages[key]()).frontmatter,
+    component: lazy(() => pages[key]()),
   })
 })
 

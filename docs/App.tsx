@@ -1,6 +1,7 @@
 import { Router } from '@solidjs/router'
-import { onMount } from 'solid-js'
+import { Suspense, onMount } from 'solid-js'
 import { AppContextProvider } from './AppContext'
+import Loading from './components/Loading'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import { useCopyCode } from './hooks/copyCode'
@@ -15,7 +16,9 @@ export default function App() {
           <Navbar />
           <Sidebar />
           <div class="px-10 py-4">
-            <Routes />
+            <Suspense fallback={<Loading />}>
+              <Routes />
+            </Suspense>
           </div>
         </main>
       </AppContextProvider>
