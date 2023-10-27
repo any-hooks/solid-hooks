@@ -1,3 +1,5 @@
+import { WebSocket } from 'mock-socket'
+
 const screenfullMethods = [
   'requestFullscreen',
   'exitFullscreen',
@@ -13,3 +15,5 @@ screenfullMethods.forEach((item) => {
 
 delete window.ontouchstart
 window.DocumentTouch = undefined
+
+window.WebSocket = WebSocket
