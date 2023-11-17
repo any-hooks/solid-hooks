@@ -46,7 +46,7 @@ export default defineConfig({
     globals: true,
     setupFiles: [
       'node_modules/@testing-library/jest-dom/vitest.js',
-      './vitest.setup.js',
+      './scripts/vitest.setup.js',
     ],
     testTransformMode: {
       web: ['.tsx', '.jsx'],
