@@ -6,7 +6,7 @@
 
 ### 基础用法
 
->>> ./demo/demo2.tsx
+>>> ./demo/demo1.tsx
 
 ### 自定义 DOM
 
