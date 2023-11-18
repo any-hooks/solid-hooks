@@ -8,6 +8,16 @@ export interface Options extends Cookies.CookieAttributes {
   defaultValue?: State | (() => State)
 }
 
+/**
+ * store state into Cookie
+ *
+ * 将状态存储在 Cookie
+ *
+ * @example
+ * ```ts
+ * const [message, setMessage] = useCookie('cookies-key')
+ * ```
+ */
 function useCookie(cookieKey: string, options: Options = {}) {
   const [state, setState] = createSignal<State>(initialValue())
 

@@ -3,10 +3,31 @@ import useMutationObserver from '../useMutationObserver'
 import { type BasicTarget, getTargetElement } from '../utils/domTarget'
 
 interface Options {
+  /**
+   * initial value
+   *
+   * 初始值
+   *
+   */
   initialValue?: string
+  /**
+   * use MutationObserver to observe variables
+   *
+   * 是否使用 MutationObserver 观察变量
+   */
   observer?: boolean
 }
 
+/**
+ * Manipulate CSS variables
+ *
+ * 操作CSS变量
+ *
+ * @example
+ * ```ts
+ * const [color, setColor] = useCssVar('--c-color', () => document.body)
+ * ```
+ */
 function useCssVar(prop: string, target?: BasicTarget, options?: Options) {
   const { initialValue = '', observer = false } = options || {}
   const [variable, setVariable] = createSignal(initialValue)

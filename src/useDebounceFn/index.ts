@@ -10,6 +10,20 @@ interface CancelOptions {
 
 type Cancel = (options?: CancelOptions) => void
 
+/**
+ * A hook that deal with the debounced function.
+ *
+ * 用来处理防抖函数的 Hook。
+ *
+ * @example
+ * ```ts
+ * const debounced = useDebounceFn(() => {
+ *   console.log('debounced')
+ * }, { wait: 1000 })
+ * debounced.run()
+ * })
+ * ```
+ */
 export default function useDebounceFn<T extends noop>(
   fn: T,
   options?: DebounceOptions,

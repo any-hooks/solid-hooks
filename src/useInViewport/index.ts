@@ -75,20 +75,11 @@ export default function useInViewport(
           callback?.(entry)
         }
       },
-      {
-        ...option,
-        root: getTargetElement(options?.root),
-      },
+      { ...option, root: getTargetElement(options?.root) },
     )
-    els.forEach((el) => {
-      if (el) {
-        observer.observe(el)
-      }
-    })
+    els.forEach((el) => el && observer.observe(el))
 
-    onCleanup(() => {
-      observer.disconnect()
-    })
+    onCleanup(() => observer.disconnect())
   })
 
   return [state, ratio] as const

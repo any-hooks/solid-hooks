@@ -9,6 +9,16 @@ const DEFAULT_OPTIONS: Options = {
   restoreOnUnmount: false,
 }
 
+/**
+ * A hook that sets the title of the document.
+ *
+ * 设置页面标题。
+ *
+ * @example
+ * ```ts
+ * const [title, setTitle] = useTitle('My App')
+ * ```
+ */
 export default function useTitle(title: string, options = DEFAULT_OPTIONS) {
   const defaultTitle = isBrowser ? document.title : ''
   const [_title, _setTitle] = createSignal(defaultTitle)

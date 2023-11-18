@@ -10,6 +10,20 @@ interface CancelOptions {
 
 type Cancel = (options?: CancelOptions) => void
 
+/**
+ * A hook that deal with the throttled function.
+ *
+ * 用来处理函数节流的 Hook。
+ *
+ * @example
+ * ```ts
+ * const throttled = useThrottleFn(() => {
+ *   console.log('throttled')
+ * }, { wait: 500})
+ *
+ * throttled.run()
+ * ```
+ */
 export default function useThrottleFn<T extends noop>(
   fn: T,
   options?: ThrottleOptions,

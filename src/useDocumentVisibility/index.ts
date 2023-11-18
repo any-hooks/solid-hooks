@@ -12,6 +12,16 @@ const getVisibility = () => {
   return document.visibilityState
 }
 
+/**
+ * A Hook can tell if the page is visible, refer to [visibilityState API](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)
+ *
+ * 监听页面是否可见，参考 [visibilityState API](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)
+ *
+ * @example
+ * ```ts
+ * const documentVisibility = useDocumentVisibility()
+ * ```
+ */
 function useDocumentVisibility(): Accessor<VisibilityState> {
   const [documentVisibility, setDocumentVisibility] = createSignal(
     getVisibility(),
@@ -19,12 +29,8 @@ function useDocumentVisibility(): Accessor<VisibilityState> {
 
   useEventListener(
     'visibilitychange',
-    () => {
-      setDocumentVisibility(getVisibility())
-    },
-    {
-      target: () => document,
-    },
+    () => setDocumentVisibility(getVisibility()),
+    { target: document },
   )
 
   return documentVisibility

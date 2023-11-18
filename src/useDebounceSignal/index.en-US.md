@@ -1,7 +1,7 @@
 
 # useDebounce
 
-A hook that deal with the debounced value.
+A hook that deal with the debounced signal.
 
 ## Examples
 

@@ -8,8 +8,8 @@ type DocumentEventKey = keyof DocumentEventMap
  *
  * 监听 目标元素之外的点击事件
  *
- * @see Docs [en-US](https://solid.any-hooks.com/en-US/hooks/use-click-away) |
- *      [zh-CN](https://solid.any-hooks.com/zh-CN/hooks/use-click-away)
+ * @see Docs [en-US](https://solid-hooks.netlify.com/en-US/hooks/use-click-away) |
+ *      [zh-CN](https://solid-hooks.netlify.com/zh-CN/hooks/use-click-away)
  *
  * @param onClickAway 事件回调 event callback
  * @param target 目标元素 target Elements

@@ -14,6 +14,18 @@ interface Options<T extends Target = Target> {
 
 type StopEventListener = () => void
 
+/**
+ * Use addEventListener by Hook.
+ *
+ * 使用 addEventListener。
+ *
+ * @example
+ * ```ts
+ * useEventListener('click', (ev) => {
+ *   console.log(ev)
+ * }, { target: () => document.body })
+ * ```
+ */
 function useEventListener<K extends keyof HTMLElementEventMap>(
   eventName: K,
   handle: (ev: HTMLElementEventMap[K]) => void,
@@ -45,22 +57,17 @@ function useEventListener(
   handler: noop,
   options: Options = {},
 ): StopEventListener {
+  const { target, capture, once, passive } = options
   let clear: StopEventListener = () => {}
 
   void onMount(() => {
-    const targetEl = getTargetElement(options.target, window)
+    const targetEl = getTargetElement(target, window)
     if (!targetEl || !targetEl.addEventListener) return
 
-    targetEl.addEventListener(eventName, handler, {
-      capture: options.capture,
-      passive: options.passive,
-      once: options.once,
-    })
+    targetEl.addEventListener(eventName, handler, { capture, passive, once })
 
     clear = () => {
-      targetEl.removeEventListener(eventName, handler, {
-        capture: options.capture,
-      })
+      targetEl.removeEventListener(eventName, handler, { capture })
     }
 
     onCleanup(clear)

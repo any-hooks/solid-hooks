@@ -7,6 +7,19 @@ export interface Actions<T> {
   toggle: () => void
 }
 
+/**
+ * A hook that toggle states.
+ *
+ * 用于在两个状态值间切换的 Hook。
+ *
+ * @param defaultValue - The default value of the state.
+ * @param reverseValue - The reverse value of the state.
+ *
+ * @example
+ * ```ts
+ * const [value, { set, toggle, setLeft, setRight }] = useToggle()
+ * ```
+ */
 function useToggle<T = boolean>(): [Accessor<T>, Actions<T>]
 
 function useToggle<T>(defaultValue: T): [Accessor<T>, Actions<T>]
