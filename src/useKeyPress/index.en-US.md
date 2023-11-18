@@ -6,11 +6,11 @@ Listen for the keyboard press, support key combinations, and support alias.
 
 ### Basic usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Combination keys
 
-<code src="./demo/demo6.tsx" />
+>>> ./demo/demo6.tsx
 
 ### Exact match
 
@@ -18,19 +18,19 @@ Listen for the keyboard press, support key combinations, and support alias.
 
 ### Multiple keys
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ### Get the trigger key
 
-<code src="./demo/demo8.tsx" />
+>>> ./demo/demo8.tsx
 
 ### Custom method
 
-<code src="./demo/demo4.tsx" />
+>>> ./demo/demo4.tsx
 
 ### Custom DOM
 
-<code src="./demo/demo5.tsx" />
+>>> ./demo/demo5.tsx
 
 ## API
 

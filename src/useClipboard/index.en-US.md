@@ -6,11 +6,11 @@ Reactive Clipboard API. Provides the ability to respond to clipboard commands (c
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Advanced Usage
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

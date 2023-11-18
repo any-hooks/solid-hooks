@@ -6,11 +6,11 @@ Use addEventListener elegant by Hook.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Listen for keydown
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

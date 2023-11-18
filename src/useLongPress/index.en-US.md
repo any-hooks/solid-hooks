@@ -6,15 +6,15 @@ Listen for the long press event of the target element.
 
 ### Basic usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Listen for click and long press events at the same time
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Move threshold
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

@@ -6,8 +6,8 @@ A hook that handles the `setTimeout` timer function.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo1.tsx
+>>> ./demo/demo2.tsx
 
 ## API
 

@@ -6,7 +6,7 @@ Watches one or more reactive data sources and invokes a callback function when t
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

@@ -7,7 +7,7 @@ useResetSignal works similar to `createSignal`, it provides a `reset` method
 
 ### Default Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

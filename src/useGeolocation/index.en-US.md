@@ -8,7 +8,7 @@ For privacy reasons, the user is asked for permission to report location informa
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### API
 

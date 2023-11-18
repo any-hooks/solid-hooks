@@ -11,8 +11,9 @@ import { headersPlugin } from './headersPlugin'
 import { tocPlugin } from './tocPlugin'
 import { slugify } from './utils/slugify'
 
-const RE_CODE = /<code src="(.+?)" \/>/gm
-const RE_CODE_SIGNAL = /<code src="(.+?)" \/>/
+const RE_PRE_CODE = />>>\s+(.+)/gm
+const RE_CODE = /<code src="(.+?)"><\/code>/gm
+const RE_CODE_SIGNAL = /<code src="(.+?)"><\/code>/
 const RE_DEMO = /(\/\*[\s\S]*?\*\/)([\s\S]*)/
 const RE_DATA = /(title|desc)(?:\.)?(en|en\-US|zh\-CN)?\:\s+(.*)/
 const RE_SAFE_CODE = /[\{\}\$]/gm
@@ -154,12 +155,17 @@ export async function markdownToSolid(
   const dirnameList = path.dirname(id).replace(/\/$/, '').split('/')
 
   const md = await createMarkdownRender()
-  const { content, data } = gm(raw)
+  const res = gm(raw)
+  let content = res.content
+  const data = res.data
   data.lang = basename.match(/index\.(.*)?.md$/)?.[1] ?? 'en-US'
   data.title = data.title ?? dirnameList[dirnameList.length - 1]
   const filename = data.title
   const matter = JSON.stringify(data)
-
+  content = content.replace(
+    RE_PRE_CODE,
+    (_, url) => `<code src="${url}"></code>`,
+  )
   let prerender = md.render(`${content}\n[[toc]]`)
   const demoList: (readonly [string, string])[] = []
   const demoCodeList = prerender.match(RE_CODE) || []

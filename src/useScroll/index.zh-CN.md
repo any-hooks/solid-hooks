@@ -6,15 +6,15 @@
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### 监测整页的滚动
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 控制滚动状态的监听
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

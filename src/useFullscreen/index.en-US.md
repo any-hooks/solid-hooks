@@ -6,19 +6,19 @@ manages DOM full screen.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Image full screen
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Page full screen
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ### Coexist with other full screen operations
 
-<code src="./demo/demo4.tsx" />
+>>> ./demo/demo4.tsx
 
 ## API
 

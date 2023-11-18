@@ -6,11 +6,11 @@ Track cursor position
 
 ### Default Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Mouse position relative to the element
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

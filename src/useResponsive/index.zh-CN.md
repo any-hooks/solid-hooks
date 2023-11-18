@@ -6,7 +6,7 @@
 
 ### 在组件中获取响应式信息
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

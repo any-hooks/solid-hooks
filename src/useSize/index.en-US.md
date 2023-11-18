@@ -6,11 +6,11 @@ A hook that observes size change of an element.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Pass in the DOM element
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

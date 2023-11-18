@@ -6,7 +6,7 @@ a Hook for getting responsive info.
 
 ### Get responsive info in components
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

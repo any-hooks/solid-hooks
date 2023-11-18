@@ -6,19 +6,19 @@
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### 图片全屏
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 页面全屏
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ### 与其它全屏操作共存
 
-<code src="./demo/demo4.tsx" />
+>>> ./demo/demo4.tsx
 
 ## API
 

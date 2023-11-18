@@ -6,7 +6,7 @@ A Hook can tell if the page is visible, refer to [visibilityState API](https://d
 
 ### Basic usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

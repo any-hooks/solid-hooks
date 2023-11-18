@@ -6,15 +6,15 @@ Get the scroll position of an element.
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Detect Whole Page Scroll
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Control listen on scroll status
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

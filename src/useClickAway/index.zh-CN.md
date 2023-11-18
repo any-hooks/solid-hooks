@@ -6,23 +6,23 @@
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 自定义 DOM
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 支持多个 DOM 对象
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ### 监听其它事件
 
-<code src="./demo/demo4.tsx" />
+>>> ./demo/demo4.tsx
 
 ### 支持多个事件
 
-<code src="./demo/demo5.tsx" />
+>>> ./demo/demo5.tsx
 
 ## API
 

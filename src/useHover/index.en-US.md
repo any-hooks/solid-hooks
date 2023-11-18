@@ -6,11 +6,11 @@ A hook that tracks whether the element is being hovered.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Pass in DOM element
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

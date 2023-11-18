@@ -6,23 +6,23 @@ Listen for click events outside the target element.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Custom DOM
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Support multiple DOM
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ### Listen for other events
 
-<code src="./demo/demo4.tsx" />
+>>> ./demo/demo4.tsx
 
 ### Support multiple events
 
-<code src="./demo/demo5.tsx"/>
+>>> ./demo/demo5.tsx
 
 ## API
 

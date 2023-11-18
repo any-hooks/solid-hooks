@@ -6,7 +6,7 @@ Reactive [BroadcastChannel API](https://developer.mozilla.org/en-US/docs/Web/API
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

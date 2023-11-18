@@ -6,15 +6,15 @@ A Hook that store state into localStorage.
 
 ### Store state into localStorage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Store complex types of data
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Custom serialization and deserialization functions
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

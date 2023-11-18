@@ -6,11 +6,11 @@ A hook that allows you to use virtual list to render huge chunks of list data.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Dynamic item height
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

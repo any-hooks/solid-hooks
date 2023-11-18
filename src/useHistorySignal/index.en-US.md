@@ -6,11 +6,11 @@ Track the change history of a signal, provides undo and redo functionality
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### Manual Commit
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

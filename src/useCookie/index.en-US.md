@@ -7,15 +7,15 @@ A Hook that store state into Cookie.
 
 ### Store state into Cookie
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### SetState can receive function
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### Use the option property to configure Cookie
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

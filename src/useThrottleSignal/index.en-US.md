@@ -7,7 +7,7 @@ A hook that deal with the throttled signal.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

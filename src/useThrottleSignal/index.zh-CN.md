@@ -7,7 +7,7 @@
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

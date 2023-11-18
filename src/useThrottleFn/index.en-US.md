@@ -6,7 +6,7 @@ A hook that deal with the throttled function.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

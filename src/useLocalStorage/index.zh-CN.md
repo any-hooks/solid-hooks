@@ -7,15 +7,15 @@
 
 ### 将 state 存储在 localStorage 中
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### 存储复杂类型数据
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 自定义序列化和反序列化函数
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

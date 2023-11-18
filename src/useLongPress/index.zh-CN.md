@@ -6,15 +6,15 @@
 
 ### 基本使用
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### 同时监听点击和长按事件
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ### 移动阈值
 
-<code src="./demo/demo3.tsx" />
+>>> ./demo/demo3.tsx
 
 ## API
 

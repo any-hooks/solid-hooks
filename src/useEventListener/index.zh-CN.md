@@ -6,11 +6,11 @@
 
 ### 基础用法
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ### 监听 keydown 事件
 
-<code src="./demo/demo2.tsx" />
+>>> ./demo/demo2.tsx
 
 ## API
 

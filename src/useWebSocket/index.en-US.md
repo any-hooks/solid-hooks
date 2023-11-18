@@ -8,7 +8,7 @@ When multiple components establish the same WebSocket connection at the same tim
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

@@ -6,7 +6,7 @@ A hook that tracks the state of network connection.
 
 ### Default usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 

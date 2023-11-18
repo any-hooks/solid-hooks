@@ -8,7 +8,7 @@ Calls the provided function when the dependencies change, and return a wrapper f
 
 ### Basic Usage
 
-<code src="./demo/demo1.tsx" />
+>>> ./demo/demo1.tsx
 
 ## API
 
