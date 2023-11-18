@@ -64,7 +64,7 @@ useKeyPress(
 
 ## Remarks
 
-1. All key alias refer to [code](https://github.com/alibaba/hooks/blob/master/packages/hooks/src/useKeyPress/index.ts#L21)
+1. All key alias refer to [code](https://github.com/any-hooks/solid-hooks/blob/main/src/useKeyPress/index.ts#L24)
 
 2. Modifier keys
 

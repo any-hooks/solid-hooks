@@ -64,7 +64,7 @@ useKeyPress(
 
 ## Remarks
 
-1. 按键别名见 [代码](https://github.com/alibaba/hooks/blob/master/packages/hooks/src/useKeyPress/index.ts#L21)
+1. 按键别名见 [代码](https://github.com/any-hooks/solid-hooks/blob/main/src/useKeyPress/index.ts#L24)
 
 2. 修饰键
 
