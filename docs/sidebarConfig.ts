@@ -13,6 +13,7 @@ export const sidebarConfig: SidebarItem[] = [
       'useThrottleSignal',
       'useUnmountedSignal',
       'useResetSignal',
+      'useHistorySignal',
       'useLocalStorage',
       'useSessionStorage',
       'useRef',
@@ -22,6 +23,7 @@ export const sidebarConfig: SidebarItem[] = [
     title: 'Effect',
     children: [
       'useWatch',
+      'useWatchIgnorable',
       'useDebounceFn',
       'useThrottleFn',
       'useInterval',
@@ -49,6 +51,7 @@ export const sidebarConfig: SidebarItem[] = [
       'useMutationObserver',
       'useTitle',
       'useCssVar',
+      'useVirtualList',
     ],
   },
   {
@@ -59,6 +62,7 @@ export const sidebarConfig: SidebarItem[] = [
       'useWebSocket',
       'useResponsive',
       'useGeolocation',
+      'useBroadcastChannel',
     ],
   },
 ]

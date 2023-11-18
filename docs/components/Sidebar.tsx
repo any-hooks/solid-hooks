@@ -11,8 +11,8 @@ export default function Sidebar() {
     if (!match()) return []
     return sidebarConfig.map((item) => ({
       title: item.title,
-      children: item.children.map((child) => {
-        return { link: `/${store.lang}/hooks/${kebabCase(child)}`, text: child }
+      children: item.children.map((text) => {
+        return { link: `/${store.lang}/hooks/${kebabCase(text)}`, text }
       }),
     }))
   })

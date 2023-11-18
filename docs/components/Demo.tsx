@@ -1,10 +1,5 @@
-import {
-  type JSX,
-  type ParentProps,
-  Show,
-  createMemo,
-  createSignal,
-} from 'solid-js'
+import { useToggle } from '@any-hooks/solid'
+import { type JSX, type ParentProps, Show, createMemo } from 'solid-js'
 import IconCode from './Icons/IconCode'
 import { useAppContext } from '~/AppContext'
 
@@ -15,8 +10,7 @@ interface DemoProps extends ParentProps {
 export default function Demo(props: DemoProps) {
   const [store] = useAppContext()
   const data = createMemo(() => props.data[`/${store.lang}`])
-  const [open, setOpen] = createSignal(false)
-  const toggle = () => setOpen((s) => !s)
+  const [open, { toggle }] = useToggle(false)
 
   return (
     <div class="border">

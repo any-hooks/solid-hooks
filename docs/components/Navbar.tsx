@@ -15,7 +15,10 @@ const langs = {
 
 export default function Navbar() {
   const [store, { toggleTheme, toggleLang }] = useAppContext()
-  const lang = createMemo(() => langs[store.lang] || 'English')
+  const lang = createMemo(() => {
+    const lang = store.lang === 'en-US' ? 'zh-CN' : 'en-US'
+    return langs[lang]
+  })
   const config = createMemo(() => {
     const config = navbarConfig[`/${store.lang}`] || []
     return config.map((item) => {
