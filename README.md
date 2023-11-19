@@ -10,4 +10,40 @@ A high-quality & reliable Solid Hooks library.
 - Contains a comprehensive collection of basic Hooks
 - Written in TypeScript with predictable static types
 
-## Installs
+## Document
+
+See [Document](https://any-hooks.netlify.app)
+
+## Usage
+
+### Installs
+
+```sh
+# npm
+npm i @any-hooks/solid
+#pnpm
+pnpm add @any-hooks/solid
+#yarn
+yarn add @any-hooks/solid
+```
+
+### Examples
+
+```tsx
+import { useToggle } from '@any-hooks/solid'
+
+function App() {
+  const [state, { toggle }] = useToggle(false)
+
+  return (
+    <div>
+      <p>{state()}</p>
+      <button onClick={toggle}>toggle</button>
+    </div>
+  )
+}
+```
+
+## License
+
+MIT
