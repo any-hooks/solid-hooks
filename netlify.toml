@@ -5,3 +5,8 @@
 [build]
   publish = "docs_dist"
   command = "pnpm docs:build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
