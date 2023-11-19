@@ -8,6 +8,7 @@
     "solidjs",
     "Hooks"
   ],
+  "homepage": "https://solid-hooks.netlify.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/any-hooks/solid-hooks"
@@ -64,7 +65,7 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@types/js-cookie": "^3.0.6",
     "@types/markdown-it": "^13.0.6",
-    "@types/node": "^20.9.1",
+    "@types/node": "^20.9.2",
     "@types/throttle-debounce": "^5.0.2",
     "@unocss/reset": "^0.57.5",
     "autoprefixer": "^10.4.16",
@@ -83,8 +84,8 @@
     "sass": "^1.69.5",
     "shiki": "^0.14.5",
     "solid-js": "^1.8.5",
+    "tsup": "^7.3.0",
     "typescript": "^5.2.2",
-    "unbuild": "^2.0.0",
     "unocss": "^0.57.5",
     "vite": "^5.0.0",
     "vite-plugin-solid": "^2.7.2",
