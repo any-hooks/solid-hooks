@@ -1,4 +1,4 @@
-import { createUseStorage } from '../createUseStorage'
+import { createUseStorage } from '../_createUseStorage'
 import isBrowser from '../utils/isBrowser'
 
 /**
