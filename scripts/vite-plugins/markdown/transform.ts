@@ -201,14 +201,20 @@ ${content}
   const rendered = prerender.split('<nav class="table-of-contents">')
 
   const code = `import Demo from '~/components/Demo'
+import { createMemo } from 'solid-js'
 ${demoList.map(([name, url]) => `import ${name} from '${url}'`).join('\n')}
 
 export const frontmatter = ${matter}
 
-export default () => {
-  return (<div class="flex justify-start items-start">
+export default (props) => {
+  const toc = createMemo(() => props.toc ?? true)
+  return (<div class="flex justify-start items-start markdown-container">
     <div class="markdown-body flex-1 w-1px pb-10">${rendered[0]}</div>
-    ${rendered[1] ? `<nav class="toc-container">${rendered[1]}` : ''}
+    ${
+      rendered[1]
+        ? `{toc() ? <nav class="toc-container">${rendered[1]} : null}`
+        : ''
+    }
   </div>)
 }
   `

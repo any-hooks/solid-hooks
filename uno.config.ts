@@ -38,7 +38,14 @@ export default defineConfig({
       navbar: 'var(--navbar-height)',
     },
   } as Theme,
-  safelist: ['border', 'icon', 'flex', 'text-brand', 'text-brand-light'],
+  safelist: [
+    'border',
+    'icon',
+    'flex',
+    'text-brand',
+    'text-brand-light',
+    'mt-6',
+  ],
   presets: [presetUno()],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })

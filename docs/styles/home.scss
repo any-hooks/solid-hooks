@@ -1,0 +1,27 @@
+.home-wrapper {
+
+  .home-container {
+    width: 100%;
+    height: 400px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 99px;
+    border: solid 1px var(--c-brand);
+    color: var(--c-brand);
+    text-decoration: none;
+  }
+
+  .btn-brand {
+    background-color: var(--c-brand);
+    color: #fff;
+  }
+  
+  .markdown-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

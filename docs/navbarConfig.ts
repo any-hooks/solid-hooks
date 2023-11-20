@@ -1,9 +1,9 @@
 export const navbarConfig = {
   '/en-US': [
-    {
-      text: 'Guide',
-      link: '/guide',
-    },
+    // {
+    //   text: 'Guide',
+    //   link: '/guide',
+    // },
     {
       text: 'Hooks',
       match: '/hooks/*',
@@ -11,10 +11,10 @@ export const navbarConfig = {
     },
   ],
   '/zh-CN': [
-    {
-      text: '指南',
-      link: '/guide',
-    },
+    // {
+    //   text: '指南',
+    //   link: '/guide',
+    // },
     {
       text: 'Hooks',
       match: '/hooks/*',

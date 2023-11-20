@@ -1,7 +1,6 @@
 import { kebabCase } from '@pengzhanbo/utils'
 import { Navigate, type RouteDefinition, useRoutes } from '@solidjs/router'
 import { type Component, lazy } from 'solid-js'
-import Guide from './pages/guide'
 import Home from './pages/home'
 import HookNotReady from './pages/hooks-not-ready'
 
@@ -28,16 +27,16 @@ const routes: RouteDefinition[] = [
     data: () => ({ lang: 'en-US' }),
     component: Home,
   },
-  {
-    path: '/zh-CN/guide',
-    data: () => ({ lang: 'zh-CN' }),
-    component: Guide,
-  },
-  {
-    path: '/en-US/guide',
-    data: () => ({ lang: 'en-US' }),
-    component: Guide,
-  },
+  // {
+  //   path: '/zh-CN/guide',
+  //   data: () => ({ lang: 'zh-CN' }),
+  //   component: Guide,
+  // },
+  // {
+  //   path: '/en-US/guide',
+  //   data: () => ({ lang: 'en-US' }),
+  //   component: Guide,
+  // },
 ]
 
 Object.keys(pages).forEach((key) => {
