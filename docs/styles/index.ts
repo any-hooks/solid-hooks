@@ -1,4 +1,5 @@
 import './vars.scss'
 import './index.scss'
+import './demo.scss'
 import './markdown.scss'
 import './toc.scss'

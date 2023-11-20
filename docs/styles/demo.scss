@@ -1,0 +1,20 @@
+.demo-container {
+  button {
+    display: inline-block;
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    padding: 5px 12px;
+    line-height: 1.4;
+    background-color: var(--c-brand);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    @apply transition-colors;
+
+    &:hover {
+      background-color: var(--c-brand-light);
+    }
+  }
+}

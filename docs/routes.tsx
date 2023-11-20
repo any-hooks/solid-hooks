@@ -1,6 +1,8 @@
 import { kebabCase } from '@pengzhanbo/utils'
-import { type RouteDefinition, useRoutes } from '@solidjs/router'
+import { Navigate, type RouteDefinition, useRoutes } from '@solidjs/router'
 import { type Component, lazy } from 'solid-js'
+import Guide from './pages/guide'
+import Home from './pages/home'
 import HookNotReady from './pages/hooks-not-ready'
 
 const pages = import.meta.glob('../src/use*/*.md') as Record<
@@ -11,7 +13,32 @@ const pages = import.meta.glob('../src/use*/*.md') as Record<
   }>
 >
 
-const routes: RouteDefinition[] = []
+const routes: RouteDefinition[] = [
+  {
+    path: '/',
+    component: () => <Navigate href="/en-US" />,
+  },
+  {
+    path: '/zh-CN',
+    data: () => ({ lang: 'zh-CN' }),
+    component: Home,
+  },
+  {
+    path: '/en-US',
+    data: () => ({ lang: 'en-US' }),
+    component: Home,
+  },
+  {
+    path: '/zh-CN/guide',
+    data: () => ({ lang: 'zh-CN' }),
+    component: Guide,
+  },
+  {
+    path: '/en-US/guide',
+    data: () => ({ lang: 'en-US' }),
+    component: Guide,
+  },
+]
 
 Object.keys(pages).forEach((key) => {
   const paths = key.split('/')

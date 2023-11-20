@@ -13,7 +13,7 @@ export default function Demo(props: DemoProps) {
   const [open, { toggle }] = useToggle(false)
 
   return (
-    <div class="border">
+    <div class="border demo-container">
       <div class="py-10 px-6">{props.component}</div>
       <Show when={data()}>
         <div class="relative border-t">
