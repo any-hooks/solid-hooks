@@ -42,6 +42,9 @@ export interface Options {
  *
  * 监听元素是否在可视区域内的钩子。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-in-viewport zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-in-viewport en-US}
+ *
  * @example
  * ```ts
  * const [inViewport, ratio] = useInViewport(() => element)

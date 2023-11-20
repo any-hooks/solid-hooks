@@ -6,6 +6,20 @@ export interface Options<T> {
   onMessageError?: (e: MessageEvent<T>) => void
 }
 
+/**
+ * Reactive {@link https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel BroadcastChannel API}.
+ *
+ * Doc {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-broadcast-channel zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-broadcast-channel en-US}
+ *
+ * @param channelName channel name
+ * @param options options
+ *
+ * @example
+ * ```ts
+ * const { data, error, postMessage, close } = useBroadcastChannel('my-channel')
+ * ```
+ */
 export default function useBroadcastChannel<T = string>(
   channelName: string,
   options: Options<T> = {},

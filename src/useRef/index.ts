@@ -1,3 +1,4 @@
+import { onCleanup, onMount } from 'solid-js'
 import { type TargetType } from '../utils/domTarget'
 
 type UseRefReturn<T> = readonly [
@@ -11,6 +12,9 @@ type UseRefReturn<T> = readonly [
  * Create a ref object to hold the DOM element(s)
  *
  * 创建一个 ref 对象，用于保存 DOM element(s)
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-ref zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-ref en-US}
  *
  * @param initialValue - The initial value of the ref object.
  *
@@ -49,6 +53,8 @@ function useRef<T = any>(initialValue?: T | null) {
       ref = element
     }
   }
+
+  onMount(() => onCleanup(() => (ref = null)))
 
   return [() => ref, setRef] as const
 }

@@ -13,6 +13,9 @@ export interface Options extends Cookies.CookieAttributes {
  *
  * 将状态存储在 Cookie
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-cookie zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-cookie en-US}
+ *
  * @example
  * ```ts
  * const [message, setMessage] = useCookie('cookies-key')

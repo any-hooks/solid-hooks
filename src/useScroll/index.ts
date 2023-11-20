@@ -19,6 +19,9 @@ export type ScrollListenController = (val: Position) => boolean
  * @param target - The target element to listen for scroll events on.
  * @param shouldUpdate - A function that determines whether the scroll position should be updated.
  *
+ * Docs {@link https://solid-hooks.netlify.com/en-US/hooks/use-scroll en-US} |
+ *      {@link https://solid-hooks.netlify.com/zh-CN/hooks/use-scroll zh-CN}
+ *
  * @example
  * ```ts
  * const position = useScroll(() => document.body)

@@ -54,6 +54,9 @@ export function configResponsive(config: ResponsiveConfig) {
  *
  * 获取响应式信息。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-responsive zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-responsive en-US}
+ *
  * @example
  * ```ts
  * const responsive = useResponsive()

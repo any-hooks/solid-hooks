@@ -19,6 +19,9 @@ type StopEventListener = () => void
  *
  * 使用 addEventListener。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-event-listener zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-event-listener en-US}
+ *
  * @example
  * ```ts
  * useEventListener('click', (ev) => {

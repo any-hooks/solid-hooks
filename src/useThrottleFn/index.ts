@@ -15,6 +15,9 @@ type Cancel = (options?: CancelOptions) => void
  *
  * 用来处理函数节流的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-throttle-fn zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-throttle-fn en-US}
+ *
  * @example
  * ```ts
  * const throttled = useThrottleFn(() => {

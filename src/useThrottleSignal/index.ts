@@ -10,6 +10,9 @@ type ThrottleSetter<T> = Setter<T>
  *
  * 用来处理节流值的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-throttle-signal zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-throttle-signal en-US}
+ *
  * @example
  * ```ts
  * const [state, setThrottledState, setSyncState] = useThrottleSignal(0, { wait: 500 })

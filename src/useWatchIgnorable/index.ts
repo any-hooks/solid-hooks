@@ -15,6 +15,9 @@ type IgnoreUpdates = (fn: () => any) => void
  *
  * 侦听依赖项中的更改，依赖项更改时调用所提供的函数，并返回一个用于忽略侦听的包装函数
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-watch-ignorable zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-watch-ignorable en-US}
+ *
  * @param deps - The dependencies to watch for changes.
  * @param fn - The function to call when the dependencies change.
  * @param options - Additional options for the watcher.

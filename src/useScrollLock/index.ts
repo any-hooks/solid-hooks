@@ -42,6 +42,9 @@ function preventDefault(rawEvent: TouchEvent): boolean {
  *
  * 锁定或解锁目标元素的滚动。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-scroll-lock zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-scroll-lock en-US}
+ *
  * @param target - The target element to lock or unlock the scroll.
  * @param initialState - The initial state of the lock. Defaults to false.
  *

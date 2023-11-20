@@ -9,8 +9,26 @@ export enum ReadyState {
 }
 
 export interface Options {
+  /**
+   * Retry times
+   *
+   * 重试次数
+   * @default 3
+   */
   reconnectLimit?: number
+  /**
+   * Retry interval(ms)
+   *
+   * 重试时间间隔（ms）
+   * @default 3000
+   */
   reconnectInterval?: number
+  /**
+   * Manually starts connection
+   *
+   * 手动启动连接
+   * @default false
+   */
   manual?: boolean
   onOpen?: (event: WebSocketEventMap['open'], instance: WebSocket) => void
   onClose?: (event: WebSocketEventMap['close'], instance: WebSocket) => void
@@ -73,6 +91,15 @@ function createWebWebSocket(url: string, options: Options): WebSocketCacheItem {
   return item
 }
 
+/**
+ * A hook for WebSocket.
+ *
+ * 用于处理 WebSocket 的 Hook。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-websocket zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-websocket en-US}
+ *
+ */
 export default function useWebSocket(
   socketUrl: string,
   options: Options = {},

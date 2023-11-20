@@ -5,6 +5,9 @@ import { isFunction, isNumber } from '../utils'
 /**
  * A hook that executes a function after a specified delay.
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-timeout zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-timeout en-US}
+ *
  * @param fn - The function to be executed.
  * @param delay - The delay in milliseconds before executing the function.
  *

@@ -6,6 +6,9 @@ import { isFunction } from '../utils'
  *
  * 提供重置 state 方法的 Hooks，用法与 `createSignal` 基本一致。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-reset-signal zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-reset-signal en-US}
+ *
  * @param initialValue - The initial value of the signal. Can be a value or a function that returns a value.
  *
  * @example

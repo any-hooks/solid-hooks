@@ -9,9 +9,12 @@ export interface Options {
 }
 
 /**
- * Monitor whether the current focus is within a certain area, Same as css attribute [:focus-within](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within).
+ * Monitor whether the current focus is within a certain area, Same as css attribute {@link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within :focus-within}.
  *
- * 监听当前焦点是否在某个区域之内，同 css 属性 [:focus-within](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)。
+ * 监听当前焦点是否在某个区域之内，同 css 属性 {@link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within :focus-within}。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-focus-within zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-focus-within en-US}
  *
  * @example
  * ```ts

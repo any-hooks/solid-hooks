@@ -128,6 +128,9 @@ function defaultParse<R, S>(clone?: boolean | CloneFn<R>) {
  *
  * 跟踪信号的更改历史，提供撤消和重做功能
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-history-signal zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-history-signal en-US}
+ *
  * @example
  * ```ts
  * const [count, setCount] = createSignal<number>(0)

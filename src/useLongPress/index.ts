@@ -32,13 +32,8 @@ const touchSupported =
  *
  * 监听目标元素的长按事件。
  *
- * @param onLongPress - The callback function to be executed when a long press event occurs.
- * @param target - The target element on which the long press event will be detected.
- * @param options - An optional object containing additional options for the long press detection.
- * @param options.delay - The delay (in milliseconds) before the long press event is triggered.
- * @param options.moveThreshold - Move threshold after press. If exceeded, the long press function won't be triggered
- * @param options.onClick - An optional callback function to be executed on a regular click event.
- * @param options.onLongPressEnd - An optional callback function to be executed when the long press event ends.
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-long-press zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-long-press en-US}
  *
  * @example
  * ```ts

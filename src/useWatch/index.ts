@@ -12,6 +12,9 @@ import { createEffect, on } from 'solid-js'
  *
  * 监视依赖项中的更改，并在依赖项更改时调用所提供的函数。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-watch zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-watch en-US}
+ *
  * @param deps - The dependencies to watch for changes.
  * @param fn - The function to call when the dependencies change.
  * @param options - Additional options for the watcher.

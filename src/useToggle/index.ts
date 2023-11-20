@@ -12,6 +12,9 @@ export interface Actions<T> {
  *
  * 用于在两个状态值间切换的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-toggle zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-toggle en-US}
+ *
  * @param defaultValue - The default value of the state.
  * @param reverseValue - The reverse value of the state.
  *

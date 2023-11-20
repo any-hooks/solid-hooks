@@ -8,10 +8,14 @@ import { isFunction, isNumber } from '../utils'
  *
  * 指定的延迟重复执行函数的钩子。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-interval zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-interval en-US}
+ *
  * @param fn - The function to execute.
- * @param delay - The delay between each execution.
- * @param options - Optional configuration object.
- * @param options.immediate - Whether to execute the function immediately.
+ * @param [delay] - The delay between each execution.
+ * @param [options] - Optional configuration object.
+ * @param [options.immediate] - Whether to execute the function immediately.
+ *
  * @example
  * ```ts
  * const [count, setCount] = createSignal(0)

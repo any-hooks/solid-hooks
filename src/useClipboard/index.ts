@@ -46,11 +46,12 @@ export interface UseClipboardReturn<Optional> {
 }
 
 /**
- * Reactive Clipboard API
+ * Reactive {@link https://developer.mozilla.org/en-US/docs/Web/API/Clipboard Clipboard API}
  *
- * 响应式剪贴板API
+ * 响应式 {@link https://developer.mozilla.org/zh-CN/docs/Web/API/Clipboard 剪贴板 API}
  *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-clipboard zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-clipboard en-US}
  *
  * @example
  * ```ts

@@ -13,6 +13,9 @@ interface Options extends Partial<PositionOptions> {
  *
  * 创建一个提供用户当前位置的地理位置钩子。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-geolocation zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-geolocation en-US}
+ *
  * @param options - An object containing optional parameters for geolocation.
  * @param options.immediate - Whether to immediately start retrieving the position. Defaults to true.
  * @param options.enableHighAccuracy - Whether to use high accuracy mode. Defaults to true.

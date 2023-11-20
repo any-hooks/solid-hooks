@@ -6,6 +6,9 @@ import isBrowser from '../utils/isBrowser'
  *
  * 将状态存储在 sessionStorage 中的 Hook 。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-session-storage zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-session-storage en-US}
+ *
  * @example
  * ```ts
  * const [message, setMessage] = useSessionStorage('use-session-storage-state')

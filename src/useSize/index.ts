@@ -13,6 +13,9 @@ interface Size {
  *
  * 监听 DOM 节点尺寸变化的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-size zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-size en-US}
+ *
  * @example
  * ```ts
  * const size = useSize(() => document.body)

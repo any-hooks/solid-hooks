@@ -14,6 +14,9 @@ const DEFAULT_OPTIONS: Options = {
  *
  * 设置页面标题。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-title zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-title en-US}
+ *
  * @example
  * ```ts
  * const [title, setTitle] = useTitle('My App')

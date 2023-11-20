@@ -15,6 +15,9 @@ type Cancel = (options?: CancelOptions) => void
  *
  * 用来处理防抖函数的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-debounce-fn zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-debounce-fn en-US}
+ *
  * @example
  * ```ts
  * const debounced = useDebounceFn(() => {

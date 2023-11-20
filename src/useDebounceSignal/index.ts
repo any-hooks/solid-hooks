@@ -11,6 +11,9 @@ type DebounceSetter<T> = Setter<T>
  *
  * 用来处理防抖值的 Hook。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-debounce-signal zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-debounce-signal en-US}
+ *
  * @example
  * ```ts
  * const [state, setDebouncedState, setSyncState] = useDebounceSignal('Hello', { wait: 500 })

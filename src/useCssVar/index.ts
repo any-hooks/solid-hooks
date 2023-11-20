@@ -23,6 +23,9 @@ interface Options {
  *
  * 操作CSS变量
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-css-var zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en/hooks/use-css-var en-US}
+ *
  * @example
  * ```ts
  * const [color, setColor] = useCssVar('--c-color', () => document.body)

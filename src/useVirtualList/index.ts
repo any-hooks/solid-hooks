@@ -24,6 +24,9 @@ type TargetList<T> = {
  * A hook that allows you to use virtual list to render huge chunks of list data.
  *
  * 提供虚拟化列表能力的 Hook，用于解决展示海量数据渲染时首屏渲染缓慢和滚动卡顿问题。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-virtual-list zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-virtual-list en-US}
  */
 export default function useVirtualList<T = any>(
   list: Accessor<T[]> | T[],

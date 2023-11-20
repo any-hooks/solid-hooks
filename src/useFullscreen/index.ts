@@ -18,7 +18,10 @@ export interface Options {
 /**
  * manages DOM full screen.
  *
- * 管理 DOM 全屏的 Hook
+ * 管理 DOM 全屏的 Hook。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-fullscreen zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-fullscreen en-US}
  *
  * @example
  * ```ts
@@ -85,12 +88,7 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
       if (!styleElem) {
         styleElem = document.createElement('style')
         styleElem.setAttribute('id', className)
-        styleElem.textContent = `
-          .${className} {
-            position: fixed; left: 0; top: 0; right: 0; bottom: 0;
-            width: 100% !important; height: 100% !important;
-            z-index: ${zIndex};
-          }`
+        styleElem.textContent = `.${className}{position: fixed; left: 0; top: 0; right: 0; bottom: 0;width: 100% !important; height: 100% !important;z-index: ${zIndex};}`
         el.appendChild(styleElem)
       }
     } else {

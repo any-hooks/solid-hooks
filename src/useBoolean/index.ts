@@ -32,6 +32,9 @@ export interface Actions {
  *
  * create a boolean type signal
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-boolean zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-boolean en-US}
+ *
  * @param defaultValue default value 默认值
  * @example
  * ```ts

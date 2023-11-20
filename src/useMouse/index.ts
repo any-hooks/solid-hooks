@@ -38,6 +38,9 @@ const initState: CursorState = {
  *
  * 用于跟踪鼠标位置和相对于目标元素的位置。
  *
+ * Docs {@link https://solid-hooks.netlify.com/en-US/hooks/use-mouse en-US} |
+ *      {@link https://solid-hooks.netlify.com/zh-CN/hooks/use-mouse zh-CN}
+ *
  * @param target - The target element to track the mouse position relative to.
  */
 export default function useMouse(target?: BasicTarget) {

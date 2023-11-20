@@ -42,6 +42,10 @@ function getConnectionProperty(): NetworkState {
  * A hook that tracks the state of network connection.
  *
  * 管理网络连接状态的 Hook。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-network zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-network en-US}
+ *
  * @example
  * ```ts
  * const networkState = useNetwork()

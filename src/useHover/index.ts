@@ -13,6 +13,9 @@ export interface Options {
  *
  * 跟踪目标元素是否被悬停的钩子。
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-hover zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-hover en-US}
+ *
  * @param target - The element or ref to track hover for.
  * @param [options] - Optional configuration for the hook.
  * @param [options.onEnter] - Callback function when mouse enters the target.

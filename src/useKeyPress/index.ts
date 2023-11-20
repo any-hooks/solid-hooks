@@ -243,6 +243,9 @@ const defaultEvents: KeyEvent[] = ['keydown']
  *
  * 根据提供的键过滤器和事件处理程序处理按键事件的钩子
  *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-key-press zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-key-press en-US}
+ *
  * @param keyFilter - The key filter used to determine which keys should trigger the event handler.
  * @param eventHandler - The event handler function that will be called when a key press event occurs.
  * @param option - Optional configuration options for the key press event handling.
