@@ -1,6 +1,6 @@
 {
   "name": "@any-hooks/solid",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "A high-quality & reliable Solid Hooks library.",
   "keywords": [
     "Solid",
@@ -19,13 +19,12 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/index.mjs",
-        "types": "./dist/index.d.mts"
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
       }
     }
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -33,7 +32,7 @@
   "scripts": {
     "docs:dev": "vite",
     "docs:build": "vite build",
-    "build": "unbuild",
+    "build": "tsup",
     "test": "vitest run",
     "test:unit": "vitest",
     "lint": "eslint .",
