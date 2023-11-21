@@ -30,6 +30,7 @@
     "dist"
   ],
   "scripts": {
+    "start": "pnpm docs:dev",
     "docs:dev": "vite",
     "docs:build": "vite build",
     "build": "tsup",

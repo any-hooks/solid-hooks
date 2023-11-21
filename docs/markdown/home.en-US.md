@@ -1,3 +1,13 @@
+
+<div align="center">
+
+<img alt="npm" src="https://img.shields.io/npm/v/@any-hooks/solid?style=flat-square" />
+<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/@any-hooks/solid/peer/solid-js?style=flat-square" />
+<img src="https://img.badgesize.io/https:/unpkg.com/@any-hooks/solid/dist/index.js?label=gzip%20size&compression=gzip" alt="gzip size" />
+<img src="https://img.shields.io/github/license/any-hooks/solid-hooks" />
+
+</div>
+
 ## Features
 
 - Easy to learn and use
