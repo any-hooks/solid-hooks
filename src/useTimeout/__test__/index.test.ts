@@ -7,14 +7,14 @@ interface ParamsObj {
   delay: number | undefined
 }
 
-const setup = ({ fn, delay }: ParamsObj) => {
+function setup({ fn, delay }: ParamsObj) {
   const { result } = renderHook(useTimeout, { initialProps: [fn, delay] })
   return result
 }
 
 describe('useTimeout', () => {
   vi.useFakeTimers()
-  vi.spyOn(global, 'clearTimeout')
+  vi.spyOn(globalThis, 'clearTimeout')
 
   it('timeout should work', () => {
     const callback = vi.fn()

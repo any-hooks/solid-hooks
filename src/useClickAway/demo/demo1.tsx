@@ -13,7 +13,7 @@ export default () => {
   const [counter, setCounter] = createSignal(0)
   const [ref, setRef] = useRef<HTMLButtonElement>()
   useClickAway(() => {
-    setCounter((s) => s + 1)
+    setCounter(s => s + 1)
   }, ref)
 
   return (
@@ -21,7 +21,10 @@ export default () => {
       <button ref={setRef} type="button">
         box
       </button>
-      <p>counter: {counter()}</p>
+      <p>
+        counter:
+        {counter()}
+      </p>
     </div>
   )
 }

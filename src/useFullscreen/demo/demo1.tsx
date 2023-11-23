@@ -10,8 +10,8 @@ import { useFullscreen, useRef } from '@any-hooks/solid'
 
 export default () => {
   const [ref, setRef] = useRef()
-  const [isFullscreen, { enterFullscreen, exitFullscreen, toggleFullscreen }] =
-    useFullscreen(ref)
+  const [isFullscreen, { enterFullscreen, exitFullscreen, toggleFullscreen }]
+    = useFullscreen(ref)
   return (
     <div ref={setRef} style={{ background: 'white' }}>
       <div style={{ 'margin-bottom': '16px' }}>

@@ -15,7 +15,7 @@ export default () => {
 
   useMutationObserver(
     (mutationsList) => {
-      mutationsList.forEach(() => setCount((c) => c + 1))
+      mutationsList.forEach(() => setCount(c => c + 1))
     },
     ref,
     { attributes: true },
@@ -32,10 +32,14 @@ export default () => {
           'margin-bottom': '8px',
         }}
       >
-        current width：{width()}
+        current width：
+        {width()}
       </div>
-      <button onClick={() => setWidth((w) => w + 10)}>widening</button>
-      <p>Mutation count {count()}</p>
+      <button onClick={() => setWidth(w => w + 10)}>widening</button>
+      <p>
+        Mutation count
+        {count()}
+      </p>
     </div>
   )
 }

@@ -59,7 +59,7 @@ export const tocPlugin: MarkdownIt.PluginWithOptions<TocPluginOptions> = (
   // Here we changed to collect headers during rendering toc_body. The drawback is that it is possible
   // to collect headers multiple times if there are more than one toc_body, which is acceptable because
   // in most cases there is only one toc per page.
-  md.renderer.rules.toc_body = (tokens) =>
+  md.renderer.rules.toc_body = tokens =>
     renderHeaders(
       resolveHeadersFromTokens(tokens, {
         level,

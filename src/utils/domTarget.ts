@@ -13,21 +13,18 @@ export function getTargetElement<T extends TargetType>(
   target: BasicTarget<T>,
   defaultElement?: T,
 ) {
-  if (!isBrowser) {
+  if (!isBrowser)
     return undefined
-  }
 
-  if (!target) {
+  if (!target)
     return defaultElement
-  }
 
   let targetElement: TargetValue<T>
 
-  if (isFunction(target)) {
+  if (isFunction(target))
     targetElement = target()
-  } else {
+  else
     targetElement = target
-  }
 
   return targetElement
 }

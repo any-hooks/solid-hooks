@@ -31,10 +31,10 @@ export interface Options {
  * ] = useFullscreen(() => document.body)
  * ```
  */
-const useFullscreen = (target: BasicTarget, options?: Options) => {
+function useFullscreen(target: BasicTarget, options?: Options) {
   const { onExit, onEnter, pageFullscreen = false } = options || {}
-  const { className = 'solid-hooks-page-fullscreen', zIndex = 999999 } =
-    isBoolean(pageFullscreen) || !pageFullscreen ? {} : pageFullscreen
+  const { className = 'solid-hooks-page-fullscreen', zIndex = 999999 }
+    = isBoolean(pageFullscreen) || !pageFullscreen ? {} : pageFullscreen
 
   // The state of full screen may be changed by other scripts/components,
   // so the initial value needs to be computed dynamically.
@@ -44,18 +44,17 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
 
   function getIsFullscreen() {
     return (
-      screenfull.isEnabled &&
-      !!screenfull.element &&
-      screenfull.element === getTargetElement(target)
+      screenfull.isEnabled
+      && !!screenfull.element
+      && screenfull.element === getTargetElement(target)
     )
   }
 
   const invokeCallback = (fullscreen: boolean) => {
-    if (fullscreen) {
+    if (fullscreen)
       onEnter?.()
-    } else {
+    else
       onExit?.()
-    }
   }
 
   const updateFullscreenState = (fullscreen: boolean) => {
@@ -76,9 +75,8 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
 
   const togglePageFullscreen = (fullscreen: boolean) => {
     const el = getTargetElement(target)
-    if (!el) {
+    if (!el)
       return
-    }
 
     let styleElem = document.getElementById(className)
 
@@ -91,12 +89,12 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
         styleElem.textContent = `.${className}{position: fixed; left: 0; top: 0; right: 0; bottom: 0;width: 100% !important; height: 100% !important;z-index: ${zIndex};}`
         el.appendChild(styleElem)
       }
-    } else {
+    }
+    else {
       el.classList.remove(className)
 
-      if (styleElem) {
+      if (styleElem)
         styleElem.remove()
-      }
     }
 
     updateFullscreenState(fullscreen)
@@ -104,9 +102,8 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
 
   const enterFullscreen = () => {
     const el = getTargetElement(target)
-    if (!el) {
+    if (!el)
       return
-    }
 
     if (pageFullscreen) {
       togglePageFullscreen(true)
@@ -115,7 +112,8 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
     if (screenfull.isEnabled) {
       try {
         screenfull.request(el)
-      } catch (error) {
+      }
+      catch (error) {
         console.error(error)
       }
     }
@@ -123,31 +121,27 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
 
   const exitFullscreen = () => {
     const el = getTargetElement(target)
-    if (!el) {
+    if (!el)
       return
-    }
 
     if (pageFullscreen) {
       togglePageFullscreen(false)
       return
     }
-    if (screenfull.isEnabled && screenfull.element === el) {
+    if (screenfull.isEnabled && screenfull.element === el)
       screenfull.exit()
-    }
   }
 
   const toggleFullscreen = () => {
-    if (state()) {
+    if (state())
       exitFullscreen()
-    } else {
+    else
       enterFullscreen()
-    }
   }
 
   onMount(() => {
-    if (!screenfull.isEnabled || pageFullscreen) {
+    if (!screenfull.isEnabled || pageFullscreen)
       return
-    }
 
     screenfull.on('change', onScreenfullChange)
 

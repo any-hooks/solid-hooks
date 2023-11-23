@@ -113,15 +113,15 @@ class WS {
   messagesToConsume = new Queue()
 
   private _isConnected: Promise<Client>
-  private _isClosed: Promise<{}>
+  private _isClosed: Promise<object>
 
   constructor(url: string, options?: ServerOptions) {
     WS.instances.push(this)
 
     let connectionResolver: (socket: Client) => void
     let closedResolver!: (socket: Client) => void
-    this._isConnected = new Promise((resolve) => (connectionResolver = resolve))
-    this._isClosed = new Promise((resolve) => (closedResolver = resolve))
+    this._isConnected = new Promise(resolve => (connectionResolver = resolve))
+    this._isClosed = new Promise(resolve => (closedResolver = resolve))
 
     this.server = new Server(url, options)
 
@@ -141,7 +141,7 @@ class WS {
   get connected() {
     let resolve: (socket: Client) => void
     const connectedPromise = new Promise<Client>(
-      (_resolve) => (resolve = _resolve),
+      _resolve => (resolve = _resolve),
     )
     const waitForConnected = async () => {
       await this._isConnected
@@ -153,7 +153,7 @@ class WS {
 
   get closed() {
     let resolve: () => void
-    const closedPromise = new Promise<void>((_resolve) => (resolve = _resolve))
+    const closedPromise = new Promise<void>(_resolve => (resolve = _resolve))
     const waitForClosed = async () => {
       await this._isClosed
       await this._isClosed // make sure `await act` is really done
@@ -192,13 +192,13 @@ export default class Queue<ItemT> {
   pendingItems: Array<ItemT> = []
   nextItemResolver!: () => void
   nextItem: Promise<void> = new Promise(
-    (resolve) => (this.nextItemResolver = resolve),
+    resolve => (this.nextItemResolver = resolve),
   )
 
   put(item: ItemT): void {
     this.pendingItems.push(item)
     this.nextItemResolver()
-    this.nextItem = new Promise((resolve) => (this.nextItemResolver = resolve))
+    this.nextItem = new Promise(resolve => (this.nextItemResolver = resolve))
   }
 
   get(): Promise<ItemT> {
@@ -209,7 +209,7 @@ export default class Queue<ItemT> {
     }
     let resolver: (item: ItemT) => void
     const nextItemPromise: Promise<ItemT> = new Promise(
-      (resolve) => (resolver = resolve),
+      resolve => (resolver = resolve),
     )
     this.nextItem.then(() => {
       resolver(this.pendingItems.shift() as ItemT)

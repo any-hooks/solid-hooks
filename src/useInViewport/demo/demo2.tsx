@@ -49,8 +49,14 @@ export default () => {
           'color': inViewport() ? '#87d068' : '#f50',
         }}
       >
-        <p>inViewport: {inViewport() ? 'visible' : 'hidden'}</p>
-        <p>ratio: {ratio()}</p>
+        <p>
+          inViewport:
+          {inViewport() ? 'visible' : 'hidden'}
+        </p>
+        <p>
+          ratio:
+          {ratio()}
+        </p>
       </div>
     </div>
   )

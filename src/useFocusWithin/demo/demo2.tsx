@@ -24,13 +24,20 @@ export default () => {
         }}
       >
         <label style={{ display: 'block' }}>
-          First Name: <input />
+          First Name:
+          {' '}
+          <input />
         </label>
         <label style={{ 'display': 'block', 'margin-top': '16px' }}>
-          Last Name: <input />
+          Last Name:
+          {' '}
+          <input />
         </label>
       </div>
-      <p>isFocusWithin: {JSON.stringify(isFocusWithin())}</p>
+      <p>
+        isFocusWithin:
+        {JSON.stringify(isFocusWithin())}
+      </p>
     </div>
   )
 }

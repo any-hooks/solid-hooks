@@ -23,7 +23,11 @@ export default () => {
 
   return (
     <button ref={setRef} type="button">
-      You click {value()} times
+      You click
+      {' '}
+      {value()}
+      {' '}
+      times
     </button>
   )
 }

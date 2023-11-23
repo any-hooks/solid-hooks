@@ -19,23 +19,20 @@ class TestStorage implements Storage {
   }
 
   key(index: number): string | null {
-    if (index >= this._values.size) {
+    if (index >= this._values.size)
       return null
-    }
 
     return Array.from(this._values.keys())[index]
   }
 
   removeItem(key: string): void {
-    if (this._values.delete(key)) {
+    if (this._values.delete(key))
       this.length -= 1
-    }
   }
 
   setItem(key: string, value: string): void {
-    if (!this._values.has(key)) {
+    if (!this._values.has(key))
       this.length += 1
-    }
 
     this._values.set(key, value)
   }

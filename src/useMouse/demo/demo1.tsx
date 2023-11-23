@@ -14,13 +14,28 @@ export default () => {
   return (
     <div>
       <p>
-        Client - x: {mouse().clientX}, y: {mouse().clientY}
+        Client - x:
+        {' '}
+        {mouse().clientX}
+        , y:
+        {' '}
+        {mouse().clientY}
       </p>
       <p>
-        Page - x: {mouse().pageX}, y: {mouse().pageY}
+        Page - x:
+        {' '}
+        {mouse().pageX}
+        , y:
+        {' '}
+        {mouse().pageY}
       </p>
       <p>
-        Screen - x: {mouse().screenX}, y: {mouse().screenY}
+        Screen - x:
+        {' '}
+        {mouse().screenX}
+        , y:
+        {' '}
+        {mouse().screenY}
       </p>
     </div>
   )

@@ -19,8 +19,7 @@ export default () => {
           type="button"
           style={{ 'margin-right': '8px' }}
           onClick={() =>
-            setState((state) => ({ hello: 'world', count: state.count + 1 }))
-          }
+            setState(state => ({ hello: 'world', count: state.count + 1 }))}
         >
           set hello and count
         </button>

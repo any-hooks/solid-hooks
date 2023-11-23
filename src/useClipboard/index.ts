@@ -88,7 +88,8 @@ function useClipboard(
       navigator!.clipboard.readText().then((value) => {
         setText(value ?? '')
       })
-    } else {
+    }
+    else {
       setText(legacyRead())
     }
   }
@@ -100,11 +101,11 @@ function useClipboard(
 
   const copy = async (text: string = source || '') => {
     if (isSupported()) {
-      if (isSupportedApiClipboard) {
+      if (isSupportedApiClipboard)
         await navigator!.clipboard.writeText(text)
-      } else {
+      else
         legacyCopy(text)
-      }
+
       setText(text)
       setCopied(true)
       resetCopied()

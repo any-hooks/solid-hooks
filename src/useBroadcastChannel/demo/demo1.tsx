@@ -12,9 +12,12 @@ export default () => {
           ? 'Please open this page in at least two tabs'
           : 'Your Browser not support BroadcastChannel'}
       </p>
-      <p>message: {JSON.stringify(data() || '')}</p>
+      <p>
+        message:
+        {JSON.stringify(data() || '')}
+      </p>
       <div>
-        <input type="text" onInput={(e) => setMessage(e.target.value)} />
+        <input type="text" onInput={e => setMessage(e.target.value)} />
         <button
           style={{ 'margin-left': '16px' }}
           onClick={() => postMessage(message())}

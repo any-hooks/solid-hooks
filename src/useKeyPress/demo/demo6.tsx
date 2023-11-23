@@ -30,23 +30,28 @@ export default () => {
     <div>
       <p>Try pressing the following: </p>
       <div>
-        1. Modifier key [shift.c]:{' '}
+        1. Modifier key [shift.c]:
+        {' '}
         {state() === 1 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
       <div>
-        2. Modifier key [meta]:{' '}
+        2. Modifier key [meta]:
+        {' '}
         {state() === 2 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
       <div>
-        3. Modifier key [ctrl.alt.c]:{' '}
+        3. Modifier key [ctrl.alt.c]:
+        {' '}
         {state() === 3 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
       <div>
-        4. Modifier key [ctrl.enter]:{' '}
+        4. Modifier key [ctrl.enter]:
+        {' '}
         {state() === 4 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
       <div>
-        5. Modifier key [ctrl.alt.0]:{' '}
+        5. Modifier key [ctrl.alt.0]:
+        {' '}
         {state() === 5 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
     </div>

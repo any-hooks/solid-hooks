@@ -4,7 +4,7 @@ import IconCode from './Icons/IconCode'
 import { useAppContext } from '~/AppContext'
 
 interface DemoProps extends ParentProps {
-  data: Record<string, { title: string; desc: string }>
+  data: Record<string, { title: string, desc: string }>
   component: JSX.Element
 }
 export default function Demo(props: DemoProps) {

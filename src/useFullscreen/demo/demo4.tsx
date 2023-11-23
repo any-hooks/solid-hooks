@@ -11,11 +11,10 @@ import { useFullscreen, useRef } from '@any-hooks/solid'
 function vanillaToggleFullscreen(element: HTMLElement) {
   const isFullscreen = !!document.fullscreenElement
 
-  if (isFullscreen) {
+  if (isFullscreen)
     document.exitFullscreen()
-  } else {
+  else
     element.requestFullscreen()
-  }
 }
 
 export default () => {

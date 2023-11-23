@@ -16,16 +16,16 @@ export interface Options {
    *
    * 按下后移动阈值，超出则不触发长按事件
    */
-  moveThreshold?: { x?: number; y?: number }
+  moveThreshold?: { x?: number, y?: number }
   onClick?: (event: EventType) => void
   onLongPressEnd?: (event: EventType) => void
 }
 
-const touchSupported =
-  isBrowser &&
-  ('ontouchstart' in window ||
-    // @ts-ignore
-    (window.DocumentTouch && document instanceof DocumentTouch))
+const touchSupported
+  = isBrowser
+  && ('ontouchstart' in window
+  // @ts-ignore
+  || (window.DocumentTouch && document instanceof DocumentTouch))
 
 /**
  * A hook that detects long press events on a target element.
@@ -50,15 +50,14 @@ function useLongPress(
   const pervPosition = { x: 0, y: 0 }
 
   const hasMoveThreshold = !!(
-    (moveThreshold?.x && moveThreshold.x > 0) ||
-    (moveThreshold?.y && moveThreshold.y > 0)
+    (moveThreshold?.x && moveThreshold.x > 0)
+    || (moveThreshold?.y && moveThreshold.y > 0)
   )
 
   onMount(() => {
     const targetElement = getTargetElement(target)
-    if (!targetElement?.addEventListener) {
+    if (!targetElement?.addEventListener)
       return
-    }
 
     const overThreshold = (event: EventType) => {
       const { clientX, clientY } = getClientPosition(event)
@@ -66,8 +65,8 @@ function useLongPress(
       const offsetY = Math.abs(clientY - pervPosition.y)
 
       return !!(
-        (moveThreshold?.x && offsetX > moveThreshold.x) ||
-        (moveThreshold?.y && offsetY > moveThreshold.y)
+        (moveThreshold?.x && offsetX > moveThreshold.x)
+        || (moveThreshold?.y && offsetY > moveThreshold.y)
       )
     }
 
@@ -111,15 +110,15 @@ function useLongPress(
     }
 
     const onEnd = (event: EventType, shouldTriggerClick: boolean = false) => {
-      if (timer) {
+      if (timer)
         clearTimeout(timer)
-      }
-      if (isTriggered) {
+
+      if (isTriggered)
         onLongPressEnd?.(event)
-      }
-      if (shouldTriggerClick && !isTriggered && onClick) {
+
+      if (shouldTriggerClick && !isTriggered && onClick)
         onClick(event)
-      }
+
       isTriggered = false
     }
 
@@ -131,7 +130,8 @@ function useLongPress(
       targetElement.addEventListener('mouseleave', onEnd as any)
       if (hasMoveThreshold)
         targetElement.addEventListener('mousemove', onMove as any)
-    } else {
+    }
+    else {
       targetElement.addEventListener('touchstart', onStart as any)
       targetElement.addEventListener('touchend', onEndWithClick as any)
       if (hasMoveThreshold)
@@ -148,7 +148,8 @@ function useLongPress(
         targetElement.removeEventListener('mouseleave', onEnd as any)
         if (hasMoveThreshold)
           targetElement.removeEventListener('mousemove', onMove as any)
-      } else {
+      }
+      else {
         targetElement.removeEventListener('touchstart', onStart as any)
         targetElement.removeEventListener('touchend', onEndWithClick as any)
         if (hasMoveThreshold)

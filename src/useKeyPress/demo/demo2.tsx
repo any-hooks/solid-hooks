@@ -13,11 +13,11 @@ export default () => {
   const [counter, setCounter] = createSignal(0)
 
   useKeyPress('leftarrow', () => {
-    setCounter((s) => s - 1)
+    setCounter(s => s - 1)
   })
 
   useKeyPress('rightarrow', () => {
-    setCounter((s) => s + 1)
+    setCounter(s => s + 1)
   })
 
   return (
@@ -26,7 +26,9 @@ export default () => {
       <div>1. Press ArrowLeft to decrease</div>
       <div>2. Press ArrowRight to increase</div>
       <div>
-        counter: <span style={{ color: '#f00' }}>{counter()}</span>
+        counter:
+        {' '}
+        <span style={{ color: '#f00' }}>{counter()}</span>
       </div>
     </div>
   )

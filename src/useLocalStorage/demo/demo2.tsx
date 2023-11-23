@@ -22,8 +22,7 @@ export default function () {
         type="button"
         style={{ 'margin-right': '16px' }}
         onClick={() =>
-          setValue([...(value() || []), Math.random().toString(36).slice(-1)])
-        }
+          setValue([...(value() || []), Math.random().toString(36).slice(-1)])}
       >
         push random
       </button>

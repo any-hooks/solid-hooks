@@ -44,9 +44,9 @@ export default function useVirtualList<T = any>(
 
   const totalHeight = createMemo(() => {
     const list = dataList()
-    if (isNumber(itemHeight)) {
+    if (isNumber(itemHeight))
       return list.length * itemHeight
-    }
+
     return list.reduce(
       (sum, _, index) =>
         sum + (itemHeight as ItemHeight<T>)(index, list[index]),
@@ -55,9 +55,8 @@ export default function useVirtualList<T = any>(
   })
 
   const getVisibleCount = (containerHeight: number, fromIndex: number) => {
-    if (isNumber(itemHeight)) {
+    if (isNumber(itemHeight))
       return Math.ceil(containerHeight / itemHeight)
-    }
 
     let sum = 0
     let endIndex = 0
@@ -66,17 +65,16 @@ export default function useVirtualList<T = any>(
       const height = itemHeight(i, list[i])
       sum += height
       endIndex = i
-      if (sum >= containerHeight) {
+      if (sum >= containerHeight)
         break
-      }
     }
     return endIndex - fromIndex
   }
 
   const getOffset = (scrollTop: number) => {
-    if (isNumber(itemHeight)) {
+    if (isNumber(itemHeight))
       return Math.floor(scrollTop / itemHeight) + 1
-    }
+
     let sum = 0
     let offset = 0
     const list = dataList()
@@ -145,9 +143,9 @@ export default function useVirtualList<T = any>(
   })
 
   useWatch([size, dataList], ([size]) => {
-    if (!size?.width || !size?.height) {
+    if (!size?.width || !size?.height)
       return
-    }
+
     calculateRange()
   })
 
@@ -169,11 +167,11 @@ export default function useVirtualList<T = any>(
     const top = getDistanceTop(index)
     if (container) {
       scrollTriggerByScrollToFunc = true
-      if (container.scrollTo) {
+      if (container.scrollTo)
         container.scrollTo({ top, behavior })
-      } else {
+      else
         container.scrollTop = top
-      }
+
       calculateRange()
     }
   }

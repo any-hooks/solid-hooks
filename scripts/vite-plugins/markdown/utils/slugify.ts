@@ -6,8 +6,8 @@ const rCombining = /[\u0300-\u036F]/g
 /**
  * Default slugification function
  */
-export const slugify = (str: string): string =>
-  str
+export function slugify(str: string): string {
+  return str
     .normalize('NFKD')
     // Remove accents
     .replace(rCombining, '')
@@ -23,3 +23,4 @@ export const slugify = (str: string): string =>
     .replace(/^(\d)/, '_$1')
     // lowercase
     .toLowerCase()
+}

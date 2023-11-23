@@ -16,7 +16,10 @@ export default () => {
   }
   return (
     <div>
-      <p>State： {isLock() ? 'Unlock' : 'Lock'}</p>
+      <p>
+        State：
+        {isLock() ? 'Unlock' : 'Lock'}
+      </p>
       <button type="button" onClick={toggleLock}>
         Toggle lock
       </button>

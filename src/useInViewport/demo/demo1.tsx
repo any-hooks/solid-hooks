@@ -43,7 +43,9 @@ export default () => {
           'color': inViewport() ? '#87d068' : '#f50',
         }}
       >
-        inViewport: {inViewport() ? 'visible' : 'hidden'}
+        inViewport:
+        {' '}
+        {inViewport() ? 'visible' : 'hidden'}
       </div>
     </div>
   )

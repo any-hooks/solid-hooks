@@ -115,7 +115,8 @@ export default function useWebSocket(
 
   const [latestMessage, setLatestMessage] = createSignal<
     WebSocketEventMap['message'] | undefined
-  >(undefined)
+  >(undefined,
+  )
   const [readyState, setReadyState] = createSignal<ReadyState>(
     ReadyState.Closed,
   )
@@ -135,9 +136,9 @@ export default function useWebSocket(
   function onClose(event: WebSocketEventMap['close'], ws: WebSocket) {
     setReadyState(ws.readyState || ReadyState.Closed)
     options.onClose?.(event, ws)
-    if (cache.linkCount > 0 && cache.ws) {
+    if (cache.linkCount > 0 && cache.ws)
       reconnect()
-    }
+
     if (cache.linkCount === 0 && !cache.ws) {
       cache.events.off('close', onClose)
       cache.events.clear()
@@ -151,11 +152,11 @@ export default function useWebSocket(
 
   function reconnect() {
     if (
-      cache.reconnectCount >= cache.reconnectLimit ||
-      readyState() === ReadyState.Open
-    ) {
+      cache.reconnectCount >= cache.reconnectLimit
+      || readyState() === ReadyState.Open
+    )
       return
-    }
+
     reconnectTimer && clearTimeout(reconnectTimer)
     reconnectTimer = setTimeout(() => {
       connect()
@@ -176,8 +177,8 @@ export default function useWebSocket(
 
     reconnectTimer && clearTimeout(reconnectTimer)
     if (
-      cache.readyState === ReadyState.Open ||
-      cache.readyState === ReadyState.Connecting
+      cache.readyState === ReadyState.Open
+      || cache.readyState === ReadyState.Connecting
     ) {
       setReadyState(cache.readyState)
       return
@@ -188,22 +189,24 @@ export default function useWebSocket(
     cache.readyState = ReadyState.Connecting
     setReadyState(cache.readyState)
 
-    ws.onerror = (e) => cache.events.emit('error', e, ws)
-    ws.onopen = (e) => cache.events.emit('open', e, ws)
-    ws.onclose = (e) => cache.events.emit('close', e, ws)
-    ws.onmessage = (e) => cache.events.emit('message', e, ws)
+    ws.onerror = e => cache.events.emit('error', e, ws)
+    ws.onopen = e => cache.events.emit('open', e, ws)
+    ws.onclose = e => cache.events.emit('close', e, ws)
+    ws.onmessage = e => cache.events.emit('message', e, ws)
   }
 
   function disconnect(force = true) {
     reconnectTimer && clearTimeout(reconnectTimer)
-    if (!cache) return
+    if (!cache)
+      return
     const ws = cache.ws
     cache.linkCount -= 1
     if (cache.linkCount <= 0 || force) {
       cache.ws = null
       ws?.close()
       wsCache.delete(socketUrl)
-    } else {
+    }
+    else {
       cache.events.off('close', onClose)
     }
     cache.events.off('error', onError)
@@ -213,17 +216,15 @@ export default function useWebSocket(
 
   const sendMessage: WebSocket['send'] = (message) => {
     const ws = cache?.ws
-    if (ws && ws.readyState === ReadyState.Open) {
+    if (ws && ws.readyState === ReadyState.Open)
       ws.send(message)
-    } else {
+    else
       throw new Error('WebSocket disconnected')
-    }
   }
 
   onMount(() => {
-    if (!manual && socketUrl) {
+    if (!manual && socketUrl)
       connect()
-    }
 
     onCleanup(() => {
       disconnect(false)

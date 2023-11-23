@@ -163,10 +163,12 @@ export default function useHistorySignal<Raw, Serialized = Raw>(
   )
   const [undoStack, setUndoStack] = createSignal<
     UseHistorySignalRecord<Serialized>[]
-  >([])
+  >([],
+  )
   const [redoStack, setRedoStack] = createSignal<
     UseHistorySignalRecord<Serialized>[]
-  >([])
+  >([],
+  )
 
   let ignoreUpdate = false
 
@@ -179,9 +181,9 @@ export default function useHistorySignal<Raw, Serialized = Raw>(
 
   const commit = () => {
     let res = [last(), ...undoStack()]
-    if (options.capacity && res.length > options.capacity) {
+    if (options.capacity && res.length > options.capacity)
       res = res.slice(0, options.capacity)
-    }
+
     setUndoStack(res)
     setLast(_createHistoryRecord())
     redoStack().length && setRedoStack([])
@@ -216,9 +218,8 @@ export default function useHistorySignal<Raw, Serialized = Raw>(
   const canUndo = createMemo(() => undoStack().length > 0)
   const canRedo = createMemo(() => redoStack().length > 0)
 
-  if (!manual) {
+  if (!manual)
     useWatch(source, () => !ignoreUpdate && commit(), { defer: true })
-  }
 
   return {
     source,

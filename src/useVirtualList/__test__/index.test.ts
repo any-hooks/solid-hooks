@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import useVirtualList, { type Options } from '..'
 
 describe('useVirtualList', () => {
-  let hook: { result: ReturnType<typeof useVirtualList>; cleanup: () => void }
+  let hook: { result: ReturnType<typeof useVirtualList>, cleanup: () => void }
   let container: HTMLDivElement
   let wrapper: HTMLDivElement
 

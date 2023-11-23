@@ -14,7 +14,7 @@ export default () => {
   const [ref, setRef] = useRef()
   useClickAway(
     () => {
-      setCounter((s) => s + 1)
+      setCounter(s => s + 1)
     },
     ref,
     ['click', 'contextmenu'],
@@ -25,7 +25,10 @@ export default () => {
       <button type="button" ref={setRef}>
         box
       </button>
-      <p>counter: {counter()}</p>
+      <p>
+        counter:
+        {counter()}
+      </p>
     </div>
   )
 }

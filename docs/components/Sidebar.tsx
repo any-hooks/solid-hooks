@@ -8,8 +8,9 @@ export default function Sidebar() {
   const [store] = useAppContext()
   const match = useMatch(() => '/:lang/hooks/*')
   const config = createMemo(() => {
-    if (!match()) return []
-    return sidebarConfig.map((item) => ({
+    if (!match())
+      return []
+    return sidebarConfig.map(item => ({
       title: item.title,
       children: item.children.map((text) => {
         return { link: `/${store.lang}/hooks/${kebabCase(text)}`, text }
@@ -20,11 +21,11 @@ export default function Sidebar() {
     <aside class="sidebar fixed top-navbar left-0 bottom-0 w-sidebar overflow-auto bg-gray-50 dark:bg-light-100/2">
       <div class="pl-4 pb-6">
         <For each={config()}>
-          {(item) => (
+          {item => (
             <div class="sidebar-nav-item">
               <p class="font-medium">{item.title}</p>
               <For each={item.children}>
-                {(child) => (
+                {child => (
                   <p>
                     <A
                       class="pl-4 cursor-pointer text-text text-sm decoration-none"

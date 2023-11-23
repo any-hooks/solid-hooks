@@ -22,7 +22,7 @@ type DebounceSetter<T> = Setter<T>
 function useDebounceSignal<T>(value?: T, options?: DebounceOptions) {
   const [state, setState] = createSignal(value)
 
-  const { run } = useDebounceFn((value) => setState(value), options)
+  const { run } = useDebounceFn(value => setState(value), options)
 
   return [state, run as unknown as DebounceSetter<T>, setState] as const
 }

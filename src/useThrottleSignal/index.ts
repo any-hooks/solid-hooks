@@ -21,7 +21,7 @@ type ThrottleSetter<T> = Setter<T>
 function useThrottleSignal<T>(value?: T, options?: ThrottleOptions) {
   const [state, setState] = createSignal(value)
 
-  const { run } = useThrottleFn((value) => setState(value), options)
+  const { run } = useThrottleFn(value => setState(value), options)
 
   return [state, run as unknown as ThrottleSetter<T>, setState] as const
 }

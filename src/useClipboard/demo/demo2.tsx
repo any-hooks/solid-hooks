@@ -13,8 +13,14 @@ export default () => {
 
   return (
     <div>
-      <p>text: {text()}</p>
-      <p>copied: {JSON.stringify(copied())}</p>
+      <p>
+        text:
+        {text()}
+      </p>
+      <p>
+        copied:
+        {JSON.stringify(copied())}
+      </p>
       <p>select and copy any text: " hello world "</p>
     </div>
   )

@@ -9,13 +9,12 @@
 import { useBoolean, useUnmountedSignal } from '@any-hooks/solid'
 import { onMount } from 'solid-js'
 
-const MyComponent = () => {
+function MyComponent() {
   const unmounted = useUnmountedSignal()
   onMount(() => {
     setTimeout(() => {
-      if (!unmounted()) {
+      if (!unmounted())
         console.log('component is alive')
-      }
     }, 3000)
   })
 

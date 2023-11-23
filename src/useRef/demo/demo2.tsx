@@ -17,7 +17,7 @@ export default () => {
   onMount(() => {
     setText(
       ref()
-        .map((r) => r.textContent)
+        .map(r => r.textContent)
         .join(', '),
     )
     console.log(ref())
@@ -25,9 +25,14 @@ export default () => {
 
   return (
     <div>
-      <p>bind DOM element content: [ {text()} ]</p>
+      <p>
+        bind DOM element content: [
+        {text()}
+        {' '}
+        ]
+      </p>
       <For each={list}>
-        {(item, index) => <div ref={(el) => setRef(el, index())}>{item}</div>}
+        {(item, index) => <div ref={el => setRef(el, index())}>{item}</div>}
       </For>
     </div>
   )

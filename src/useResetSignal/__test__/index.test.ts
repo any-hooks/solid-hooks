@@ -43,7 +43,7 @@ describe('useResetState', () => {
     const hook = setUp({
       count: 0,
     })
-    hook.setState((prev) => ({ count: prev.count + 1 }))
+    hook.setState(prev => ({ count: prev.count + 1 }))
     expect(hook.state()).toEqual({ count: 1 })
   })
 })

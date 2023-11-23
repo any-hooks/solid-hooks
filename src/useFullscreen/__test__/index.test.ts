@@ -20,7 +20,7 @@ const events = {
   fullscreenchange: new Set(),
   fullscreenerror: new Set(),
 }
-const setup = (target: BasicTarget, options?: Options) => {
+function setup(target: BasicTarget, options?: Options) {
   globalHook = renderHook(() => useFullscreen(target, options))
   return globalHook
 }
@@ -48,16 +48,14 @@ describe('useFullscreen', () => {
 
     vi.spyOn(document, 'addEventListener').mockImplementation(
       (eventName, callback) => {
-        if (events[eventName as keyof typeof events]) {
+        if (events[eventName as keyof typeof events])
           events[eventName as keyof typeof events].add(callback)
-        }
       },
     )
     vi.spyOn(document, 'removeEventListener').mockImplementation(
       (eventName, callback) => {
-        if (events[eventName as keyof typeof events]) {
+        if (events[eventName as keyof typeof events])
           events[eventName as keyof typeof events].delete(callback)
-        }
       },
     )
   })

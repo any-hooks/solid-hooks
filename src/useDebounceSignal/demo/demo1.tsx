@@ -15,11 +15,14 @@ export default () => {
     <div>
       <input
         value={state()}
-        onInput={(e) => setState(e.target.value)}
+        onInput={e => setState(e.target.value)}
         placeholder="Typed value"
         style={{ width: '280px' }}
       />
-      <p style={{ 'margin-top': '16px' }}>DebouncedValue: {state()}</p>
+      <p style={{ 'margin-top': '16px' }}>
+        DebouncedValue:
+        {state()}
+      </p>
     </div>
   )
 }

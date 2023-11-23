@@ -7,7 +7,7 @@
  */
 
 import { useRef, useVirtualList } from '@any-hooks/solid'
-import { createMemo, createSignal } from 'solid-js'
+import { For, createMemo, createSignal } from 'solid-js'
 
 export default () => {
   const [container, setContainer] = useRef()
@@ -18,7 +18,7 @@ export default () => {
   const [list, scrollTo] = useVirtualList(originalList, {
     containerTarget: container,
     wrapperTarget: wrapper,
-    itemHeight: (i) => (i % 2 === 0 ? 42 + 8 : 84 + 8),
+    itemHeight: i => (i % 2 === 0 ? 42 + 8 : 84 + 8),
     overscan: 10,
   })
 
@@ -30,7 +30,7 @@ export default () => {
           placeholder="line number"
           type="number"
           value={value()}
-          onChange={(e) => onChange(Number(e.target.value))}
+          onChange={e => onChange(Number(e.target.value))}
         />
         <button
           style={{ 'margin-left': '8px' }}
@@ -42,20 +42,28 @@ export default () => {
       </div>
       <div ref={setContainer} style={{ height: '300px', overflow: 'auto' }}>
         <div ref={setWrapper}>
-          {list().map((ele) => (
-            <div
-              style={{
-                'height': `${ele.index % 2 === 0 ? 42 : 84}px`,
-                'display': 'flex',
-                'justify-content': 'center',
-                'align-items': 'center',
-                'border': '1px solid #e8e8e8',
-                'margin-bottom': '8px',
-              }}
-            >
-              Row: {ele.data} size: {ele.index % 2 === 0 ? 'small' : 'large'}
-            </div>
-          ))}
+          <For each={list()}>
+            {ele => (
+              <div
+                style={{
+                  'height': `${ele.index % 2 === 0 ? 42 : 84}px`,
+                  'display': 'flex',
+                  'justify-content': 'center',
+                  'align-items': 'center',
+                  'border': '1px solid #e8e8e8',
+                  'margin-bottom': '8px',
+                }}
+              >
+                Row:
+                {' '}
+                {ele.data}
+                {' '}
+                size:
+                {' '}
+                {ele.index % 2 === 0 ? 'small' : 'large'}
+              </div>
+            )}
+          </For>
         </div>
       </div>
     </div>

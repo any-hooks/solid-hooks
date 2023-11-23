@@ -4,7 +4,7 @@ import type { Options } from '..'
 import useFocusWithin from '..'
 import useRef from '../../useRef'
 
-const setup = (options?: Options) => {
+function setup(options?: Options) {
   const TestComponent = () => {
     const [ref, setRef] = useRef()
     const isFocusWithin = useFocusWithin(ref, options)
@@ -18,7 +18,10 @@ const setup = (options?: Options) => {
           Last Name
           <input />
         </label>
-        <p>isFocusWithin: {JSON.stringify(isFocusWithin())}</p>
+        <p>
+          isFocusWithin:
+          {JSON.stringify(isFocusWithin())}
+        </p>
       </div>
     )
   }

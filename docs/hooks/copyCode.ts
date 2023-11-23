@@ -5,9 +5,8 @@ export function useCopyCode() {
     if (el.matches('div[class*="language-"] > span.copy-code')) {
       const parent = el.parentElement
       const sibling = el.nextElementSibling as HTMLPreElement | null
-      if (!parent || !sibling) {
+      if (!parent || !sibling)
         return
-      }
 
       const isShell = /language-(shellscript|shell|bash|sh|zsh)/.test(
         parent.className,
@@ -17,12 +16,11 @@ export function useCopyCode() {
 
       sibling
         .querySelectorAll('span.line:not(.diff.remove)')
-        .forEach((node) => (text += `${node.textContent || ''}\n`))
+        .forEach(node => (text += `${node.textContent || ''}\n`))
       text = text.slice(0, -1)
 
-      if (isShell) {
+      if (isShell)
         text = text.replace(/^ *(\$|>) /gm, '').trim()
-      }
 
       copyToClipboard(text).then(() => {
         el.classList.add('copied')
@@ -41,7 +39,8 @@ export function useCopyCode() {
 export async function copyToClipboard(text: string) {
   try {
     return navigator.clipboard.writeText(text)
-  } catch {
+  }
+  catch {
     const element = document.createElement('textarea')
     const previouslyFocusedElement = document.activeElement
 

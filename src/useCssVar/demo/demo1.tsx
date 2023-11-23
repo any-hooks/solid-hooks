@@ -18,7 +18,9 @@ export default () => {
         ref={setRef}
         style={{ 'color': 'var(--c-color)', 'margin-bottom': '16px' }}
       >
-        Text CSS Variable : {color()}
+        Text CSS Variable :
+        {' '}
+        {color()}
       </div>
       <button
         type="button"

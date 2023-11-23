@@ -13,7 +13,7 @@ export default () => {
 
   const [ref, setRef] = useRef<HTMLButtonElement>()
 
-  useLongPress(() => setPressCounter((s) => s + 1), ref, {
+  useLongPress(() => setPressCounter(s => s + 1), ref, {
     moveThreshold: { x: 30 },
   })
 
@@ -22,7 +22,10 @@ export default () => {
       <button ref={setRef} type="button">
         Press me
       </button>
-      <p>counter: {pressCounter()}</p>
+      <p>
+        counter:
+        {pressCounter()}
+      </p>
     </div>
   )
 }

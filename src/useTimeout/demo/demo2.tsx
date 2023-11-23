@@ -19,10 +19,18 @@ export default () => {
 
   return (
     <div>
-      <p> count: {count()} </p>
-      <p style={{ 'margin-top': '16px' }}> Delay: {delay()} </p>
+      <p>
+        {' '}
+        count:
+        {count()}
+      </p>
+      <p style={{ 'margin-top': '16px' }}>
+        {' '}
+        Delay:
+        {delay()}
+      </p>
       <button
-        onClick={() => setDelay((t) => (t ? t + 1000 : 1000))}
+        onClick={() => setDelay(t => (t ? t + 1000 : 1000))}
         style={{ 'margin-right': '8px' }}
       >
         Delay + 1000

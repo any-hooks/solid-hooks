@@ -19,10 +19,18 @@ export default () => {
 
   return (
     <div>
-      <p> count: {count()} </p>
-      <p style={{ 'margin-top': '16px' }}> interval: {interval()} </p>
+      <p>
+        {' '}
+        count:
+        {count()}
+      </p>
+      <p style={{ 'margin-top': '16px' }}>
+        {' '}
+        interval:
+        {interval()}
+      </p>
       <button
-        onClick={() => setInterval((t) => (t ? t + 1000 : 1000))}
+        onClick={() => setInterval(t => (t ? t + 1000 : 1000))}
         style={{ 'margin-right': '8px' }}
       >
         interval + 1000

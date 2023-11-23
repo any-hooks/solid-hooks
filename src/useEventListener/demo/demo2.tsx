@@ -16,5 +16,10 @@ export default () => {
     setValue(ev.code)
   })
 
-  return <p>Your press key is {value()}</p>
+  return (
+    <p>
+      Your press key is
+      {value()}
+    </p>
+  )
 }

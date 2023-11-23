@@ -41,11 +41,10 @@ export default function Navbar() {
 
   const updateTheme = () => {
     toggleTheme()
-    if (store.theme === 'dark') {
+    if (store.theme === 'dark')
       document.documentElement.classList.add('dark')
-    } else {
+    else
       document.documentElement.classList.remove('dark')
-    }
   }
 
   const goHome = () => {
@@ -56,7 +55,7 @@ export default function Navbar() {
     <nav class="fixed w-full h-navbar top-0 left-0 border-b bg-[var(--c-bg)] z-10 flex-items-center">
       <SiteTitle onClick={goHome} />
       <div class="flex-1 flex-items-center justify-end pr-6">
-        <For each={config()}>{(item) => <NavLink {...item} />}</For>
+        <For each={config()}>{item => <NavLink {...item} />}</For>
         <span
           class="cursor-pointer ml-10 inline-block w-24 py-2 text-center border rounded-full"
           onClick={updateLang}
@@ -84,7 +83,7 @@ function SiteTitle(props: { onClick: () => void }) {
   return (
     <div
       class="px-6 pr-4 text-20px font-medium cursor-pointer"
-      onClick={props.onClick}
+      onClick={() => props.onClick()}
     >
       <span class="text-brand">@any-hooks</span>
       <span class="text-brand-light mx-1">/</span>

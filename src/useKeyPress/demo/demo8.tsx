@@ -14,10 +14,10 @@ export default () => {
 
   const keyCallbackMap: Record<string, () => void> = {
     'w': () => {
-      setCount((prev) => prev + 1)
+      setCount(prev => prev + 1)
     },
     's': () => {
-      setCount((prev) => prev - 1)
+      setCount(prev => prev - 1)
     },
     'shift.c': () => {
       setCount(0)
@@ -35,7 +35,9 @@ export default () => {
       <div>2. Press [s] to decrease</div>
       <div>3. Press [shift.c] to reset</div>
       <p>
-        counter: <span style={{ color: '#f00' }}>{count()}</span>
+        counter:
+        {' '}
+        <span style={{ color: '#f00' }}>{count()}</span>
       </p>
     </div>
   )

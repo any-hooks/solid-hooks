@@ -12,7 +12,10 @@ export default () => {
   const [state, { setLeft, setRight, toggle }] = useToggle()
   return (
     <div>
-      <p>Effects：{JSON.stringify(state())}</p>
+      <p>
+        Effects：
+        {JSON.stringify(state())}
+      </p>
       <p>
         <button type="button" onClick={toggle}>
           Toggle

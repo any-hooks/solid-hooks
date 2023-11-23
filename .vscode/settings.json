@@ -5,5 +5,5 @@
     "screenfull",
     "solidjs"
   ],
-  "scss.validate": false,
+  "scss.validate": false
 }

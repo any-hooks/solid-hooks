@@ -21,10 +21,10 @@ let responsiveConfig: ResponsiveConfig = {
 function handleResize() {
   const oldInfo = info
   calculate()
-  if (oldInfo === info) return
-  for (const subscriber of subscribers) {
+  if (oldInfo === info)
+    return
+  for (const subscriber of subscribers)
     subscriber()
-  }
 }
 
 let listening = false
@@ -35,18 +35,17 @@ function calculate() {
   let shouldUpdate = false
   for (const key of Object.keys(responsiveConfig)) {
     newInfo[key] = width >= responsiveConfig[key]
-    if (newInfo[key] !== info[key]) {
+    if (newInfo[key] !== info[key])
       shouldUpdate = true
-    }
   }
-  if (shouldUpdate) {
+  if (shouldUpdate)
     info = newInfo
-  }
 }
 
 export function configResponsive(config: ResponsiveConfig) {
   responsiveConfig = config
-  if (info) calculate()
+  if (info)
+    calculate()
 }
 
 /**
@@ -72,11 +71,11 @@ export function useResponsive() {
   const [state, setState] = createSignal<ResponsiveInfo>(info)
 
   onMount(() => {
-    if (!isBrowser) return
+    if (!isBrowser)
+      return
 
-    if (!listening) {
+    if (!listening)
       window.addEventListener('resize', handleResize)
-    }
 
     const subscriber = () => setState(info)
 

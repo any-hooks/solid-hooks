@@ -7,7 +7,7 @@
  */
 
 import { useWatch, useWebSocket } from '@any-hooks/solid'
-import { createSignal } from 'solid-js'
+import { For, createSignal } from 'solid-js'
 
 enum ReadyState {
   Connecting = 0,
@@ -19,11 +19,11 @@ enum ReadyState {
 export default () => {
   const [messageHistory, setHistory] = createSignal<any[]>([])
 
-  const { readyState, sendMessage, latestMessage, disconnect, connect } =
-    useWebSocket('wss://ws.postman-echo.com/raw')
+  const { readyState, sendMessage, latestMessage, disconnect, connect }
+    = useWebSocket('wss://ws.postman-echo.com/raw')
 
   useWatch(latestMessage, (message) => {
-    setHistory((history) => [...history, message])
+    setHistory(history => [...history, message])
   })
 
   return (
@@ -51,12 +51,17 @@ export default () => {
       >
         {readyState() === ReadyState.Connecting ? 'connecting' : '📞 connect'}
       </button>
-      <div style={{ 'margin-top': '8px' }}>readyState: {readyState()}</div>
+      <div style={{ 'margin-top': '8px' }}>
+        readyState:
+        {readyState()}
+      </div>
       <div style={{ 'margin-top': '8px' }}>
         <p>received message: </p>
-        {messageHistory().map((message) => (
-          <p style={{ 'word-wrap': 'break-word' }}>{message?.data}</p>
-        ))}
+        <For each={messageHistory()}>
+          {message => (
+            <p style={{ 'word-wrap': 'break-word' }}>{message?.data}</p>
+          )}
+        </For>
       </div>
     </div>
   )

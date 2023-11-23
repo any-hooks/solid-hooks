@@ -13,8 +13,14 @@ export default () => {
 
   return (
     <div>
-      <p>text: {text()}</p>
-      <p>copied: {JSON.stringify(copied())}</p>
+      <p>
+        text:
+        {text()}
+      </p>
+      <p>
+        copied:
+        {JSON.stringify(copied())}
+      </p>
       <button onClick={() => copy('hello world')}>copy</button>
     </div>
   )

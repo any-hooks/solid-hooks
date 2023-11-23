@@ -7,8 +7,8 @@ export default () => {
 
   const [ref, setRef] = useRef<HTMLButtonElement>(null)
 
-  useLongPress(() => setPressCounter((s) => s + 1), ref, {
-    onClick: () => setClickCounter((s) => s + 1),
+  useLongPress(() => setPressCounter(s => s + 1), ref, {
+    onClick: () => setClickCounter(s => s + 1),
   })
 
   return (
@@ -16,8 +16,14 @@ export default () => {
       <button ref={setRef} type="button">
         Press me
       </button>
-      <p>pressCounter: {pressCounter()}</p>
-      <p>clickCounter: {clickCounter()}</p>
+      <p>
+        pressCounter:
+        {pressCounter()}
+      </p>
+      <p>
+        clickCounter:
+        {clickCounter()}
+      </p>
     </div>
   )
 }

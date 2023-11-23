@@ -107,7 +107,7 @@ describe('useKeyPress', () => {
 
     // only some keys can trigger callback
     const hook2 = renderHook(() =>
-      useKeyPress((e) => ['0', 'meta'].includes(e.key), callback2),
+      useKeyPress(e => ['0', 'meta'].includes(e.key), callback2),
     )
     fireEvent.keyDown(document, { key: '0', keyCode: 48 })
     fireEvent.keyDown(document, { key: '1', keyCode: 49 })

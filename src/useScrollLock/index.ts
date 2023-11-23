@@ -6,16 +6,18 @@ import isAppleDevice from '../utils/isAppleDevice'
 function checkOverflowScroll(ele: Element): boolean {
   const style = window.getComputedStyle(ele)
   if (
-    style.overflowX === 'scroll' ||
-    style.overflowY === 'scroll' ||
-    (style.overflowX === 'auto' && ele.clientWidth < ele.scrollWidth) ||
-    (style.overflowY === 'auto' && ele.clientHeight < ele.scrollHeight)
+    style.overflowX === 'scroll'
+    || style.overflowY === 'scroll'
+    || (style.overflowX === 'auto' && ele.clientWidth < ele.scrollWidth)
+    || (style.overflowY === 'auto' && ele.clientHeight < ele.scrollHeight)
   ) {
     return true
-  } else {
+  }
+  else {
     const parent = ele.parentNode as Element
 
-    if (!parent || parent.tagName === 'BODY') return false
+    if (!parent || parent.tagName === 'BODY')
+      return false
 
     return checkOverflowScroll(parent)
   }
@@ -27,12 +29,15 @@ function preventDefault(rawEvent: TouchEvent): boolean {
   const _target = e.target as Element
 
   // Do not prevent if element or parentNodes have overflow: scroll set.
-  if (checkOverflowScroll(_target)) return false
+  if (checkOverflowScroll(_target))
+    return false
 
   // Do not prevent if the event has more than one touch (usually meaning this is a multi touch gesture like pinch to zoom).
-  if (e.touches.length > 1) return true
+  if (e.touches.length > 1)
+    return true
 
-  if (e.preventDefault) e.preventDefault()
+  if (e.preventDefault)
+    e.preventDefault()
 
   return false
 }
@@ -63,11 +68,12 @@ export default function useScrollLock(
 
   const lock = () => {
     const el = getTargetElement(target) as HTMLElement
-    if (!el || isLocked()) return
+    if (!el || isLocked())
+      return
     if (isAppleDevice) {
       stopEventListener = useEventListener(
         'touchmove',
-        (e) => preventDefault(e),
+        e => preventDefault(e),
         { target, passive: false },
       )
     }
@@ -77,7 +83,8 @@ export default function useScrollLock(
 
   const unlock = () => {
     const el = getTargetElement(target) as HTMLElement
-    if (!el || !isLocked()) return
+    if (!el || !isLocked())
+      return
     isAppleDevice && stopEventListener?.()
     el.style.overflow = initialOverflow
     setLocked(false)
@@ -87,7 +94,8 @@ export default function useScrollLock(
     const el = getTargetElement(target) as HTMLElement
     if (el) {
       initialOverflow = el.style.overflow
-      if (isLocked()) el.style.overflow = 'hidden'
+      if (isLocked())
+        el.style.overflow = 'hidden'
     }
     onCleanup(() => unlock())
   })

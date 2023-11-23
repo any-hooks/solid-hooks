@@ -1,26 +1,27 @@
 {
   "name": "@any-hooks/solid",
+  "type": "module",
   "version": "0.1.0",
+  "packageManager": "pnpm@8.10.5",
   "description": "A high-quality & reliable Solid Hooks library.",
+  "author": "pengzhanbo <volodymyr@foxmail.com> (https://github.com/pengzhanbo)",
+  "license": "MIT",
+  "homepage": "https://solid-hooks.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/any-hooks/solid-hooks"
+  },
   "keywords": [
     "Solid",
     "Primitive",
     "solidjs",
     "Hooks"
   ],
-  "homepage": "https://solid-hooks.netlify.app",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/any-hooks/solid-hooks"
-  },
-  "license": "MIT",
-  "author": "pengzhanbo <volodymyr@foxmail.com> (https://github.com/pengzhanbo)",
-  "type": "module",
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
@@ -29,6 +30,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": "^16.0.0 || >=18"
+  },
   "scripts": {
     "start": "pnpm docs:dev",
     "docs:dev": "vite",
@@ -49,6 +53,9 @@
     "not ie 11"
   ],
   "prettier": "@pengzhanbo/prettier-config",
+  "peerDependencies": {
+    "solid-js": ">=1.7.0"
+  },
   "dependencies": {
     "intersection-observer": "^0.12.2",
     "js-cookie": "^3.0.5",
@@ -57,17 +64,16 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
-    "@pengzhanbo/eslint-config": "^0.4.3",
-    "@pengzhanbo/prettier-config": "^0.4.3",
+    "@pengzhanbo/eslint-config-solid": "^1.0.0",
     "@pengzhanbo/utils": "^1.0.9",
     "@solidjs/router": "^0.9.1",
     "@solidjs/testing-library": "^0.8.4",
     "@testing-library/jest-dom": "^6.1.4",
     "@types/js-cookie": "^3.0.6",
-    "@types/markdown-it": "^13.0.6",
-    "@types/node": "^20.9.2",
+    "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.9.4",
     "@types/throttle-debounce": "^5.0.2",
-    "@unocss/reset": "^0.57.5",
+    "@unocss/reset": "^0.57.7",
     "autoprefixer": "^10.4.16",
     "bumpp": "^9.2.0",
     "classnames": "^2.3.2",
@@ -80,22 +86,14 @@
     "markdown-it-attrs": "^4.1.6",
     "mock-socket": "^9.3.1",
     "postcss": "^8.4.31",
-    "prettier": "^3.1.0",
     "sass": "^1.69.5",
     "shiki": "^0.14.5",
-    "solid-js": "^1.8.5",
-    "tsup": "^7.3.0",
-    "typescript": "^5.2.2",
-    "unocss": "^0.57.5",
-    "vite": "^5.0.0",
+    "solid-js": "^1.8.6",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2",
+    "unocss": "^0.57.7",
+    "vite": "^5.0.2",
     "vite-plugin-solid": "^2.7.2",
     "vitest": "^0.34.6"
-  },
-  "peerDependencies": {
-    "solid-js": ">=1.7.0"
-  },
-  "packageManager": "pnpm@8.10.5",
-  "engines": {
-    "node": "^16.0.0 || >=18"
   }
 }

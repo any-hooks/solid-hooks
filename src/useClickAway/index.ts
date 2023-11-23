@@ -34,22 +34,22 @@ export default function useClickAway<T extends Event = Event>(
         targets.some((item) => {
           const targetElement = getTargetElement(item)
           return (
-            !targetElement ||
-            targetElement.contains(event.target as HTMLElement)
+            !targetElement
+            || targetElement.contains(event.target as HTMLElement)
           )
         })
-      ) {
+      )
         return
-      }
+
       onClickAway(event)
     }
     const eventNames = Array.isArray(eventName) ? eventName : [eventName]
 
-    eventNames.forEach((eventName) =>
+    eventNames.forEach(eventName =>
       document.addEventListener(eventName, handle),
     )
     onCleanup(() => {
-      eventNames.forEach((eventName) =>
+      eventNames.forEach(eventName =>
         document.removeEventListener(eventName, handle),
       )
     })

@@ -17,13 +17,15 @@ function useLockFn<P extends any[] = any[], V = any>(
   let lock = false
 
   return async (...args: P) => {
-    if (lock) return
+    if (lock)
+      return
     lock = true
     try {
       const ret = await fn(...args)
       lock = false
       return ret
-    } catch (e) {
+    }
+    catch (e) {
       lock = false
       throw e
     }

@@ -20,7 +20,11 @@ export default () => {
 
   return (
     <div>
-      <p style={{ 'margin-top': '16px' }}> Clicked count: {value()} </p>
+      <p style={{ 'margin-top': '16px' }}>
+        {' '}
+        Clicked count:
+        {value()}
+      </p>
       <button type="button" onClick={run}>
         Click fast!
       </button>

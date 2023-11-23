@@ -16,5 +16,10 @@ export default () => {
     setCount(count() + 1)
   }, 1000)
 
-  return <div>count: {count()}</div>
+  return (
+    <div>
+      count:
+      {count()}
+    </div>
+  )
 }

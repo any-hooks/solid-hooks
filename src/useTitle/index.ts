@@ -30,16 +30,15 @@ export default function useTitle(title: string, options = DEFAULT_OPTIONS) {
     document.title = title
     _setTitle(title)
     onCleanup(() => {
-      if (options.restoreOnUnmount) {
+      if (options.restoreOnUnmount)
         document.title = defaultTitle
-      }
     })
   })
 
   const setTitle = (title: string) => {
-    if (isBrowser) {
+    if (isBrowser)
       document.title = title
-    }
+
     _setTitle(title)
   }
 

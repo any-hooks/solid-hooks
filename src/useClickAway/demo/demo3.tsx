@@ -14,7 +14,7 @@ export default () => {
   const [ref1, setRef1] = useRef()
   const [ref2, setRef2] = useRef()
   useClickAway(() => {
-    setCounter((s) => s + 1)
+    setCounter(s => s + 1)
   }, [ref1, ref2])
 
   return (
@@ -25,7 +25,10 @@ export default () => {
       <button type="button" ref={setRef2} style={{ 'margin-left': '16px' }}>
         box2
       </button>
-      <p>counter: {counter()}</p>
+      <p>
+        counter:
+        {counter()}
+      </p>
     </div>
   )
 }

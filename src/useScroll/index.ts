@@ -35,9 +35,9 @@ function useScroll(
 
   onMount(() => {
     const el = getTargetElement(target, document)
-    if (!el) {
+    if (!el)
       return
-    }
+
     const updatePosition = () => {
       let newPosition: Position
       if (el === document) {
@@ -46,7 +46,8 @@ function useScroll(
             left: document.scrollingElement.scrollLeft,
             top: document.scrollingElement.scrollTop,
           }
-        } else {
+        }
+        else {
           // When in quirks mode, the scrollingElement attribute returns the HTML body element if it exists and is potentially scrollable, otherwise it returns null.
           // https://developer.mozilla.org/zh-CN/docs/Web/API/Document/scrollingElement
           // https://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
@@ -63,15 +64,15 @@ function useScroll(
             ),
           }
         }
-      } else {
+      }
+      else {
         newPosition = {
           left: (el as Element).scrollLeft,
           top: (el as Element).scrollTop,
         }
       }
-      if (shouldUpdate(newPosition)) {
+      if (shouldUpdate(newPosition))
         setPosition(newPosition)
-      }
     }
 
     updatePosition()

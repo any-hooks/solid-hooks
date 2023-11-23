@@ -14,17 +14,19 @@ export interface AppContextAction {
   toggleLang: (lang?: AppContextOption['lang']) => void
 }
 
-export const AppContext =
-  createContext<readonly [AppContextOption, AppContextAction]>()
+export const AppContext
+  = createContext<readonly [AppContextOption, AppContextAction]>()
 
-export const AppContextProvider = (props: ParentProps) => {
+export function AppContextProvider(props: ParentProps) {
   const [cachedLang, setCachedLang] = useLocalStorage<AppContextOption['lang']>(
     'any-hooks-lang',
     { defaultValue: 'en-US' },
   )
   const [cachedTheme, setCachedTheme] = useLocalStorage<
     AppContextOption['theme']
-  >('any-hooks-theme-appearance', { defaultValue: 'light' })
+  >('any-hooks-theme-appearance',
+    { defaultValue: 'light' },
+  )
 
   const [state, setState] = createStore<AppContextOption>({
     theme: cachedTheme() || 'light',
@@ -34,11 +36,10 @@ export const AppContextProvider = (props: ParentProps) => {
   const location = useLocation()
 
   createEffect(() => {
-    if (location.pathname.startsWith('/zh-CN')) {
+    if (location.pathname.startsWith('/zh-CN'))
       setState('lang', 'zh-CN')
-    } else {
+    else
       setState('lang', 'en-US')
-    }
   })
 
   const actions: AppContextAction = {

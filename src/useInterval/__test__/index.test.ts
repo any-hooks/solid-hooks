@@ -8,12 +8,13 @@ interface ParamsObj {
   options?: { immediate: boolean }
 }
 
-const setUp = ({ fn, delay, options }: ParamsObj) =>
-  renderHook(() => useInterval(fn, delay, options))
+function setUp({ fn, delay, options }: ParamsObj) {
+  return renderHook(() => useInterval(fn, delay, options))
+}
 
 describe('useInterval', () => {
   vi.useFakeTimers()
-  vi.spyOn(global, 'clearInterval')
+  vi.spyOn(globalThis, 'clearInterval')
 
   it('interval should work', () => {
     const callback = vi.fn()

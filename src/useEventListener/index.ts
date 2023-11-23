@@ -65,7 +65,8 @@ function useEventListener(
 
   void onMount(() => {
     const targetEl = getTargetElement(target, window)
-    if (!targetEl || !targetEl.addEventListener) return
+    if (!targetEl || !targetEl.addEventListener)
+      return
 
     targetEl.addEventListener(eventName, handler, { capture, passive, once })
 

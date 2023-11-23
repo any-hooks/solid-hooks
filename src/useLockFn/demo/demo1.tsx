@@ -22,12 +22,15 @@ export default () => {
 
   const submit = useLockFn(async () => {
     await mockApiRequest()
-    setCount((val) => val + 1)
+    setCount(val => val + 1)
   })
 
   return (
     <>
-      <p>Submit count: {count()}</p>
+      <p>
+        Submit count:
+        {count()}
+      </p>
       <button onClick={submit}>Submit</button>
     </>
   )

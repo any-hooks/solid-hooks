@@ -54,21 +54,30 @@ export default () => {
   return (
     <div>
       <div>
-        <p>Input and pressing enter: {text()}</p>
+        <p>
+          Input and pressing enter:
+          {text()}
+        </p>
         <input
           id="input"
           style={{ 'width': '300px', 'margin-right': '24px' }}
         />
       </div>
       <div style={{ 'margin-top': '24px' }}>
-        <p>Input and pressing enter: {textRef()}</p>
+        <p>
+          Input and pressing enter:
+          {textRef()}
+        </p>
         <input
           ref={setInputRef}
           style={{ 'width': '300px', 'margin-right': '24px' }}
         />
       </div>
       <div style={{ 'margin-top': '24px' }}>
-        <p>Input after enter change: {textSync()}</p>
+        <p>
+          Input after enter change:
+          {textSync()}
+        </p>
         <input
           id="input2"
           style={{ 'width': '300px', 'margin-right': '24px' }}

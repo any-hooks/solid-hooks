@@ -27,21 +27,22 @@ export function createUseStorage(getStorage: () => Storage | undefined) {
 
     try {
       storage = getStorage()
-    } catch (err) {
+    }
+    catch (err) {
       onError(err)
     }
 
     const serializer = (value: T) => {
-      if (options.serializer) {
+      if (options.serializer)
         return options.serializer(value)
-      }
+
       return JSON.stringify(value)
     }
 
     const deserializer = (value: string): T => {
-      if (options.deserializer) {
+      if (options.deserializer)
         return options.deserializer(value)
-      }
+
       return JSON.parse(value)
     }
 
@@ -49,15 +50,15 @@ export function createUseStorage(getStorage: () => Storage | undefined) {
       try {
         const _key = isFunction(key) ? key() : key
         const raw = storage?.getItem(_key)
-        if (raw) {
+        if (raw)
           return deserializer(raw)
-        }
-      } catch (e) {
+      }
+      catch (e) {
         onError(e)
       }
-      if (isFunction(options.defaultValue)) {
+      if (isFunction(options.defaultValue))
         return options.defaultValue()
-      }
+
       return options.defaultValue
     }
 
@@ -74,10 +75,12 @@ export function createUseStorage(getStorage: () => Storage | undefined) {
       const _key = isFunction(key) ? key() : key
       if (isUndef(currentState)) {
         storage?.removeItem(_key)
-      } else {
+      }
+      else {
         try {
           storage?.setItem(_key, serializer(currentState))
-        } catch (e) {
+        }
+        catch (e) {
           console.error(e)
         }
       }
@@ -85,19 +88,21 @@ export function createUseStorage(getStorage: () => Storage | undefined) {
 
     if (options.observer && isBrowser) {
       const handle = (e: StorageEvent) => {
-        if (e.storageArea !== storage) return
+        if (e.storageArea !== storage)
+          return
 
         const _key = isFunction(key) ? key() : key
-        if (e.key !== _key) return
+        if (e.key !== _key)
+          return
 
         const value = e.newValue
         setState(() => {
-          if (isString(value)) {
+          if (isString(value))
             return deserializer(value)
-          }
-          if (isFunction(options.defaultValue)) {
+
+          if (isFunction(options.defaultValue))
             return options.defaultValue()
-          }
+
           return options.defaultValue
         })
       }

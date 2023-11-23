@@ -19,9 +19,11 @@ export default function () {
   return (
     <>
       <p>Please change the width of the browser window to see the effect: </p>
-      {Object.keys(responsive()).map((key) => (
+      {Object.keys(responsive()).map(key => (
         <p>
-          {key} {responsive()[key] ? '✔' : '✘'}
+          {key}
+          {' '}
+          {responsive()[key] ? '✔' : '✘'}
         </p>
       ))}
     </>

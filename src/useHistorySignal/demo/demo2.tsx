@@ -14,16 +14,19 @@ export default () => {
   const { undo, redo, history, canRedo, canUndo, commit } = useHistorySignal(
     count,
     {
-      setSource: (source) => setCount(source),
+      setSource: source => setCount(source),
       manual: true,
     },
   )
-  const inc = () => setCount((count) => count + 1)
-  const dec = () => setCount((count) => count - 1)
+  const inc = () => setCount(count => count + 1)
+  const dec = () => setCount(count => count - 1)
 
   return (
     <div>
-      <p style={{ 'margin-bottom': '16px' }}>count: {count()}</p>
+      <p style={{ 'margin-bottom': '16px' }}>
+        count:
+        {count()}
+      </p>
       <button type="button" onClick={inc} style={{ 'margin-right': '16px' }}>
         inc
       </button>
@@ -50,7 +53,7 @@ export default () => {
         redo
       </button>
       <p style={{ 'margin-top': '16px' }}>History: </p>
-      <For each={history()}>{(record) => <p>{JSON.stringify(record)}</p>}</For>
+      <For each={history()}>{record => <p>{JSON.stringify(record)}</p>}</For>
     </div>
   )
 }

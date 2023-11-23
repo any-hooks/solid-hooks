@@ -13,14 +13,17 @@ export default () => {
   const [counter, setCounter] = createSignal(0)
   const [ref, setRef] = useRef<HTMLButtonElement>()
 
-  useLongPress(() => setCounter((s) => s + 1), ref)
+  useLongPress(() => setCounter(s => s + 1), ref)
 
   return (
     <div>
       <button ref={setRef} type="button">
         Press me
       </button>
-      <p>counter: {counter()}</p>
+      <p>
+        counter:
+        {counter()}
+      </p>
     </div>
   )
 }

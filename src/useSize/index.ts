@@ -34,7 +34,8 @@ function useSize(target: BasicTarget) {
   onMount(() => {
     const el = getTargetElement(target)
 
-    if (!el) return
+    if (!el)
+      return
 
     const resizeObserver = new ResizeObserver((entries) => {
       entries.forEach((entry) => {

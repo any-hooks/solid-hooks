@@ -17,13 +17,20 @@ export default function HookNotReady() {
       <Switch>
         <Match when={store.lang === 'en-US'}>
           <p>
-            The hooks <span class="font-medium text-brand">{hookName()}</span>{' '}
+            The hooks
+            {' '}
+            <span class="font-medium text-brand">{hookName()}</span>
+            {' '}
             doc is not ready yet, please wait...
           </p>
         </Match>
         <Match when={store.lang === 'zh-CN'}>
           <p>
-            Hooks <span class="font-medium text-brand">{hookName()}</span> 文档
+            Hooks
+            {' '}
+            <span class="font-medium text-brand">{hookName()}</span>
+            {' '}
+            文档
             还未准备好，请稍后..
           </p>
         </Match>

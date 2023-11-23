@@ -81,7 +81,8 @@ function useGeolocation(options: Options = {}) {
           },
           { enableHighAccuracy, maximumAge, timeout },
         )
-      } else {
+      }
+      else {
         reject(new Error('Geolocation is not supported'))
       }
     })
@@ -94,9 +95,8 @@ function useGeolocation(options: Options = {}) {
     }
   }
 
-  if (immediate) {
+  if (immediate)
     resume()
-  }
 
   onCleanup(() => pause())
 

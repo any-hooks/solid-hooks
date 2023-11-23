@@ -9,20 +9,18 @@ import type { TocPluginOptions } from '.'
  *
  * @see https://github.com/nagaozen/markdown-it-toc-done-right
  */
-export const createTocBlockRule =
-  ({
-    pattern,
-    containerTag,
-    containerClass,
-  }: Pick<
+export function createTocBlockRule({
+  pattern,
+  containerTag,
+  containerClass,
+}: Pick<
     Required<TocPluginOptions>,
     'pattern' | 'containerTag' | 'containerClass'
-  >): ParserBlock.RuleBlock =>
-  (state, startLine, endLine, silent): boolean => {
+  >): ParserBlock.RuleBlock {
+  return (state, startLine, endLine, silent): boolean => {
     // if it's indented more than 3 spaces, it should be a code block
-    if (state.sCount[startLine] - state.blkIndent >= 4) {
+    if (state.sCount[startLine] - state.blkIndent >= 4)
       return false
-    }
 
     const pos = state.bMarks[startLine] + state.tShift[startLine]
     const max = state.eMarks[startLine]
@@ -30,9 +28,11 @@ export const createTocBlockRule =
     // use whitespace as a line tokenizer and extract the first token
     // to test against the placeholder anchored pattern, rejecting if false
     const lineFirstToken = state.src.slice(pos, max).split(' ')[0]
-    if (!pattern.test(lineFirstToken)) return false
+    if (!pattern.test(lineFirstToken))
+      return false
 
-    if (silent) return true
+    if (silent)
+      return true
 
     state.line = startLine + 1
 
@@ -41,9 +41,8 @@ export const createTocBlockRule =
     const tokenOpen = state.push('toc_open', containerTag, 1)
     tokenOpen.markup = ''
     tokenOpen.map = [startLine, state.line]
-    if (containerClass) {
+    if (containerClass)
       tokenOpen.attrSet('class', containerClass)
-    }
 
     // generate toc_body token
     // will be rendered by our custom renderer
@@ -60,3 +59,4 @@ export const createTocBlockRule =
 
     return true
   }
+}

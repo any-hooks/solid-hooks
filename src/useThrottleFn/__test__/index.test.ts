@@ -8,8 +8,9 @@ interface ParamsObj {
   wait: number
 }
 
-const setUp = ({ fn, wait }: ParamsObj) =>
-  renderHook(useThrottleFn, { initialProps: [fn, { wait }] })
+function setUp({ fn, wait }: ParamsObj) {
+  return renderHook(useThrottleFn, { initialProps: [fn, { wait }] })
+}
 
 let hook: ReturnType<typeof setUp>
 

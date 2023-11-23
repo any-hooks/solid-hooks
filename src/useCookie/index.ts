@@ -27,11 +27,11 @@ function useCookie(cookieKey: string, options: Options = {}) {
   function initialValue() {
     const cookieValue = Cookies.get(cookieKey)
 
-    if (isString(cookieValue)) return cookieValue
+    if (isString(cookieValue))
+      return cookieValue
 
-    if (isFunction(options.defaultValue)) {
+    if (isFunction(options.defaultValue))
       return options.defaultValue()
-    }
 
     return options.defaultValue
   }
@@ -45,11 +45,10 @@ function useCookie(cookieKey: string, options: Options = {}) {
 
     setState(value)
 
-    if (value === undefined) {
+    if (value === undefined)
       Cookies.remove(cookieKey)
-    } else {
+    else
       Cookies.set(cookieKey, value, restOptions)
-    }
   }
 
   return [state, updateState] as const

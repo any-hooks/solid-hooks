@@ -11,5 +11,10 @@ import { useDocumentVisibility } from '@any-hooks/solid'
 export default () => {
   const documentVisibility = useDocumentVisibility()
 
-  return <div>Current document visibility state: {documentVisibility()}</div>
+  return (
+    <div>
+      Current document visibility state:
+      {documentVisibility()}
+    </div>
+  )
 }

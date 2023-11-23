@@ -41,7 +41,8 @@ export default function useBroadcastChannel<T = string>(
   const close = () => channel?.close()
 
   onMount(() => {
-    if (!isSupported()) return
+    if (!isSupported())
+      return
     setError(null)
     channel = new BroadcastChannel(channelName)
     const messageHandle = (e: MessageEvent<T>) => {

@@ -64,17 +64,14 @@ export interface ResolveHeadersOptions extends ResolveTitleOptions {
 /**
  * Resolve headers from markdown-it tokens
  */
-export const resolveHeadersFromTokens = (
-  tokens: Token[],
-  {
-    level,
-    shouldAllowHtml,
-    shouldAllowNested,
-    shouldEscapeText,
-    slugify,
-    format,
-  }: ResolveHeadersOptions,
-): MarkdownItHeader[] => {
+export function resolveHeadersFromTokens(tokens: Token[], {
+  level,
+  shouldAllowHtml,
+  shouldAllowNested,
+  shouldEscapeText,
+  slugify,
+  format,
+}: ResolveHeadersOptions): MarkdownItHeader[] {
   // store the result of headers
   const headers: MarkdownItHeader[] = []
 
@@ -83,14 +80,14 @@ export const resolveHeadersFromTokens = (
 
   // push a header to the headers tree
   const push = (header: MarkdownItHeader): void => {
-    while (stack.length !== 0 && header.level <= stack[0].level) {
+    while (stack.length !== 0 && header.level <= stack[0].level)
       stack.shift()
-    }
 
     if (stack.length === 0) {
       headers.push(header)
       stack.push(header)
-    } else {
+    }
+    else {
       stack[0].children.push(header)
       stack.unshift(header)
     }
@@ -100,30 +97,26 @@ export const resolveHeadersFromTokens = (
     const token = tokens[i]
 
     // if the token type does not match, skip
-    if (token?.type !== 'heading_open') {
+    if (token?.type !== 'heading_open')
       continue
-    }
 
     // if the token is inside a nested block and shouldAllowNested is false, skip
-    if (token?.level !== 0 && !shouldAllowNested) {
+    if (token?.level !== 0 && !shouldAllowNested)
       continue
-    }
 
     // get the level from the tag, h1 -> 1
     const headerLevel = Number.parseInt(token.tag.slice(1), 10)
 
     // if the level should not be extracted, skip
-    if (!level.includes(headerLevel)) {
+    if (!level.includes(headerLevel))
       continue
-    }
 
     // the next token of 'heading_open' contains the heading content
     const nextToken = tokens[i + 1]
 
     // if the next token does not exist, skip
-    if (!nextToken) {
+    if (!nextToken)
       continue
-    }
 
     const title = resolveTitleFromToken(nextToken, {
       shouldAllowHtml,

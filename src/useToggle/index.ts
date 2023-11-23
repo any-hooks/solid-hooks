@@ -15,9 +15,6 @@ export interface Actions<T> {
  * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-toggle zh-CN}
  * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-toggle en-US}
  *
- * @param defaultValue - The default value of the state.
- * @param reverseValue - The reverse value of the state.
- *
  * @example
  * ```ts
  * const [value, { set, toggle, setLeft, setRight }] = useToggle()
@@ -25,8 +22,39 @@ export interface Actions<T> {
  */
 function useToggle<T = boolean>(): [Accessor<T>, Actions<T>]
 
+/**
+ * A hook that toggle states.
+ *
+ * 用于在两个状态值间切换的 Hook。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-toggle zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-toggle en-US}
+ *
+ * @param defaultValue - The default value of the state.
+ *
+ * @example
+ * ```ts
+ * const [value, { set, toggle, setLeft, setRight }] = useToggle('foo')
+ * ```
+ */
 function useToggle<T>(defaultValue: T): [Accessor<T>, Actions<T>]
 
+/**
+ * A hook that toggle states.
+ *
+ * 用于在两个状态值间切换的 Hook。
+ *
+ * Docs {@link https://solid-hooks.netlify.app/zh-CN/hooks/use-toggle zh-CN}
+ * | {@link https://solid-hooks.netlify.app/en-US/hooks/use-toggle en-US}
+ *
+ * @param defaultValue - The default value of the state.
+ * @param reverseValue - The reverse value of the state.
+ *
+ * @example
+ * ```ts
+ * const [value, { set, toggle, setLeft, setRight }] = useToggle('foo', 'bar')
+ * ```
+ */
 function useToggle<T, U>(
   defaultValue: T,
   reverseValue: U,
@@ -45,7 +73,7 @@ function useToggle<T, U>(
   const set = (value: T | U) => setValue(() => value)
 
   const toggle = () =>
-    setValue((v) => (v === defaultValue ? reverseValueOrigin : defaultValue))
+    setValue(v => (v === defaultValue ? reverseValueOrigin : defaultValue))
 
   const setLeft = () => setValue(() => defaultValue)
 

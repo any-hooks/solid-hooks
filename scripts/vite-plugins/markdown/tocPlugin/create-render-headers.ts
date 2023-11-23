@@ -4,7 +4,7 @@ import type { TocPluginOptions } from './'
 
 type RenderHeadersFn = (headers: MarkdownItHeader[]) => string
 
-export const createRenderHeaders = ({
+export function createRenderHeaders({
   listTag,
   listClass,
   itemClass,
@@ -13,7 +13,7 @@ export const createRenderHeaders = ({
 }: Pick<
   Required<TocPluginOptions>,
   'listTag' | 'listClass' | 'itemClass' | 'linkTag' | 'linkClass'
->): RenderHeadersFn => {
+>): RenderHeadersFn {
   const listTagString = htmlEscape(listTag)
   const listClassString = listClass ? ` class="${htmlEscape(listClass)}"` : ''
   const itemTagString = 'li'
@@ -23,11 +23,11 @@ export const createRenderHeaders = ({
   const linkTo = (link: string): string =>
     linkTag === 'router-link' ? ` to="${link}"` : ` href="${link}"`
 
-  const renderHeaders: RenderHeadersFn = (headers) => `\
+  const renderHeaders: RenderHeadersFn = headers => `\
 <${listTagString}${listClassString}>\
 ${headers
   .map(
-    (header) => `\
+    header => `\
 <${itemTagString}${itemClassString}>\
 <${linkTagString}${linkClassString}${linkTo(header.link)}>\
 ${header.title}\

@@ -1,5 +1,5 @@
 import { onCleanup, onMount } from 'solid-js'
-import { type TargetType } from '../utils/domTarget'
+import type { TargetType } from '../utils/domTarget'
 
 type UseRefReturn<T> = readonly [
   () => T,
@@ -47,11 +47,10 @@ function useRef<T = any>(initialValue?: T | null) {
   let ref: T | null = initialValue ?? null
 
   const setRef = (element: T, index: number) => {
-    if (Array.isArray(ref)) {
+    if (Array.isArray(ref))
       ref[index] = element
-    } else {
+    else
       ref = element
-    }
   }
 
   onMount(() => onCleanup(() => (ref = null)))

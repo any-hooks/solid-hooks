@@ -2,7 +2,7 @@ const htmlEscapeMap = {
   '&': '&amp;',
   '<': '&lt;',
   '>': '&gt;',
-  "'": '&#39;',
+  '\'': '&#39;',
   '"': '&quot;',
 }
 
@@ -11,8 +11,9 @@ const htmlEscapeRegexp = /[&<>'"]/g
 /**
  * Escape html chars
  */
-export const htmlEscape = (str: string): string =>
-  str.replace(
+export function htmlEscape(str: string): string {
+  return str.replace(
     htmlEscapeRegexp,
-    (char) => htmlEscapeMap[char as keyof typeof htmlEscapeMap],
+    char => htmlEscapeMap[char as keyof typeof htmlEscapeMap],
   )
+}

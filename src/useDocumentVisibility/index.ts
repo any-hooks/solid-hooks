@@ -5,10 +5,10 @@ import isBrowser from '../utils/isBrowser'
 
 type VisibilityState = 'hidden' | 'visible' | 'prerender' | undefined
 
-const getVisibility = () => {
-  if (!isBrowser) {
+function getVisibility() {
+  if (!isBrowser)
     return 'visible'
-  }
+
   return document.visibilityState
 }
 
@@ -26,8 +26,8 @@ const getVisibility = () => {
  * ```
  */
 function useDocumentVisibility(): Accessor<VisibilityState> {
-  const [documentVisibility, setDocumentVisibility] =
-    createSignal(getVisibility())
+  const [documentVisibility, setDocumentVisibility]
+    = createSignal(getVisibility())
 
   useEventListener(
     'visibilitychange',

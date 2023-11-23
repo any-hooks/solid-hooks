@@ -22,10 +22,9 @@ export default function App() {
         type="button"
         style={{ 'margin-right': '16px' }}
         onClick={() =>
-          setValue((v) => String(Number(v) + 1), {
+          setValue(v => String(Number(v) + 1), {
             expires: (() => new Date(+new Date() + 10000))(),
-          })
-        }
+          })}
       >
         inc + (10s expires)
       </button>
@@ -33,10 +32,9 @@ export default function App() {
         type="button"
         style={{ 'margin-right': '16px' }}
         onClick={() =>
-          setValue((v) => String(Number(v) - 1), {
+          setValue(v => String(Number(v) - 1), {
             expires: (() => new Date(+new Date() + 10000))(),
-          })
-        }
+          })}
       >
         dec - (10s expires)
       </button>

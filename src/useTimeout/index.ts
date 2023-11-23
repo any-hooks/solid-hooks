@@ -30,7 +30,8 @@ export default function useTimeout(
   const startTimeout = () => {
     clear()
     const _delay = isFunction(delay) ? delay() : delay
-    if (!isNumber(_delay) || _delay < 0) return
+    if (!isNumber(_delay) || _delay < 0)
+      return
     timer = setTimeout(fn, _delay)
   }
 
@@ -46,9 +47,8 @@ export default function useTimeout(
   useWatch(
     () => (isFunction(delay) ? delay() : delay),
     () => {
-      if (isMounted()) {
+      if (isMounted())
         startTimeout()
-      }
     },
   )
 

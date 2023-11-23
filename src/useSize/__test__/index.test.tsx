@@ -37,8 +37,14 @@ describe('useSize', () => {
 
       return (
         <div ref={setRef}>
-          <div>width: {String(size()?.width)}</div>
-          <div>height: {String(size()?.height)}</div>
+          <div>
+            width:
+            {String(size()?.width)}
+          </div>
+          <div>
+            height:
+            {String(size()?.height)}
+          </div>
         </div>
       )
     }

@@ -19,9 +19,9 @@ function useMutationObserver(
 ): void {
   onMount(() => {
     const element = getTargetElement(target)
-    if (!element) {
+    if (!element)
       return
-    }
+
     const observer = new MutationObserver(callback)
     observer.observe(element, options)
     onCleanup(() => {

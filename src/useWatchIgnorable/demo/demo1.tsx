@@ -14,15 +14,20 @@ export default () => {
   const [doubleCount, setDoubleCount] = createSignal(0)
 
   const ignoreUpdate = useWatchIgnorable(count, () =>
-    setDoubleCount(count() * 2),
-  )
+    setDoubleCount(count() * 2))
   const inc = () => setCount(count() + 1)
   const ignoreInc = () => ignoreUpdate(inc)
 
   return (
     <div>
-      <p>Count: {count()}</p>
-      <p style={{ 'margin-bottom': '16px' }}>DoubleCount: {doubleCount()}</p>
+      <p>
+        Count:
+        {count()}
+      </p>
+      <p style={{ 'margin-bottom': '16px' }}>
+        DoubleCount:
+        {doubleCount()}
+      </p>
       <button type="button" onClick={inc} style={{ 'margin-right': '16px' }}>
         inc
       </button>

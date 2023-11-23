@@ -8,8 +8,8 @@ import { useFullscreen, useRef } from '@any-hooks/solid'
 
 export default () => {
   const [ref, setRef] = useRef()
-  const [isFullscreen, { toggleFullscreen, enterFullscreen, exitFullscreen }] =
-    useFullscreen(ref, {
+  const [isFullscreen, { toggleFullscreen, enterFullscreen, exitFullscreen }]
+    = useFullscreen(ref, {
       pageFullscreen: true,
     })
 

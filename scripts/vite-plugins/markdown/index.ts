@@ -11,15 +11,18 @@ export default function vitePluginMarkdown(): Plugin {
       isBuild = config.command === 'build'
     },
     async transform(code, id) {
-      if (!filter(id)) return
+      if (!filter(id))
+        return
       try {
         return (await markdownToSolid(code, id, isBuild)).code
-      } catch (e: any) {
+      }
+      catch (e: any) {
         this.error(e)
       }
     },
     handleHotUpdate(ctx) {
-      if (!filter(ctx.file)) return
+      if (!filter(ctx.file))
+        return
 
       const defaultRead = ctx.read
       ctx.read = async function () {

@@ -22,7 +22,10 @@ export default () => {
 
   return (
     <div>
-      <p>bind DOM element: {text()}</p>
+      <p>
+        bind DOM element:
+        {text()}
+      </p>
       <div ref={setRef}>DOM Element</div>
     </div>
   )

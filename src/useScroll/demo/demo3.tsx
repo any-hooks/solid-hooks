@@ -11,7 +11,7 @@ import { useRef, useScroll } from '@any-hooks/solid'
 export default () => {
   const [ref, setRef] = useRef()
 
-  const scroll = useScroll(ref, (val) => val.top > 100 && val.top < 200)
+  const scroll = useScroll(ref, val => val.top > 100 && val.top < 200)
 
   return (
     <>

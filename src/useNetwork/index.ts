@@ -21,13 +21,15 @@ enum NetworkEventType {
 
 function getConnection() {
   const nav = navigator as any
-  if (!isObject(nav)) return null
+  if (!isObject(nav))
+    return null
   return nav.connection || nav.mozConnection || nav.webkitConnection
 }
 
 function getConnectionProperty(): NetworkState {
   const c = getConnection()
-  if (!c) return {}
+  if (!c)
+    return {}
   return {
     rtt: c.rtt,
     type: c.type,
@@ -61,7 +63,7 @@ function useNetwork(): Accessor<NetworkState> {
 
   onMount(() => {
     const onOnline = () => {
-      setState((prevState) => ({
+      setState(prevState => ({
         ...prevState,
         online: true,
         since: new Date(),
@@ -69,7 +71,7 @@ function useNetwork(): Accessor<NetworkState> {
     }
 
     const onOffline = () => {
-      setState((prevState) => ({
+      setState(prevState => ({
         ...prevState,
         online: false,
         since: new Date(),
@@ -77,7 +79,7 @@ function useNetwork(): Accessor<NetworkState> {
     }
 
     const onConnectionChange = () => {
-      setState((prevState) => ({
+      setState(prevState => ({
         ...prevState,
         ...getConnectionProperty(),
       }))

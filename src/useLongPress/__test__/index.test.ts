@@ -16,8 +16,9 @@ const mockTarget = {
   }),
 }
 
-const setup = (onLongPress: any, target: any, options?: Options) =>
-  renderHook(() => useLongPress(onLongPress, target, options))
+function setup(onLongPress: any, target: any, options?: Options) {
+  return renderHook(() => useLongPress(onLongPress, target, options))
+}
 
 describe('useLongPress', () => {
   beforeEach(() => {
@@ -103,7 +104,7 @@ describe('useLongPress', () => {
     expect(events.mousemove).toBeUndefined()
   })
 
-  it("should not work when target don't support addEventListener method", () => {
+  it('should not work when target don\'t support addEventListener method', () => {
     Object.defineProperty(mockTarget, 'addEventListener', {
       get() {
         return false

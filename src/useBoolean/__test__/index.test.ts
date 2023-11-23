@@ -2,8 +2,9 @@ import { renderHook } from '@solidjs/testing-library'
 import { describe, expect, it } from 'vitest'
 import useBoolean from '..'
 
-const setup = (defaultValue?: boolean) =>
-  renderHook(() => useBoolean(defaultValue))
+function setup(defaultValue?: boolean) {
+  return renderHook(() => useBoolean(defaultValue))
+}
 
 describe('useBoolean', () => {
   it('test on methods', () => {

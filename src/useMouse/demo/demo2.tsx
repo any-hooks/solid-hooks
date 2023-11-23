@@ -29,13 +29,27 @@ export default () => {
       </div>
       <div>
         <p>
-          Mouse In Element - x: {mouse().elementX}, y: {mouse().elementY}
+          Mouse In Element - x:
+          {' '}
+          {mouse().elementX}
+          , y:
+          {' '}
+          {mouse().elementY}
         </p>
         <p>
-          Element Position - x: {mouse().elementPosX}, y: {mouse().elementPosY}
+          Element Position - x:
+          {' '}
+          {mouse().elementPosX}
+          , y:
+          {' '}
+          {mouse().elementPosY}
         </p>
         <p>
-          Element Dimensions - width: {mouse().elementW}, height:{' '}
+          Element Dimensions - width:
+          {' '}
+          {mouse().elementW}
+          , height:
+          {' '}
           {mouse().elementH}
         </p>
       </div>

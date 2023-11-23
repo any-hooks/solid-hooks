@@ -1,5 +1,5 @@
 declare module '*.md' {
-  import { JSX, ParentProps } from 'solid-js'
+  import type { JSX, ParentProps } from 'solid-js'
 
   interface Props extends ParentProps {
     toc?: boolean

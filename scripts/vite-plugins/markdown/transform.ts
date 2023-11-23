@@ -32,7 +32,8 @@ const themes = {
 let hls: Highlighter
 
 async function createHls() {
-  if (hls) return hls
+  if (hls)
+    return hls
   hls = await getHighlighter({ themes: [themes.light, themes.dark] })
   return hls
 }
@@ -45,30 +46,30 @@ function renderCode(code: string, lang: string, theme: string) {
   )
   tokens.forEach((token) => {
     token.forEach((t) => {
-      if (t.content) {
+      if (t.content)
         t.content = safeContent(t.content)
-      }
     })
   })
   return renderToHtml(tokens)
-    .replace(RE_SAFE_LEFT, "{'")
-    .replace(RE_SAFE_RIGHT, "'}")
+    .replace(RE_SAFE_LEFT, '{\'')
+    .replace(RE_SAFE_RIGHT, '\'}')
 }
 
 function safeContent(content: string) {
   return content
     .replace(RE_SAFE_CODE, (match) => {
-      if (match === '$') {
+      if (match === '$')
         return '\\$'
-      }
+
       return `{'${match}'}`
     })
-    .replace(RE_SAFE_EMPTY, (s) => `{'${s}'}`)
+    .replace(RE_SAFE_EMPTY, s => `{'${s}'}`)
 }
 
 let md!: MarkdownIt
 async function createMarkdownRender() {
-  if (md) return md
+  if (md)
+    return md
   await createHls()
   md = MarkdownIt({
     html: true,
@@ -99,7 +100,7 @@ async function createMarkdownRender() {
         // Find `heading_open` with the id identical to slug
         const idx = state.tokens.findIndex((token) => {
           const attrs = token.attrs
-          const id = attrs?.find((attr) => attr[0] === 'id')
+          const id = attrs?.find(attr => attr[0] === 'id')
           return id && slug === id[1]
         })
         // Get the actual heading content
@@ -124,18 +125,19 @@ async function createMarkdownRender() {
 
 function parseDemo(content: string) {
   const match = content.match(RE_DEMO)
-  if (!match) return { data: '{}', content }
+  if (!match)
+    return { data: '{}', content }
   const data = {}
   match[1]
     .replace(/[\/\*]/gm, '')
     .split('\n')
-    .map((m) => m.trim())
+    .map(m => m.trim())
     .filter(Boolean)
     .forEach((m) => {
       const [_, key, lang = 'en-US', value] = m.match(RE_DATA) || []
-      if (!data[`/${lang}`]) {
+      if (!data[`/${lang}`])
         data[`/${lang}`] = {}
-      }
+
       data[`/${lang}`][key] = value
     })
   content = match[2].trim()

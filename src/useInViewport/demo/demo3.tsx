@@ -6,7 +6,7 @@
  * desc.zh-CN: 传入 `callback`, 使得 `IntersectionObserver` 的回调被调用时，用户可以做一些自定义操作。
  */
 import { useInViewport, useRef } from '@any-hooks/solid'
-import { createSignal } from 'solid-js'
+import { For, createSignal } from 'solid-js'
 
 const menus = ['menu-1', 'menu-2', 'menu-3'] as const
 const content = {
@@ -56,41 +56,45 @@ export default () => {
     >
       <div style={{ 'width': '30%', 'background-color': '#f0f0f0' }}>
         <ul style={{ 'list-style': 'none', 'padding': 0, 'margin': 0 }}>
-          {menus.map((menu, index) => (
-            <li
-              onClick={() => handleMenuClick(index)}
-              style={{
-                'padding': '10px',
-                'cursor': 'pointer',
-                'text-align': 'center',
-                'transition': 'background-color 0.2s ease-in-out',
-                'background-color': activeMenu() === menu ? '#e0e0e0' : '',
-              }}
-            >
-              {menu}
-            </li>
-          ))}
+          <For each={menus}>
+            {(menu, index) => (
+              <li
+                onClick={() => handleMenuClick(index())}
+                style={{
+                  'padding': '10px',
+                  'cursor': 'pointer',
+                  'text-align': 'center',
+                  'transition': 'background-color 0.2s ease-in-out',
+                  'background-color': activeMenu() === menu ? '#e0e0e0' : '',
+                }}
+              >
+                {menu}
+              </li>
+            )}
+          </For>
         </ul>
       </div>
       <div
         id="content-scroll"
         style={{ 'flex': 1, 'overflow-y': 'scroll', 'position': 'relative' }}
       >
-        {menus.map((menu, index) => (
-          <div
-            ref={(el: HTMLDivElement) => setMenuReF(el, index)}
-            id={menu}
-            style={{
-              'display': 'flex',
-              'justify-content': 'center',
-              'align-items': 'center',
-              'height': '100%',
-              'font-size': '16px',
-            }}
-          >
-            {content[menu]}
-          </div>
-        ))}
+        <For each={menus}>
+          {(menu, index) => (
+            <div
+              ref={(el: HTMLDivElement) => setMenuReF(el, index())}
+              id={menu}
+              style={{
+                'display': 'flex',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'height': '100%',
+                'font-size': '16px',
+              }}
+            >
+              {content[menu]}
+            </div>
+          )}
+        </For>
       </div>
     </div>
   )

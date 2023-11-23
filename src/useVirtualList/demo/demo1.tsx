@@ -7,7 +7,7 @@
  */
 
 import { useRef, useVirtualList } from '@any-hooks/solid'
-import { createMemo } from 'solid-js'
+import { For, createMemo } from 'solid-js'
 
 export default () => {
   const [container, setContainer] = useRef()
@@ -28,20 +28,24 @@ export default () => {
         style={{ height: '300px', overflow: 'auto', border: '1px solid' }}
       >
         <div ref={setWrapper}>
-          {list().map((ele) => (
-            <div
-              style={{
-                'height': '52px',
-                'display': 'flex',
-                'justify-content': 'center',
-                'align-items': 'center',
-                'border': '1px solid #e8e8e8',
-                'margin-bottom': '8[x',
-              }}
-            >
-              Row: {ele.data}
-            </div>
-          ))}
+          <For each={list()}>
+            {ele => (
+              <div
+                style={{
+                  'height': '52px',
+                  'display': 'flex',
+                  'justify-content': 'center',
+                  'align-items': 'center',
+                  'border': '1px solid #e8e8e8',
+                  'margin-bottom': '8[x',
+                }}
+              >
+                Row:
+                {' '}
+                {ele.data}
+              </div>
+            )}
+          </For>
         </div>
       </div>
     </>

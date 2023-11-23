@@ -6,22 +6,20 @@ describe('useLocalStorage', () => {
   const events = new Set<any>()
 
   const callEvents = (e: any) => {
-    events.forEach((fn) => fn(e))
+    events.forEach(fn => fn(e))
   }
 
   beforeEach(() => {
     vi.spyOn(window, 'addEventListener').mockImplementation(
       (eventName, callback) => {
-        if (eventName === 'storage') {
+        if (eventName === 'storage')
           events.add(callback)
-        }
       },
     )
     vi.spyOn(window, 'removeEventListener').mockImplementation(
       (eventName, callback) => {
-        if (eventName === 'storage') {
+        if (eventName === 'storage')
           events.delete(callback)
-        }
       },
     )
   })
@@ -126,7 +124,7 @@ describe('useLocalStorage', () => {
     hook.setState(() => 'B')
     expect(hook.state()).toBe('B')
 
-    hook.setState((state) => `${state}C`)
+    hook.setState(state => `${state}C`)
     expect(hook.state()).toBe('BC')
   })
 })

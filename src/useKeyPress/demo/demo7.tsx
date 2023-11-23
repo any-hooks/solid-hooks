@@ -31,11 +31,13 @@ export default () => {
     <div>
       <p>Try pressing the following: </p>
       <div>
-        1. Modifier key [shift.c]:{' '}
+        1. Modifier key [shift.c]:
+        {' '}
         {state() === 1 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
       <div>
-        2. Modifier key [c]:{' '}
+        2. Modifier key [c]:
+        {' '}
         {state() === 2 && <CheckOutlined style={{ color: '#f00' }} />}
       </div>
     </div>

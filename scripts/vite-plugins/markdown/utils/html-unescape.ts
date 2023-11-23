@@ -5,8 +5,8 @@ const htmlUnescapeMap = {
   '&#60;': '<',
   '&gt;': '>',
   '&#62;': '>',
-  '&apos;': "'",
-  '&#39;': "'",
+  '&apos;': '\'',
+  '&#39;': '\'',
   '&quot;': '"',
   '&#34;': '"',
 }
@@ -16,8 +16,9 @@ const htmlUnescapeRegexp = /&(amp|#38|lt|#60|gt|#62|apos|#39|quot|#34);/g
 /**
  * Unescape html chars
  */
-export const htmlUnescape = (str: string): string =>
-  str.replace(
+export function htmlUnescape(str: string): string {
+  return str.replace(
     htmlUnescapeRegexp,
-    (char) => htmlUnescapeMap[char as keyof typeof htmlUnescapeMap],
+    char => htmlUnescapeMap[char as keyof typeof htmlUnescapeMap],
   )
+}

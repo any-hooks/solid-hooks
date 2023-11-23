@@ -1,8 +1,8 @@
-const getScrollTop = (el: Document | Element) => {
+function getScrollTop(el: Document | Element) {
   if (
-    el === document ||
-    el === document.documentElement ||
-    el === document.body
+    el === document
+    || el === document.documentElement
+    || el === document.body
   ) {
     return Math.max(
       window.pageYOffset,
@@ -13,17 +13,17 @@ const getScrollTop = (el: Document | Element) => {
   return (el as Element).scrollTop
 }
 
-const getScrollHeight = (el: Document | Element) => {
+function getScrollHeight(el: Document | Element) {
   return (
-    (el as Element).scrollHeight ||
-    Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
+    (el as Element).scrollHeight
+    || Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
   )
 }
 
-const getClientHeight = (el: Document | Element) => {
+function getClientHeight(el: Document | Element) {
   return (
-    (el as Element).clientHeight ||
-    Math.max(document.documentElement.clientHeight, document.body.clientHeight)
+    (el as Element).clientHeight
+    || Math.max(document.documentElement.clientHeight, document.body.clientHeight)
   )
 }
 

@@ -19,10 +19,13 @@ export default () => {
     <div>
       <p>Try pressing the following: </p>
       <div>
-        1. Number key [0-9]: <span style={{ color: '#f00' }}>{num()}</span>
+        1. Number key [0-9]:
+        {' '}
+        <span style={{ color: '#f00' }}>{num()}</span>
       </div>
       <div>
-        2. Press key [a, s, d, f, Backspace, 8]:{' '}
+        2. Press key [a, s, d, f, Backspace, 8]:
+        {' '}
         <span style={{ color: '#f00' }}>{key()}</span>
       </div>
     </div>

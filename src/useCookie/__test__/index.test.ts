@@ -63,7 +63,7 @@ describe('useCookie', () => {
     const { state, setState } = setup(KEY, { defaultValue: () => 'foo' })
     expect(state()).toBe('foo')
 
-    setState((state) => `${state} bar`)
+    setState(state => `${state} bar`)
     expect(state()).toBe('foo bar')
   })
 })

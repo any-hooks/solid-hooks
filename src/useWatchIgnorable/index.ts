@@ -44,7 +44,8 @@ function useWatchIgnorable(deps: any, fn: any, options: any): IgnoreUpdates {
   useWatch(
     deps,
     (...args) => {
-      if (!ignore) fn(...args)
+      if (!ignore)
+        fn(...args)
     },
     options,
   )

@@ -22,7 +22,10 @@ export default () => {
 
   return (
     <div>
-      <p>Effects：{state()}</p>
+      <p>
+        Effects：
+        {state()}
+      </p>
       <button
         type="button"
         onClick={() => setState('bar')}
