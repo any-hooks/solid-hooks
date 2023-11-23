@@ -23,7 +23,7 @@ describe('useSize', () => {
     expect(hook.result()).toEqual({ height: 0, width: 0 })
   })
 
-  it('should work when target is a `MutableRefObject`', async () => {
+  it('should work when target is a `ref`', async () => {
     const mockRaf = vi
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb: FrameRequestCallback) => {
@@ -51,15 +51,15 @@ describe('useSize', () => {
 
     render(() => <Setup />)
     expect(await screen.findByText(/^width/)).toHaveTextContent(
-      'width: undefined',
+      'width:undefined',
     )
     expect(await screen.findByText(/^height/)).toHaveTextContent(
-      'height: undefined',
+      'height:undefined',
     )
 
     callback([{ target: { clientWidth: 10, clientHeight: 10 } }])
-    expect(await screen.findByText(/^width/)).toHaveTextContent('width: 10')
-    expect(await screen.findByText(/^height/)).toHaveTextContent('height: 10')
+    expect(await screen.findByText(/^width/)).toHaveTextContent('width:10')
+    expect(await screen.findByText(/^height/)).toHaveTextContent('height:10')
     mockRaf.mockRestore()
   })
 
