@@ -64,14 +64,14 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
-    "@pengzhanbo/eslint-config-solid": "^1.0.0",
+    "@pengzhanbo/eslint-config-solid": "^1.1.0",
     "@pengzhanbo/utils": "^1.0.9",
     "@solidjs/router": "^0.9.1",
     "@solidjs/testing-library": "^0.8.4",
     "@testing-library/jest-dom": "^6.1.4",
     "@types/js-cookie": "^3.0.6",
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.9.4",
+    "@types/node": "^20.10.0",
     "@types/throttle-debounce": "^5.0.2",
     "@unocss/reset": "^0.57.7",
     "autoprefixer": "^10.4.16",
