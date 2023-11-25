@@ -52,6 +52,7 @@ export const sidebarConfig: SidebarItem[] = [
       'useTitle',
       'useCssVar',
       'useVirtualList',
+      'useScreenSafeArea',
     ],
   },
   {

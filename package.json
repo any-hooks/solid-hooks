@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "pnpm docs:dev",
-    "docs:dev": "vite",
+    "docs:dev": "vite --host",
     "docs:build": "vite build",
     "build": "tsup",
     "test": "vitest run",

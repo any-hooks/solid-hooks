@@ -39,6 +39,7 @@ import useVirtualList from './useVirtualList'
 import useWatch from './useWatch'
 import useWatchIgnorable from './useWatchIgnorable'
 import useWebSocket from './useWebSocket'
+import useScreenSafeArea from './useScreenSafeArea'
 
 export {
   useBoolean,
@@ -73,6 +74,7 @@ export {
   useKeyPress,
   useLongPress,
   useMutationObserver,
+  useScreenSafeArea,
   useTitle,
   useCssVar,
   useNetwork,
