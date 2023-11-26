@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/any-hooks/solid-hooks/compare/v0.1.0...v0.2.0) (2023-11-26)
+
+
+### Features
+
+* add `useScreenSafeArea` hooks ([392f676](https://github.com/any-hooks/solid-hooks/commit/392f6766792bbcd19c0c7cf8b062160647f22b24))
+
+
+
 # 0.1.0 (2023-11-21)
 
 
