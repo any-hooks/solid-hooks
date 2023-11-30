@@ -13,17 +13,17 @@ export default function Demo(props: DemoProps) {
   const [open, { toggle }] = useToggle(false)
 
   return (
-    <div class="border demo-container">
-      <div class="py-10 px-6">{props.component}</div>
+    <div class="demo-container border">
+      <div class="px-6 py-10">{props.component}</div>
       <Show when={data()}>
         <div class="relative border-t">
-          <h3 class="absolute left-6 -translate-y-50% m-0 bg-[var(--c-bg)]">
+          <h3 class="absolute left-6 m-0 bg-[var(--c-bg)] -translate-y-50%">
             {data().title}
           </h3>
-          <p class="pt-4 px-6">{data().desc || ''}</p>
+          <p class="px-6 pt-4">{data().desc || ''}</p>
         </div>
       </Show>
-      <div class="flex-items-center justify-end pr-6 py-3 border-t border-t-dashed">
+      <div class="flex-items-center justify-end border-t border-t-dashed py-3 pr-6">
         <IconCode class="cursor-pointer" onClick={toggle} />
       </div>
       <Show when={open()}>

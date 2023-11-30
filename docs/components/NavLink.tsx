@@ -20,7 +20,7 @@ export default function NavLink(props: NavLinkProps) {
   }
   return (
     <p
-      class="cursor-pointer ml-10"
+      class="ml-10 cursor-pointer"
       classList={{
         'text-brand': isMatched(),
       }}

@@ -18,8 +18,8 @@ export default function Sidebar() {
     }))
   })
   return (
-    <aside class="sidebar fixed top-navbar left-0 bottom-0 w-sidebar overflow-auto bg-gray-50 dark:bg-light-100/2">
-      <div class="pl-4 pb-6">
+    <aside class="sidebar fixed bottom-0 left-0 top-navbar w-sidebar overflow-auto bg-gray-50 dark:bg-light-100/2">
+      <div class="pb-6 pl-4">
         <For each={config()}>
           {item => (
             <div class="sidebar-nav-item">
@@ -28,7 +28,7 @@ export default function Sidebar() {
                 {child => (
                   <p>
                     <A
-                      class="pl-4 cursor-pointer text-text text-sm decoration-none"
+                      class="cursor-pointer pl-4 text-sm text-text decoration-none"
                       activeClass="text-brand! font-medium"
                       href={child.link}
                       end

@@ -52,12 +52,12 @@ export default function Navbar() {
   }
 
   return (
-    <nav class="fixed w-full h-navbar top-0 left-0 border-b bg-[var(--c-bg)] z-10 flex-items-center">
+    <nav class="fixed left-0 top-0 z-10 h-navbar w-full flex-items-center border-b bg-[var(--c-bg)]">
       <SiteTitle onClick={goHome} />
-      <div class="flex-1 flex-items-center justify-end pr-6">
+      <div class="flex-items-center flex-1 justify-end pr-6">
         <For each={config()}>{item => <NavLink {...item} />}</For>
         <span
-          class="cursor-pointer ml-10 inline-block w-24 py-2 text-center border rounded-full"
+          class="ml-10 inline-block w-24 cursor-pointer border rounded-full py-2 text-center"
           onClick={updateLang}
         >
           {lang()}
@@ -82,11 +82,11 @@ export default function Navbar() {
 function SiteTitle(props: { onClick: () => void }) {
   return (
     <div
-      class="px-6 pr-4 text-20px font-medium cursor-pointer"
+      class="cursor-pointer px-6 pr-4 text-20px font-medium"
       onClick={() => props.onClick()}
     >
       <span class="text-brand">@any-hooks</span>
-      <span class="text-brand-light mx-1">/</span>
+      <span class="mx-1 text-brand-light">/</span>
       <span class="text-brand">solid</span>
     </div>
   )

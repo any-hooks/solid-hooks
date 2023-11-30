@@ -15,10 +15,10 @@ export default function Home() {
 
   return (
     <div class="home-wrapper -mx-10 -mt-4">
-      <div class="home-container flex mb-10 bg-gray-100 dark:bg-gray-800">
+      <div class="home-container mb-10 flex bg-gray-100 dark:bg-gray-800">
         <div class="home-content m-auto text-center">
-          <h2 class="m-0 text-4xl text-bolder">@any-hooks/solid</h2>
-          <p class="mt-10 text-medium">{desc()}</p>
+          <h2 class="text-bolder m-0 text-4xl">@any-hooks/solid</h2>
+          <p class="text-medium mt-10">{desc()}</p>
           <div class="mt-10">
             <a
               href="https://github.com/any-hooks/solid-hooks"

@@ -2,7 +2,8 @@ import eslintConfig from '@pengzhanbo/eslint-config-solid'
 
 export default eslintConfig(
   {
-    ignores: ['docs_dist', 'dist'],
+    ignores: ['**/docs_dist'],
+    unocss: true,
   },
   {
     files: ['src/**/demo/**'],
