@@ -24,9 +24,7 @@ export function AppContextProvider(props: ParentProps) {
   )
   const [cachedTheme, setCachedTheme] = useLocalStorage<
     AppContextOption['theme']
-  >('any-hooks-theme-appearance',
-    { defaultValue: 'light' },
-  )
+  >('any-hooks-theme-appearance', { defaultValue: 'light' })
 
   const [state, setState] = createStore<AppContextOption>({
     theme: cachedTheme() || 'light',
