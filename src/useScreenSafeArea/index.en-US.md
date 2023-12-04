@@ -18,7 +18,7 @@ Get the safe area of the screen.
 In order to make the page to be fully rendered in the screen, the additional attribute `viewport-fit=cover` within `viewport` meta tag must be set firstly, the `viewport` meta tag may look like this:
 
 ```html
-<meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+<meta name="viewport" content="initial-scale=1, viewport-fit=cover">
 ```
 
 ## API
