@@ -1,4 +1,4 @@
-import { onCleanup, onMount } from 'solid-js'
+import { onCleanup } from 'solid-js'
 import type { TargetType } from '../utils/domTarget'
 
 type UseRefReturn<T> = readonly [
@@ -53,7 +53,7 @@ function useRef<T = any>(initialValue?: T | null) {
       ref = element
   }
 
-  onMount(() => onCleanup(() => (ref = null)))
+  onCleanup(() => (ref = null))
 
   return [() => ref, setRef] as const
 }
