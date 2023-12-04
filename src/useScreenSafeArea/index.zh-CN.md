@@ -19,7 +19,7 @@
 `viewport meta` 标签可能看起来像这样:
 
 ```html
-<meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+<meta name="viewport" content="initial-scale=1, viewport-fit=cover">
 ```
 
 ## API
