@@ -23,11 +23,11 @@ dependencies:
 
 devDependencies:
   '@pengzhanbo/eslint-config-solid':
-    specifier: ^1.2.4
-    version: 1.2.4(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6)
+    specifier: ^1.2.5
+    version: 1.2.5(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6)
   '@pengzhanbo/utils':
-    specifier: ^1.0.9
-    version: 1.0.9
+    specifier: ^1.1.1
+    version: 1.1.1
   '@solidjs/router':
     specifier: ^0.9.1
     version: 0.9.1(solid-js@1.8.7)
@@ -931,6 +931,18 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@html-eslint/eslint-plugin@0.21.0:
+    resolution: {integrity: sha512-pbai4bUwKnPlY/l4kwRUxVFOCMe4kfoaCoiF0xwWYUJUgRhO7dLgKdInNVQpJjilCdg9vLPPjKgfFfwxZ9bVng==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@html-eslint/parser@0.21.0:
+    resolution: {integrity: sha512-MzmIP/yq/4UVeRgUTFnKmPbomRu6NthcCT/68yrZi1GWhFwW0h3CIDy0wQI+gj3MDlcROzV8QOAG5uxCjCYA+A==}
+    engines: {node: '>=8.10.0'}
+    dependencies:
+      es-html-parser: 0.0.9
+    dev: true
+
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
     engines: {node: '>=10.10.0'}
@@ -1041,12 +1053,12 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@pengzhanbo/eslint-config-solid@1.2.4(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6):
-    resolution: {integrity: sha512-rTxHYNYlhilJhor5pLYqltwDtPO4NB5WRYwjR71gb/UFUUU0EUix7sOFCiE5dyTWAFtdw48eASiQd2ZNREgdig==}
+  /@pengzhanbo/eslint-config-solid@1.2.5(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6):
+    resolution: {integrity: sha512-dbMiYRHAadFONscYCjT1fmSuwDvm247CG7yyt8Pa0UiZMkpbcMfFr8jKlXcOuwueleVPUvS+IXv5ZZPpXoJNUA==}
     peerDependencies:
       eslint: '>=8.40.0'
     dependencies:
-      '@pengzhanbo/eslint-config': 1.2.4(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6)
+      '@pengzhanbo/eslint-config': 1.2.5(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6)
       '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
       eslint: 8.55.0
       eslint-plugin-solid: 0.13.0(eslint@8.55.0)(typescript@5.3.2)
@@ -1064,8 +1076,8 @@ packages:
       - vue-eslint-parser
     dev: true
 
-  /@pengzhanbo/eslint-config@1.2.4(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6):
-    resolution: {integrity: sha512-ecIcChYO+T3/iPG6D0zO3JYqc5gcLpbk0pYXNPy8ijR1BcbnQrx6QwvRRb9jB0rq7vw7KoySDS76i6O8sDd7Yg==}
+  /@pengzhanbo/eslint-config@1.2.5(@unocss/eslint-plugin@0.57.7)(eslint@8.55.0)(typescript@5.3.2)(vitest@0.34.6):
+    resolution: {integrity: sha512-tpxAgVpYWxe+meG41arNNwaYGdC6OAwUQoXBbcenxFM5ikpYtkdhc8lc+o4v9g33JEh7owIu4GKlaZNDxTpCRg==}
     peerDependencies:
       '@unocss/eslint-plugin': '>=0.50.0'
       eslint: '>=8.40.0'
@@ -1080,6 +1092,8 @@ packages:
       '@eslint-types/jsdoc': 46.9.0
       '@eslint-types/typescript-eslint': 6.12.0
       '@eslint-types/unicorn': 49.0.0
+      '@html-eslint/eslint-plugin': 0.21.0
+      '@html-eslint/parser': 0.21.0
       '@stylistic/eslint-plugin': 1.4.1(eslint@8.55.0)(typescript@5.3.2)
       '@typescript-eslint/eslint-plugin': 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.55.0)(typescript@5.3.2)
       '@typescript-eslint/parser': 6.13.1(eslint@8.55.0)(typescript@5.3.2)
@@ -1116,8 +1130,8 @@ packages:
       - vue-eslint-parser
     dev: true
 
-  /@pengzhanbo/utils@1.0.9:
-    resolution: {integrity: sha512-OTILjdqL5fjaROE/7ecYNgbrxvwjho4zoRnulSn05AyE+HrbcC+l9BdgT7WHt3pZvePdKXwNg4g7HnIRwuwgEQ==}
+  /@pengzhanbo/utils@1.1.1:
+    resolution: {integrity: sha512-gY4nPqvkOpP7aCzrxVEurkOXe9VGT0OmUBpTj2TNU/Jycvxbs5u2IrUXMgAATauab/qMHS6/EpvAqneo7EYEsw==}
     dependencies:
       throttle-debounce: 5.0.0
     dev: true
@@ -2799,6 +2813,10 @@ packages:
       is-string: 1.0.7
       isarray: 2.0.5
       stop-iteration-iterator: 1.0.0
+    dev: true
+
+  /es-html-parser@0.0.9:
+    resolution: {integrity: sha512-oniQMi+466VFsDzcdron9Ry/sqUJpDJg1bbDn0jFJKDdxXhwIOYDr4DgBnO5/yPLGj2xv+n5yy4L1Q0vAC5TYQ==}
     dev: true
 
   /es-set-tostringtag@2.0.1:

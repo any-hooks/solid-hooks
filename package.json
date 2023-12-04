@@ -52,7 +52,6 @@
     "chrome > 40",
     "not ie 11"
   ],
-  "prettier": "@pengzhanbo/prettier-config",
   "peerDependencies": {
     "solid-js": ">=1.7.0"
   },
@@ -64,8 +63,8 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
-    "@pengzhanbo/eslint-config-solid": "^1.2.4",
-    "@pengzhanbo/utils": "^1.0.9",
+    "@pengzhanbo/eslint-config-solid": "^1.2.5",
+    "@pengzhanbo/utils": "^1.1.1",
     "@solidjs/router": "^0.9.1",
     "@solidjs/testing-library": "^0.8.4",
     "@testing-library/jest-dom": "^6.1.5",
